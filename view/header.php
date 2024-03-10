@@ -1,45 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-<!-- Mirrored from www.jthemes.net/themes/html/neoncart/home_supermarket.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Mar 2024 16:54:30 GMT -->
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <title>Supermarket - Neoncart HTML5 Template</title>
-    <link rel="shortcut icon" href="./assets/images/logo/favourite_icon_01.png">
-
-    <!-- fraimwork - css include -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
-
-    <!-- icon - css include -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/fontawesome.css">
-
-    <!-- animation - css include -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/animate.css">
-
-    <!-- nice select - css include -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/nice-select.css">
-
-    <!-- carousel - css include -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/slick-theme.css">
-
-    <!-- popup images & videos - css include -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/magnific-popup.css">
-
-    <!-- jquery ui - css include -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/jquery-ui.css">
-
-    <!-- custom - css include -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-
-</head>
-
+<?php include "connectcss.php"; ?>
 
 <body class="home_supermarket">
 
@@ -95,12 +54,14 @@
                     <div class="col-lg-3">
                         <div class="brand_logo">
                             <a class="brand_link" href="index.html">
-                                <img src="./assets/images/logo/logo_18_1x.png" srcset="./assets/images/logo/logo_18_2x.png 2x" alt="logo_not_found">
+                                <img src="./view/assets/images/logo/logo_18_1x.png" alt="logo_not_found">
                             </a>
 
                             <ul class="mh_action_btns ul_li clearfix">
                                 <li>
-                                    <button type="button" class="search_btn" data-toggle="collapse" data-target="#search_body_collapse" aria-expanded="false" aria-controls="search_body_collapse">
+                                    <button type="button" class="search_btn" data-toggle="collapse"
+                                        data-target="#search_body_collapse" aria-expanded="false"
+                                        aria-controls="search_body_collapse">
                                         <i class="fal fa-search"></i>
                                     </button>
                                 </li>
@@ -173,7 +134,9 @@
                 <nav class="main_menu clearfix">
                     <ul class="ul_li clearfix">
                         <li>
-                            <button class="alldepartments_btn bg_supermarket_red text-uppercase" type="button" data-toggle="collapse" data-target="#alldepartments_dropdown" aria-expanded="false" aria-controls="alldepartments_dropdown">
+                            <button class="alldepartments_btn bg_supermarket_red text-uppercase" type="button"
+                                data-toggle="collapse" data-target="#alldepartments_dropdown" aria-expanded="false"
+                                aria-controls="alldepartments_dropdown">
                                 <i class="far fa-bars"></i> All Departments
                             </button>
                         </li>
@@ -187,7 +150,8 @@
                                             <li>
                                                 <a href="home_supermarket.html">
                                                     <span class="item_image">
-                                                        <img src="./assets/images/home_pages/supermarket.png" alt="image_not_found">
+                                                        <img src="./view/assets/images/home_pages/supermarket.png"
+                                                            alt="image_not_found">
                                                     </span>
                                                     <span class="item_title">Supermarket</span>
                                                 </a>
