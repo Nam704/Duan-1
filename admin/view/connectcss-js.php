@@ -42,4 +42,8 @@
 
     <!-- App js -->
     <script src="assets/js/app.min.js"></script>
+    <!-- Table Editable plugin-->
+    <script src="assets/vendor/jquery-tabledit/jquery.tabledit.min.js"></script>
+    <!-- Table editable init-->
+    <script src="assets/js/pages/tabledit.init.js"></script>
 </head>
