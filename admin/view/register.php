@@ -90,19 +90,11 @@
     </div>
     <!-- end page -->
 
-    <footer class="footer footer-alt fw-medium">
-        <span class="text-dark-emphasis">
-            <script>
-                document.write(new Date().getFullYear())
-            </script> © Velonic - Theme by Techzaa
-        </span>
-    </footer>
+    <?php include "footer.php" ?>
 
-    <!-- Vendor js -->
-    <script src="assets/js/vendor.min.js"></script>
 
-    <!-- App js -->
-    <script src="assets/js/app.min.js"></script>
+
+
 
 </body>
 
