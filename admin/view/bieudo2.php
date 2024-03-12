@@ -3,11 +3,10 @@
         <div class="card-body">
             <div class="card-widgets">
                 <a href="javascript:;" data-bs-toggle="reload"><i class="ri-refresh-line"></i></a>
-                <a data-bs-toggle="collapse" href="#yearly-sales-collapse" role="button" aria-expanded="false"
-                    aria-controls="yearly-sales-collapse"><i class="ri-subtract-line"></i></a>
+                <a data-bs-toggle="collapse" href="#yearly-sales-collapse" role="button" aria-expanded="false" aria-controls="yearly-sales-collapse"><i class="ri-subtract-line"></i></a>
                 <a href="#" data-bs-toggle="remove"><i class="ri-close-line"></i></a>
             </div>
-            <h5 class="header-title mb-0">Yearly Sales Report</h5>
+            <h5 class="header-title mb-0">Biểu đồ dang đường theo năm</h5>
 
             <div id="yearly-sales-collapse" class="collapse pt-3 show">
                 <div dir="ltr">
@@ -44,6 +43,6 @@
                     <div id="us-share-chart" class="apex-charts" dir="ltr"></div>
                 </div>
             </div>
-        </div><!-- end card body -->
-    </div> <!-- end card-->
-</div> <!-- end col-->
+        </div>
+    </div>
+</div>

@@ -3,11 +3,10 @@
         <div class="card-body">
             <div class="card-widgets">
                 <a href="javascript:;" data-bs-toggle="reload"><i class="ri-refresh-line"></i></a>
-                <a data-bs-toggle="collapse" href="#weeklysales-collapse" role="button" aria-expanded="false"
-                    aria-controls="weeklysales-collapse"><i class="ri-subtract-line"></i></a>
+                <a data-bs-toggle="collapse" href="#weeklysales-collapse" role="button" aria-expanded="false" aria-controls="weeklysales-collapse"><i class="ri-subtract-line"></i></a>
                 <a href="#" data-bs-toggle="remove"><i class="ri-close-line"></i></a>
             </div>
-            <h5 class="header-title mb-0">Weekly Sales Report</h5>
+            <h5 class="header-title mb-0">Biểu đồ dạng cột theo tuần</h5>
 
             <div id="weeklysales-collapse" class="collapse pt-3 show">
                 <div dir="ltr">
