@@ -55,14 +55,14 @@
                                     <thead>
                                         <tr>
 
-                                            <th>ID nhà sản xuất</th>
+                                            <th>ID BNSP</th>
 
-                                            <th>Tên nhà sản xuất</th>
+                                            <th>Kích thước bộ nhớ</th>
                                             <th>Thao tác</th>
 
                                         </tr>
                                     </thead>
-                                    <form action="index.php?act=addnsx" method="post">
+                                    <form action="index.php?act=addbnsp" method="post">
                                         <tbody>
                                             <tr>
 
@@ -71,7 +71,7 @@
                                                 <td>
                                                     <?= ++$IDmax ?>
                                                 </td>
-                                                <td><input type="text" name="tennsx" id=""></td>
+                                                <td><input type="text" name="tenbnsp" id=""></td>
                                                 <td>
 
                                                     <input type="submit" name="themmoi" value="Thêm">

@@ -1,32 +1,76 @@
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="header-title mb-4">Inline edit</h4>
-                <div class="table-responsive">
-                    <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>ID nhà sản xuất</th>
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
 
-                                <th>Tên nhà sản xuất</th>
-                                <th>Thao tác</th>
-                                <!-- <th>Ngày hợp tác</th>
-                                <th>Tổng tiền hợp tác</th> -->
-                            </tr>
-                        </thead>
-                        <?php
-                        foreach ($listnsx as $nsx) {
-                            extract($nsx);
-                            $suansx = "./index.php?act=suansx&id=" . $idnsx;
-                            $xoansx = "./index.php?act=xoansx&id=" . $idnsx;
+<div class="content-page">
+    <div class="content">
 
-                            echo '<tbody>
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Velonic</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
+                                <li class="breadcrumb-item active">Editable Table</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Editable Table</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title mb-4"></h4>
+                            <div class="table-responsive">
+                                <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
+
+
+                                </table>
+                            </div>
+                            <!-- end .table-responsive-->
+                        </div>
+                        <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title mb-4">Inline edit</h4>
+                            <div class="table-responsive">
+                                <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
+                                    <thead>
+                                        <tr>
+
+                                            <th>ID nhà sản xuất</th>
+
+                                            <th>Tên nhà sản xuất</th>
+                                            <th>Thao tác</th>
+
+                                        </tr>
+                                    </thead>
+                                    <?php
+                                    foreach ($listnsx as $nsx) {
+                                        extract($nsx);
+                                        $suansx = "./index.php?act=suansx&id=" . $idnsx;
+                                        $xoansx = "./index.php?act=xoansx&id=" . $idnsx;
+
+                                        echo '<tbody>
                         <tr>
-                            <td></td>
-                            <td></td>
+                           
                             <td>' . $idnsx . '</td>
                             <td>' . $tennsx . '</td>
                
@@ -43,30 +87,41 @@
                         </tr>
                         
                     </tbody>';
-                        }
-                        ?>
-                        <!-- <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2016/04/25</td>
-                                <td>
-                                    
-                                </td>
-                            </tr>
-                            
-                        </tbody> -->
-                    </table>
+                                    }
+                                    ?>
+
+                                </table>
+                            </div>
+                            <!-- end .table-responsive-->
+                        </div>
+                        <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
                 </div>
-                <!-- end .table-responsive-->
+                <!-- end col -->
             </div>
-            <!-- end card-body -->
+            <!-- end row -->
+
+        </div> <!-- container -->
+
+    </div> <!-- content -->
+
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> © Velonic - Theme by <b>Techzaa</b>
+                </div>
+            </div>
         </div>
-        <!-- end card -->
-    </div>
-    <!-- end col -->
+    </footer>
+    <!-- end Footer -->
+
 </div>
-<!-- end row -->
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->

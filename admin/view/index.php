@@ -1,6 +1,10 @@
 <?php
 include "../../../../Duan1/Duan-1/model/pdo.php";
 include "../../../../Duan1/Duan-1/model/nhasanxuat.php";
+include "../../../../Duan1/Duan-1/model/bonhosp.php";
+include "../../../../Duan1/Duan-1/model/mausp.php";
+
+
 // loadall_nhasanxuat();
 // var_dump(loadall_nhasanxuat());
 // include "../Duan1/Duan-1/model/pdo.php";
@@ -9,11 +13,13 @@ include "header.php";
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
+            // controller nhasanxuat
         case "listnsx":
 
             $listnsx = loadall_nhasanxuat();
             include "./nhasanxuat/listnhasx.php";
             break;
+
         case "addnsx":
             $listnsx = loadall_nhasanxuat();
             $IDmax = showIDnsxMax();
@@ -53,6 +59,106 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
 
             break;
+            //controller bonhosanpham
+        case "listbnsp":
+
+            $listbnsp = loadall_bonhosp();
+            include "./bonhosp/listbnsp.php";
+            break;
+        case "addbnsp":
+            $listbnsp = loadall_bonhosp();
+            $IDmax = showIDbnspMax();
+            if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+                $tenbnsp = $_POST["tenbnsp"];
+                insert_bonhosp($tenbnsp);
+                $IDmax = showIDnsxMax();
+            }
+
+            include "./bonhosp/addbnsp.php";
+
+            break;
+        case 'xoabnsp':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_bonhosp($_GET['id']);
+            }
+            $listbnsp = loadall_bonhosp();
+            include "./bonhosp/listbnsp.php";
+            break;
+        case 'suabnsp':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $bnsp = loadone_bonhosp($_GET['id']);
+                extract($bnsp);
+                include "./bonhosp/suabnsp.php";
+            }
+            break;
+        case "updatebnsp":
+            $listbnsp = loadall_bonhosp();
+
+            if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+                $kichthuoc = $_POST["kichthuoc"];
+                $idbnsp = $_POST["idbnsp"];
+
+                update_bonhosp($idbnsp, $kichthuoc);
+            }
+            include "./bonhosp/listbnsp.php";
+
+
+
+            break;
+
+
+
+
+
+
+            //controller màu sản phẩm
+        case "listmausp":
+
+            $listmsp = loadall_mausanpham();
+            include "./mausanpham/listmsp.php";
+            break;
+        case "addmsp":
+            $listmsp = loadall_mausanpham();
+            $IDmax = showIDmspMax();
+            if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+                $tenmsp = $_POST["tenmsp"];
+                insert_mausanpham($tenmsp);
+                $IDmax = showIDmspMax();
+            }
+
+            include "./mausanpham/addmsp.php";
+
+            break;
+        case 'xoamsp':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_mausanpham($_GET['id']);
+            }
+            $listmsp = loadall_mausanpham();
+            include "./mausanpham/listmsp.php";
+            break;
+        case 'suamsp':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $msp = loadone_mausanpham($_GET['id']);
+                extract($msp);
+                include "./mausanpham/suamsp.php";
+            }
+            break;
+        case "updatemsp":
+            $listmsp = loadall_mausanpham();
+
+            if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+                $tenmsp = $_POST["tenmsp"];
+                $idmsp = $_POST["idmsp"];
+
+                update_mausanpham($idmsp, $tenmsp);
+            }
+            include "./mausanpham/listmsp.php";
+
+
+
+            break;
     }
-} else
-    include "./home/home.php";
+} else {
+    include "home.php";
+}
+include "footer.php";

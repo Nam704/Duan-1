@@ -31,8 +31,6 @@
                             <h4 class="header-title mb-4"></h4>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
-
-
                                 </table>
                             </div>
                             <!-- end .table-responsive-->
@@ -49,32 +47,34 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title mb-4">Inline edit</h4>
+                            <h4 class="header-title mb-4"></h4>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
                                     <thead>
                                         <tr>
 
-                                            <th>ID nhà sản xuất</th>
+                                            <th>ID Màu</th>
 
-                                            <th>Tên nhà sản xuất</th>
+                                            <th>Tên màu</th>
                                             <th>Thao tác</th>
 
                                         </tr>
                                     </thead>
-                                    <form action="index.php?act=addnsx" method="post">
+                                    <form action="index.php?act=updatemsp" method="post">
                                         <tbody>
                                             <tr>
 
 
 
                                                 <td>
-                                                    <?= ++$IDmax ?>
+                                                    <input type="hidden" name="idmsp" value="<?= $idmsp ?>">
+                                                    <?= $idmsp ?>
                                                 </td>
-                                                <td><input type="text" name="tennsx" id=""></td>
+                                                <td><input type="text" name="tenmsp" id="" placeholder="<?= $tenmausp ?>">
+                                                </td>
                                                 <td>
 
-                                                    <input type="submit" name="themmoi" value="Thêm">
+                                                    <input type="submit" style="padding:0  15px;" name="themmoi" value="Sửa">
 
 
                                                 </td>

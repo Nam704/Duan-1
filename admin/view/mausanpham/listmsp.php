@@ -55,37 +55,41 @@
                                     <thead>
                                         <tr>
 
-                                            <th>ID nhà sản xuất</th>
+                                            <th>ID Màu</th>
 
-                                            <th>Tên nhà sản xuất</th>
+                                            <th>Tên màu</th>
                                             <th>Thao tác</th>
 
                                         </tr>
                                     </thead>
-                                    <form action="index.php?act=addnsx" method="post">
-                                        <tbody>
-                                            <tr>
+                                    <?php
+                                    foreach ($listmsp as $msp) {
+                                        extract($msp);
+                                        $suamsp = "./index.php?act=suamsp&id=" . $idmsp;
+                                        $xoamsp = "./index.php?act=xoamsp&id=" . $idmsp;
 
+                                        echo '<tbody>
+                        <tr>
+                            
+                            <td>' . $idmsp . '</td>
+                            <td>' . $tenmausp . ' </td>
+               
+                            <td>
+                            <a href="' . $suamsp . '">Sửa  |  </a>
+                            <a href="' . $xoamsp . '">Xóa</a>
 
+                                    </td>
+                                    <td>
+                                </td>
 
-                                                <td>
-                                                    <?= ++$IDmax ?>
-                                                </td>
-                                                <td><input type="text" name="tennsx" id=""></td>
-                                                <td>
+                          
+                            
+                        </tr>
+                        
+                    </tbody>';
+                                    }
+                                    ?>
 
-                                                    <input type="submit" name="themmoi" value="Thêm">
-
-
-                                                </td>
-                                                <td>
-
-                                                </td>
-
-                                            </tr>
-
-                                        </tbody>
-                                    </form>
                                 </table>
                             </div>
                             <!-- end .table-responsive-->
