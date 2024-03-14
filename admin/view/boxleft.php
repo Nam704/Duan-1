@@ -29,7 +29,7 @@
             <li class="side-nav-title">Danh mục quản lý</li>
 
             <li class="side-nav-item">
-                <a href="index.html" class="side-nav-link">
+                <a href="index.php" class="side-nav-link">
                     <i class="ri-dashboard-3-line"></i>
                     <span class="badge bg-success float-end">9+</span>
                     <span> Trang chủ</span>
@@ -37,8 +37,7 @@
             </li>
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages"
-                    class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
                     <i class="ri-pages-line"></i>
                     <span> Quản lý sản phẩm </span>
                     <span class="menu-arrow"></span>
@@ -83,8 +82,7 @@
             </li>
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarPagesAuth" aria-expanded="false"
-                    aria-controls="sidebarPagesAuth" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarPagesAuth" aria-expanded="false" aria-controls="sidebarPagesAuth" class="side-nav-link">
                     <i class="ri-group-2-line"></i>
                     <span> Quản lý nhà sản xuất </span>
                     <span class="menu-arrow"></span>
@@ -95,7 +93,7 @@
                             <a href="index.php?act=listnsx">Danh sách nhà sản xuất</a>
                         </li>
                         <li>
-                            <a href="auth-login.html">Thêm nhà sản xuất</a>
+                            <a href="index.php?act=addnsx">Thêm nhà sản xuất</a>
                         </li>
                         <li>
                             <a href="auth-register.html">Sửa nhà sản xuất</a>
@@ -110,8 +108,7 @@
             </li>
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts"
-                    class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">
                     <i class="ri-layout-line"></i>
                     <span class="badge bg-warning float-end">New</span>
                     <span> Quản lý đơn hàng </span>
@@ -135,8 +132,7 @@
             <!-- <li class="side-nav-title">Quản lý người dùng</li> -->
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarBaseUI" aria-expanded="false" aria-controls="sidebarBaseUI"
-                    class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarBaseUI" aria-expanded="false" aria-controls="sidebarBaseUI" class="side-nav-link">
                     <i class="ri-briefcase-line"></i>
                     <span> Quản lý khách hàng </span>
                     <span class="menu-arrow"></span>
@@ -164,8 +160,7 @@
             </li>
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarExtendedUI" aria-expanded="false"
-                    aria-controls="sidebarExtendedUI" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarExtendedUI" aria-expanded="false" aria-controls="sidebarExtendedUI" class="side-nav-link">
                     <i class="ri-compasses-2-line"></i>
                     <span> Quản lý bình luận </span>
                     <span class="menu-arrow"></span>
@@ -183,8 +178,7 @@
                 </div>
             </li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarIcons" aria-expanded="false" aria-controls="sidebarIcons"
-                    class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarIcons" aria-expanded="false" aria-controls="sidebarIcons" class="side-nav-link">
                     <i class="ri-pencil-ruler-2-line"></i>
                     <span> Thống kê </span>
                     <span class="menu-arrow"></span>

@@ -1,4 +1,6 @@
-<?php include "connectcss-js.php"; ?>
+<?php
+include "./connect/connectcss-js.php";
+?>
 <!-- ========== Topbar Start ========== -->
 <div class="navbar-custom">
     <div class="topbar container-fluid">
@@ -362,4 +364,6 @@
     </div>
 </div>
 <!-- ========== Topbar End ========== -->
-<?php include "boxleft.php" ?>
+<?php
+include "boxleft.php"
+?>

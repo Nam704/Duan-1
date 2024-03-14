@@ -55,9 +55,11 @@
                                             <td>Edinburgh</td>
                                             <td>61</td>
                                             <td>2016/04/25</td>
-                                            <td>$320,800</td>
+                                            <td>
+                                                <input style="  display: block; " type="button" value="Sửa">
+                                            </td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td>2</td>
                                             <td>Garrett Winters</td>
                                             <td>Accountant</td>
@@ -137,7 +139,7 @@
                                             <td>23</td>
                                             <td>2018/12/13</td>
                                             <td>$103,600</td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
