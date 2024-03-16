@@ -54,39 +54,44 @@
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
                                     <thead>
                                         <tr>
-
-                                            <th>ID Màu</th>
-
-                                            <th>Tên màu</th>
-                                            <th>Thao tác</th>
-
+                                            <th>ID User</th>
+                                            <th>ID Admin</th>
+                                            <th>Tên Admin </th>
+                                            <th>Email</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Số điện thoại</th>
 
                                         </tr>
                                     </thead>
-                                    <form action="index.php?act=addmsp" method="post">
-                                        <tbody>
-                                            <tr>
+                                    <?php
+                                    foreach ($listuser as $user) {
+                                        extract($user);
+                                        $suauser = "./index.php?act=suauser&id=" . $iduser;
+                                        $xoauser = "./index.php?act=xoauser&id=" . $iduser;
 
+                                        echo '<tbody>
+                        <tr>
+                            
+                            <td>' . $iduser . '</td>
+                            <td>' . $tenuser . ' </td>
+                            <td>' . $password . ' </td>
+                            <td>' . $quyenhan . ' </td>
+                            <td>
+                            <a href="' . $suauser . '">Sửa  |  </a>
+                            <a href="' . $xoauser . '">Xóa</a>
 
+                                    </td>
+                                    <td>
+                                </td>
 
-                                                <td>
-                                                    <?= ++$IDmax ?>
-                                                </td>
-                                                <td><input type="text" name="tenmsp" id=""></td>
-                                                <td>
+                          
+                            
+                        </tr>
+                        
+                    </tbody>';
+                                    }
+                                    ?>
 
-                                                    <input type="submit" name="themmoi" value="Thêm">
-
-
-                                                </td>
-                                                <td>
-
-                                                </td>
-
-                                            </tr>
-
-                                        </tbody>
-                                    </form>
                                 </table>
                             </div>
                             <!-- end .table-responsive-->

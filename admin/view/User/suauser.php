@@ -53,28 +53,40 @@
                                     <thead>
                                         <tr>
 
-                                            <th>ID Màu</th>
-
-                                            <th>Tên màu</th>
+                                            <th>ID User</th>
+                                            <th>Tên user</th>
+                                            <th>Mật khẩu</th>
+                                            <th>Quyền hạn</th>
                                             <th>Thao tác</th>
 
                                         </tr>
                                     </thead>
-                                    <form action="index.php?act=updatemsp" method="post">
+                                    <form action="index.php?act=updateuser" method="post">
                                         <tbody>
                                             <tr>
 
 
 
                                                 <td>
-                                                    <input type="hidden" name="idmsp" value="<?= $idmsp ?>">
-                                                    <?= $idmsp ?>
+                                                    <input type="hidden" name="iduser" value="<?= $iduser ?>">
+                                                    <?= $iduser ?>
                                                 </td>
-                                                <td><input type="text" name="tenmsp" id="" placeholder="<?= $tenmausp ?>">
+                                                <td>
+                                                    <input type="text" name="tenuser" id=""
+                                                        placeholder="<?= $tenuser ?>">
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="password" id=""
+                                                        placeholder="<?= $password ?>">
+                                                </td>
+                                                <td>
+                                                    <input type="number" name="quyenhan" style="min-width:150px"
+                                                        name="quyenhan" min="0" max="1" placeholder="<?= $quyenhan ?>">
                                                 </td>
                                                 <td>
 
-                                                    <input type="submit" style="padding:0  15px;" name="themmoi" value="Sửa">
+                                                    <input type="submit" style="padding:0  15px;" name="themmoi"
+                                                        value="Sửa">
 
 
                                                 </td>
@@ -108,7 +120,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                        document.write(new Date().getFullYear())
+                    document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

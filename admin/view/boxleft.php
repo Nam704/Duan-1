@@ -28,7 +28,8 @@
                 </a>
             </li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarIcons" aria-expanded="false" aria-controls="sidebarIcons" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarIcons" aria-expanded="false" aria-controls="sidebarIcons"
+                    class="side-nav-link">
                     <i class="ri-pencil-ruler-2-line"></i>
                     <span> Đơn hàng </span>
                     <span class="badge bg-warning float-end">New</span>
@@ -44,28 +45,11 @@
                     </ul>
                 </div>
             </li>
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
-                    <i class="ri-pages-line"></i>
-                    <span> Nhà sản xuất </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarPages">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="index.php?act=listnsx">Danh sách</a>
-                        </li>
-                        <li>
-                            <a href="index.php?act=addnsx">Thêm mới</a>
-                        </li>
 
-
-                    </ul>
-                </div>
-            </li>
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarPagesAuth" aria-expanded="false" aria-controls="sidebarPagesAuth" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarPagesAuth" aria-expanded="false"
+                    aria-controls="sidebarPagesAuth" class="side-nav-link">
                     <i class="ri-group-2-line"></i>
                     <span> Người dùng </span>
                     <span class="menu-arrow"></span>
@@ -74,103 +58,174 @@
                     <ul class="side-nav-second-level">
 
                         <li>
-                            <a href="index.php?act=listuser">Danh sách</a>
-                        </li>
-                        <li>
-                            <a href="index.php?act=login">Login</a>
-                        </li>
-                        <li>
-                            <a href="index.php?act=dangki">Register</a>
-                        </li>
-                        <li>
-                            <a href="index.php?act=logout">Logout</a>
-                        </li>
-                        <li>
-                            <a href="index.php?act=forgotpass">Forgot Password</a>
+                        <li class="side-nav-item">
+                            <a data-bs-toggle="collapse" href="#sidebarMaps" aria-expanded="false"
+                                aria-controls="sidebarMaps" class="side-nav-link">
+                                <span> Danh sách </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="sidebarMaps">
+                                <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="index.php?act=listuser">Danh sách người dùng</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.php?act=listAdmin">Danh sách Admin</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.php?act=listAdmin">Danh sách khách hàng</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
 
-                    </ul>
-                </div>
             </li>
-
+            <li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">
-                    <i class="ri-layout-line"></i>
-                    <span> Sản phẩm </span>
-                </a>
-                <div class="collapse" id="sidebarLayouts">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="layouts-horizontal.html" target="_blank">Danh sách</a>
-                        </li>
+                <a data-bs-toggle="collapse" href="#sidebarSecondLevel" aria-expanded="false"
+                    aria-controls="sidebarSecondLevel">
 
-                    </ul>
-                </div>
-            </li>
-
-            <!-- <li class="side-nav-title">Components</li> -->
-
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarBaseUI" aria-expanded="false" aria-controls="sidebarBaseUI" class="side-nav-link">
-                    <i class="ri-briefcase-line"></i>
-                    <span> Bộ nhớ sản phẩm </span>
+                    <span> Thêm mới </span>
                     <span class="menu-arrow"></span>
                 </a>
-                <div class="collapse" id="sidebarBaseUI">
+                <div class="collapse" id="sidebarSecondLevel">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="index.php?act=listbnsp">Danh sách</a>
+                            <a href="index.php?act=adduser">Thêm người dùng</a>
                         </li>
                         <li>
-                            <a href="index.php?act=addbnsp">Thêm mới</a>
-                        </li>
+                            <a href="index.php?act=addAdmin">Thêm Admin</a>
 
-                    </ul>
-                </div>
-            </li>
-
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarExtendedUI" aria-expanded="false" aria-controls="sidebarExtendedUI" class="side-nav-link">
-                    <i class="ri-compasses-2-line"></i>
-                    <span> Màu sản phẩm </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarExtendedUI">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="index.php?act=listmausp">Danh sách</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </li>
-
-
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarCharts" aria-expanded="false" aria-controls="sidebarCharts" class="side-nav-link">
-                    <i class="ri-donut-chart-fill"></i>
-                    <span> Thống kê </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarCharts">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="charts-apex.html">Tuần</a>
                         </li>
                         <li>
-                            <a href="charts-chartjs.html">Tháng</a>
-                        </li>
-                        <li>
-                            <a href="charts-sparklines.html">Quý</a>
-                        </li>
-                        <li>
-                            <a href="charts-sparklines.html">Năm</a>
+                            <a href="index.php?act=addKH">Thêm khách hàng</a>
+
                         </li>
                     </ul>
                 </div>
             </li>
+            </li>
+            <li>
+                <a href="index.php?act=login">Login</a>
+            </li>
+            <li>
+                <a href="index.php?act=dangki">Register</a>
+            </li>
+            <li>
+                <a href="index.php?act=logout">Logout</a>
+            </li>
+            <li>
+                <a href="index.php?act=forgotpass">Forgot Password</a>
+            </li>
 
-            <!-- <li class="side-nav-item">
+        </ul>
+    </div>
+    </li>
+
+    <li class="side-nav-item">
+        <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts"
+            class="side-nav-link">
+            <i class="ri-layout-line"></i>
+            <span> Sản phẩm </span>
+        </a>
+        <div class="collapse" id="sidebarLayouts">
+            <ul class="side-nav-second-level">
+                <li>
+                    <a href="layouts-horizontal.html" target="_blank">Danh sách</a>
+                </li>
+
+            </ul>
+        </div>
+    </li>
+
+    <!-- <li class="side-nav-title">Components</li> -->
+    <li class="side-nav-item">
+        <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages"
+            class="side-nav-link">
+            <i class="ri-pages-line"></i>
+            <span> Nhà sản xuất </span>
+            <span class="menu-arrow"></span>
+        </a>
+        <div class="collapse" id="sidebarPages">
+            <ul class="side-nav-second-level">
+                <li>
+                    <a href="index.php?act=listnsx">Danh sách</a>
+                </li>
+                <li>
+                    <a href="index.php?act=addnsx">Thêm mới</a>
+                </li>
+
+
+            </ul>
+        </div>
+    </li>
+    <li class="side-nav-item">
+        <a data-bs-toggle="collapse" href="#sidebarBaseUI" aria-expanded="false" aria-controls="sidebarBaseUI"
+            class="side-nav-link">
+            <i class="ri-briefcase-line"></i>
+            <span> Bộ nhớ sản phẩm </span>
+            <span class="menu-arrow"></span>
+        </a>
+        <div class="collapse" id="sidebarBaseUI">
+            <ul class="side-nav-second-level">
+                <li>
+                    <a href="index.php?act=listbnsp">Danh sách</a>
+                </li>
+                <li>
+                    <a href="index.php?act=addbnsp">Thêm mới</a>
+                </li>
+
+            </ul>
+        </div>
+    </li>
+
+    <li class="side-nav-item">
+        <a data-bs-toggle="collapse" href="#sidebarExtendedUI" aria-expanded="false" aria-controls="sidebarExtendedUI"
+            class="side-nav-link">
+            <i class="ri-compasses-2-line"></i>
+            <span> Màu sản phẩm </span>
+            <span class="menu-arrow"></span>
+        </a>
+        <div class="collapse" id="sidebarExtendedUI">
+            <ul class="side-nav-second-level">
+                <li>
+                    <a href="index.php?act=listmausp">Danh sách</a>
+                </li>
+                <li>
+                    <a href="index.php?act=addmsp">Thêm mới</a>
+                </li>
+
+            </ul>
+        </div>
+    </li>
+
+
+    <li class="side-nav-item">
+        <a data-bs-toggle="collapse" href="#sidebarCharts" aria-expanded="false" aria-controls="sidebarCharts"
+            class="side-nav-link">
+            <i class="ri-donut-chart-fill"></i>
+            <span> Thống kê </span>
+            <span class="menu-arrow"></span>
+        </a>
+        <div class="collapse" id="sidebarCharts">
+            <ul class="side-nav-second-level">
+                <li>
+                    <a href="charts-apex.html">Tuần</a>
+                </li>
+                <li>
+                    <a href="charts-chartjs.html">Tháng</a>
+                </li>
+                <li>
+                    <a href="charts-sparklines.html">Quý</a>
+                </li>
+                <li>
+                    <a href="charts-sparklines.html">Năm</a>
+                </li>
+            </ul>
+        </div>
+    </li>
+
+    <!-- <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarForms" aria-expanded="false" aria-controls="sidebarForms"
                     class="side-nav-link">
                     <i class="ri-survey-line"></i>
@@ -207,7 +262,7 @@
                 </div>
             </li> -->
 
-            <!-- <li class="side-nav-item">
+    <!-- <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarTables" aria-expanded="false" aria-controls="sidebarTables"
                     class="side-nav-link">
                     <i class="ri-table-line"></i>
@@ -232,7 +287,7 @@
                 </div>
             </li> -->
 
-            <!-- <li class="side-nav-item">
+    <!-- <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarMaps" aria-expanded="false" aria-controls="sidebarMaps"
                     class="side-nav-link">
                     <i class="ri-map-pin-line"></i>
@@ -251,7 +306,7 @@
                 </div>
             </li> -->
 
-            <!-- <li class="side-nav-item">
+    <!-- <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarMultiLevel" aria-expanded="false"
                     aria-controls="sidebarMultiLevel" class="side-nav-link">
                     <i class="ri-share-line"></i>
@@ -316,10 +371,10 @@
             </li> -->
 
 
-        </ul>
-        <!--- End Sidemenu -->
+    </ul>
+    <!--- End Sidemenu -->
 
-        <div class="clearfix"></div>
-    </div>
+    <div class="clearfix"></div>
+</div>
 </div>
 <!-- ========== Left Sidebar End ========== -->

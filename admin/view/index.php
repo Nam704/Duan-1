@@ -59,7 +59,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
                 updatensx($idnsx, $tennsx);
             }
-            include "./nhasanxuat/listnhasx.php";
+            header("Location: index.php?act=listnsx");
 
 
             break;
@@ -104,7 +104,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
                 update_bonhosp($idbnsp, $kichthuoc);
             }
-            include "./bonhosp/listbnsp.php";
+            header("Location: index.php?act=listbnsp");
+
 
 
 
@@ -156,7 +157,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
                 update_mausanpham($idmsp, $tenmsp);
             }
-            include "./mausanpham/listmsp.php";
+            header("Location: index.php?act=listmsp");
+
 
 
 
@@ -171,13 +173,102 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $IDmax = showiduserMax();
             if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
                 $tenuser = $_POST["tenuser"];
-                insert_bonhosp($tenbnsp);
-                $IDmax = showIDnsxMax();
+                $password = $_POST["password"];
+                $quyenhan = $_POST["quyenhan"];
+
+                insert_nguoidung($tenuser, $password, $quyenhan);
+                $IDmax = showiduserMax();
             }
 
-            include "./bonhosp/addbnsp.php";
+            include "./User/adduser.php";
 
             break;
+        case 'xoauser':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_nguoidung($_GET['id']);
+            }
+            $listuser = loadall_nguoidung();
+            include "./User/listuser.php";
+            break;
+        case 'suauser':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $user = loadone_nguoidung($_GET['id']);
+                extract($user);
+                include "./User/suauser.php";
+            }
+            break;
+        case "updateuser":
+            $listuser = loadall_nguoidung();
+            if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+                $tenuser = $_POST["tenuser"];
+                $iduser = $_POST["iduser"];
+                $password = $_POST["password"];
+                $quyenhan = $_POST["quyenhan"];
+                update_nguoidung($iduser, $tenuser, $password, $quyenhan);
+            }
+
+            header("Location: index.php?act=listuser");
+            // exit;
+            // ob_end_flush();
+
+
+
+            break;
+
+            // controller Admin
+        case 'listAdmin':
+            $listqtv = loadall_quantrivien();
+            include "./User/listAdmin.php";
+            break;
+            // case "adduser":
+            //     $listuser = loadall_nguoidung();
+            //     $IDmax = showiduserMax();
+            //     if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+            //         $tenuser = $_POST["tenuser"];
+            //         $password = $_POST["password"];
+            //         $quyenhan = $_POST["quyenhan"];
+
+            //         insert_nguoidung($tenuser, $password, $quyenhan);
+            //         $IDmax = showiduserMax();
+            //     }
+
+            //     include "./User/adduser.php";
+
+            //     break;
+            // case 'xoauser':
+            //     if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+            //         delete_nguoidung($_GET['id']);
+            //     }
+            //     $listuser = loadall_nguoidung();
+            //     include "./User/listuser.php";
+            //     break;
+            // case 'suauser':
+            //     if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+            //         $user = loadone_nguoidung($_GET['id']);
+            //         extract($user);
+            //         include "./User/suauser.php";
+            //     }
+            //     break;
+            // case "updateuser":
+            //     $listuser = loadall_nguoidung();
+            //     if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+            //         $tenuser = $_POST["tenuser"];
+            //         $iduser = $_POST["iduser"];
+            //         $password = $_POST["password"];
+            //         $quyenhan = $_POST["quyenhan"];
+            //         update_nguoidung($iduser, $tenuser, $password, $quyenhan);
+            //     }
+
+            //     header("Location: index.php?act=listuser");
+            //     // exit;
+            //     // ob_end_flush();
+
+
+
+            //     break;
+
+
+            // thao tac tai khoan
         case 'login':
 
             ob_clean();

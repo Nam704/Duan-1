@@ -67,13 +67,14 @@
                                     <form action="index.php?act=adduser" method="post">
                                         <tbody>
                                             <tr>
-
-
-
                                                 <td>
                                                     <?= ++$IDmax ?>
                                                 </td>
-                                                <td><input type="text" name="tenbnsp" id=""></td>
+                                                <td><input type="text" name="tenuser" id=""></td>
+                                                <td><input type="password" name="password" id=""></td>
+                                                <td><input type="number" style="min-width:150px" name="quyenhan" min="0" max="1">
+                                                </td>
+
                                                 <td>
 
                                                     <input type="submit" name="themmoi" value="Thêm">
