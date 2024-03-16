@@ -1,4 +1,28 @@
-<?php include "connectcss-js.php"; ?>
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from themes.getappui.com/techzaa/velonic/layouts/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Mar 2024 13:03:37 GMT -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>Log In | Velonic - Bootstrap 5 Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully responsive admin theme which can be used to build CRM, CMS,ERP etc." name="description" />
+    <meta content="Techzaa" name="author" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Theme Config Js -->
+    <script src="assets/js/config.js"></script>
+
+    <!-- App css -->
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+    <!-- Icons css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+</head>
 
 <body class="authentication-bg position-relative">
     <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5 position-relative">
@@ -30,34 +54,42 @@
                                         <form action="#">
                                             <div class="mb-3">
                                                 <label for="emailaddress" class="form-label">Email address</label>
-                                                <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                                                <input class="form-control" type="email" id="emailaddress" required=""
+                                                    placeholder="Enter your email">
                                             </div>
                                             <div class="mb-3">
                                                 <a href="auth-forgotpw.html" class="text-muted float-end"><small>Forgot
                                                         your
                                                         password?</small></a>
                                                 <label for="password" class="form-label">Password</label>
-                                                <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                                <input class="form-control" type="password" required="" id="password"
+                                                    placeholder="Enter your password">
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="checkbox-signin">
+                                                    <input type="checkbox" class="form-check-input"
+                                                        id="checkbox-signin">
                                                     <label class="form-check-label" for="checkbox-signin">Remember
                                                         me</label>
                                                 </div>
                                             </div>
                                             <div class="mb-0 text-start">
-                                                <button class="btn btn-soft-primary w-100" type="submit"><i class="ri-login-circle-fill me-1"></i> <span class="fw-bold">Log
+                                                <button class="btn btn-soft-primary w-100" type="submit"><i
+                                                        class="ri-login-circle-fill me-1"></i> <span class="fw-bold">Log
                                                         In</span> </button>
                                             </div>
 
                                             <div class="text-center mt-4">
                                                 <p class="text-muted fs-16">Sign in with</p>
                                                 <div class="d-flex gap-2 justify-content-center mt-3">
-                                                    <a href="javascript: void(0);" class="btn btn-soft-primary"><i class="ri-facebook-circle-fill"></i></a>
-                                                    <a href="javascript: void(0);" class="btn btn-soft-danger"><i class="ri-google-fill"></i></a>
-                                                    <a href="javascript: void(0);" class="btn btn-soft-info"><i class="ri-twitter-fill"></i></a>
-                                                    <a href="javascript: void(0);" class="btn btn-soft-dark"><i class="ri-github-fill"></i></a>
+                                                    <a href="javascript: void(0);" class="btn btn-soft-primary"><i
+                                                            class="ri-facebook-circle-fill"></i></a>
+                                                    <a href="javascript: void(0);" class="btn btn-soft-danger"><i
+                                                            class="ri-google-fill"></i></a>
+                                                    <a href="javascript: void(0);" class="btn btn-soft-info"><i
+                                                            class="ri-twitter-fill"></i></a>
+                                                    <a href="javascript: void(0);" class="btn btn-soft-dark"><i
+                                                            class="ri-github-fill"></i></a>
                                                 </div>
                                             </div>
                                         </form>
@@ -72,7 +104,8 @@
             </div>
             <div class="row">
                 <div class="col-12 text-center">
-                    <p class="text-dark-emphasis">Don't have an account? <a href="auth-register.html" class="text-dark fw-bold ms-1 link-offset-3 text-decoration-underline"><b>Sign up</b></a>
+                    <p class="text-dark-emphasis">Don't have an account? <a href="auth-register.html"
+                            class="text-dark fw-bold ms-1 link-offset-3 text-decoration-underline"><b>Sign up</b></a>
                     </p>
                 </div> <!-- end col -->
             </div>
@@ -85,7 +118,7 @@
     <footer class="footer footer-alt fw-medium">
         <span class="text-dark">
             <script>
-                document.write(new Date().getFullYear())
+            document.write(new Date().getFullYear())
             </script> © Velonic - Theme by Techzaa
         </span>
     </footer>
@@ -96,3 +129,8 @@
     <script src="assets/js/app.min.js"></script>
 
 </body>
+
+
+<!-- Mirrored from themes.getappui.com/techzaa/velonic/layouts/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Mar 2024 13:03:37 GMT -->
+
+</html>

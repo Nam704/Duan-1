@@ -1,8 +1,12 @@
 <?php
+ob_start();
+
 include "../../../../Duan1/Duan-1/model/pdo.php";
 include "../../../../Duan1/Duan-1/model/nhasanxuat.php";
 include "../../../../Duan1/Duan-1/model/bonhosp.php";
 include "../../../../Duan1/Duan-1/model/mausp.php";
+include "../../../../Duan1/Duan-1/model/user.php";
+
 
 
 // loadall_nhasanxuat();
@@ -155,6 +159,43 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "./mausanpham/listmsp.php";
 
 
+
+            break;
+            // controller User
+        case 'listuser':
+            $listuser = loadall_nguoidung();
+            include "User/listuser.php";
+            break;
+        case "adduser":
+            $listuser = loadall_nguoidung();
+            $IDmax = showiduserMax();
+            if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+                $tenuser = $_POST["tenuser"];
+                insert_bonhosp($tenbnsp);
+                $IDmax = showIDnsxMax();
+            }
+
+            include "./bonhosp/addbnsp.php";
+
+            break;
+        case 'login':
+
+            ob_clean();
+
+            header("Location: ./User/login.php");
+            exit;
+            break;
+
+        case 'dangki':
+            include "User/register.php";
+
+            break;
+        case 'logout':
+            include "User/logout.php";
+
+            break;
+        case 'forgotpass':
+            include "User/quenmatkhau.php";
 
             break;
     }

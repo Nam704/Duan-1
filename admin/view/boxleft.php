@@ -28,8 +28,7 @@
                 </a>
             </li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarIcons" aria-expanded="false" aria-controls="sidebarIcons"
-                    class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarIcons" aria-expanded="false" aria-controls="sidebarIcons" class="side-nav-link">
                     <i class="ri-pencil-ruler-2-line"></i>
                     <span> Đơn hàng </span>
                     <span class="badge bg-warning float-end">New</span>
@@ -46,8 +45,7 @@
                 </div>
             </li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages"
-                    class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
                     <i class="ri-pages-line"></i>
                     <span> Nhà sản xuất </span>
                     <span class="menu-arrow"></span>
@@ -67,42 +65,36 @@
             </li>
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarPagesAuth" aria-expanded="false"
-                    aria-controls="sidebarPagesAuth" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarPagesAuth" aria-expanded="false" aria-controls="sidebarPagesAuth" class="side-nav-link">
                     <i class="ri-group-2-line"></i>
                     <span> Người dùng </span>
                     <span class="menu-arrow"></span>
                 </a>
                 <div class="collapse" id="sidebarPagesAuth">
                     <ul class="side-nav-second-level">
-                        <li>
-                            <a href="auth-login.html">Quên mật khẩu</a>
-                        </li>
+
                         <li>
                             <a href="index.php?act=listuser">Danh sách</a>
                         </li>
                         <li>
-                            <a href="auth-login.html">Login</a>
+                            <a href="index.php?act=login">Login</a>
                         </li>
                         <li>
-                            <a href="auth-register.html">Register</a>
+                            <a href="index.php?act=dangki">Register</a>
                         </li>
                         <li>
-                            <a href="auth-logout.html">Logout</a>
+                            <a href="index.php?act=logout">Logout</a>
                         </li>
                         <li>
-                            <a href="auth-forgotpw.html">Forgot Password</a>
+                            <a href="index.php?act=forgotpass">Forgot Password</a>
                         </li>
-                        <li>
-                            <a href="auth-lock-screen.html">Lock Screen</a>
-                        </li>
+
                     </ul>
                 </div>
             </li>
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts"
-                    class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">
                     <i class="ri-layout-line"></i>
                     <span> Sản phẩm </span>
                 </a>
@@ -119,8 +111,7 @@
             <!-- <li class="side-nav-title">Components</li> -->
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarBaseUI" aria-expanded="false" aria-controls="sidebarBaseUI"
-                    class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarBaseUI" aria-expanded="false" aria-controls="sidebarBaseUI" class="side-nav-link">
                     <i class="ri-briefcase-line"></i>
                     <span> Bộ nhớ sản phẩm </span>
                     <span class="menu-arrow"></span>
@@ -139,8 +130,7 @@
             </li>
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarExtendedUI" aria-expanded="false"
-                    aria-controls="sidebarExtendedUI" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarExtendedUI" aria-expanded="false" aria-controls="sidebarExtendedUI" class="side-nav-link">
                     <i class="ri-compasses-2-line"></i>
                     <span> Màu sản phẩm </span>
                     <span class="menu-arrow"></span>
@@ -157,8 +147,7 @@
 
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarCharts" aria-expanded="false" aria-controls="sidebarCharts"
-                    class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarCharts" aria-expanded="false" aria-controls="sidebarCharts" class="side-nav-link">
                     <i class="ri-donut-chart-fill"></i>
                     <span> Thống kê </span>
                     <span class="menu-arrow"></span>
