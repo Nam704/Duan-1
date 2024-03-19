@@ -31,19 +31,7 @@
                             <h4 class="header-title mb-4"></h4>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
-                                    <form action="index.php?act=listsp" method="post">
-                                        <input type="text" name="kyw" style="width: 20%;float:left">
-                                        <select name="idnsx" id="" style="float:left; width: 15%;margin-bottom: 10px;font-size: 20px;">
-                                            <option value="0" selected>All</option>
-                                            <?php
-                                            foreach ($listnsx as $nsx) {
-                                                extract($nsx);
-                                                echo '<option  value="' . $idnsx . '">' . $idnsx . ' - ' . $tennsx . '</option>';
-                                            }
-                                            ?>
-                                        </select>
-                                        <input type="submit" name="listok" value="Go" style="float: left; width:10%">
-                                    </form>
+
 
                                 </table>
                             </div>
@@ -66,50 +54,31 @@
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
                                     <thead>
                                         <tr>
-                                            <th>ID SP</th>
-                                            <th>ID NSX</th>
-                                            <th>Phân loại </th>
-                                            <th>ID ưu đãi </th>
-
-                                            <th>Tên sản phẩm</th>
-                                            <th>Giá</th>
-                                            <th>Số lượng tồn kho</th>
-                                            <th>Hình</th>
-                                            <th>Mô tả</th>
-                                            <th>Thao tác</th>
-
-
-
+                                            <th>ID User</th>
+                                            <th>ID Admin</th>
+                                            <th>Tên Admin </th>
+                                            <th>Email</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Số điện thoại</th>
 
                                         </tr>
                                     </thead>
                                     <?php
-                                    foreach ($listsp as $sp) {
-                                        extract($sp);
-                                        $hinhpath = "../../upload/" . $hinh;
-                                        if (is_file($hinhpath)) {
-                                            $hinhsp = "<img src='" . $hinhpath . "' width='100' height='80'>";
-                                        } else {
-                                            $hinhsp = "no photo";
-                                        }
-                                        $suauser = "./index.php?act=suasp&id=" . $idsp;
-                                        $xoauser = "./index.php?act=xoasp&id=" . $idsp;
+                                    foreach ($listqtv as $qtv) {
+                                        extract($qtv);
+                                        $suauser = "./index.php?act=suaAdmin&id=" . $idqtv;
+                                        $xoauser = "./index.php?act=xoaAdmin&id=" . $idqtv;
 
                                         echo '<tbody>
                         <tr>
                             
-                            <td>' . $idsp . '</td>
-                            <td>' . $idnsx . '</td>
+                            <td>' . $iduser . '</td>
+                            <td>' . $idqtv . '</td>
 
-                            <td>' . $idpl . ' </td>
-                            <td>' . $idud . ' </td>
-                            <td>' . $tensp . ' </td>
-                            <td>' . $giasp . ' </td>
-                            <td>' . $soluongtk . ' </td>
-                            <td>' . $hinhsp . ' </td>
-                            <td>' . $mota . ' </td>
-
-
+                            <td>' . $tenqtv . ' </td>
+                            <td>' . $email . ' </td>
+                            <td>' . $address . ' </td>
+                            <td>' . $sdt . ' </td>
 
                             <td>
                             <a href="' . $suauser . '">Sửa  |  </a>

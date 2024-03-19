@@ -1,27 +1,59 @@
 <?php
-// function insert_sanpham($tensp, $giasp, $hinh, $mota, $iddm)
+function insert_sanpham($idnsx, $idpl, $idud, $tensp, $giasp, $soluongtk, $hinh, $mota)
+{
+    $sql = "insert into sanpham(idnsx,idpl,idud,tensp,giasp,soluongtk,hinh,mota) values('$idnsx', '$idpl', '$idud', '$tensp', '$giasp', '$soluongtk', '$hinh', '$mota')";
+    pdo_execute($sql);
+}
+// function insert_sanpham($idnsx, $idpl, $idud, $tensp, $giasp, $soluongtk, $hinh, $mota)
 // {
-//     $sql = "insert into sanpham(name,price,img,mota,iddm) values('$tensp','$giasp','$hinh','$mota','$iddm')";
-//     pdo_execute($sql);
+//     $sql = "INSERT INTO sanpham( idnsx, idpl, idud, tensp, giasp, soluongtk, hinh, mota) VALUES ( :idnsx, :idpl, :idud, :tensp, :giasp, :soluongtk, :hinh, :mota) ";
+//     $conn = pdo_get_connection();
+//     $stmt = $conn->prepare($sql);
+
+//     $stmt->bindParam(':idnsx', $idnsx);
+//     $stmt->bindParam(':idpl', $idpl);
+//     $stmt->bindParam(':idud', $idud);
+//     $stmt->bindParam(':tensp', $tensp);
+//     $stmt->bindParam(':giasp', $giasp);
+//     $stmt->bindParam(':soluongtk', $soluongtk);
+//     $stmt->bindParam(':hinh', $hinh);
+//     $stmt->bindParam(':mota', $mota);
+//     $stmt->execute();
 // }
-// function delete_sanpham($id)
-// {
-//     $sql = "delete from sanpham where id=" . $id;
-//     pdo_execute($sql);
-// }
-// function loadall_sanpham($kyw, $iddm)
-// {
-//     $sql = "select * from sanpham where 1";
-//     if ($kyw != "") {
-//         $sql .= " and name like '%" . $kyw . "%'";
-//     }
-//     if ($iddm > 0) {
-//         $sql .= " and iddm ='" . $iddm . "'";
-//     }
-//     $sql .= " order by id desc";
-//     $listsanpham = pdo_query($sql);
-//     return $listsanpham;
-// }
+
+function delete_sanpham($id)
+{
+    $sql = "delete from sanpham where idsp=" . $id;
+    pdo_execute($sql);
+}
+function loadall_sanpham($kyw, $iddm)
+{
+    $sql = "select * from sanpham where 1";
+    if ($kyw != "") {
+        $sql .= " and tensp like '%" . $kyw . "%'";
+    }
+    if ($iddm > 0) {
+        $sql .= " and idnsx ='" . $iddm . "'";
+    }
+    $sql .= " order by idsp desc";
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;
+}
+function loadall_phanloai()
+{
+    $sql = "select * from phanloai order by idpl desc";
+    $listpl = pdo_query($sql);
+    return $listpl;
+}
+function loadall_ud()
+{
+    $sql = "select * from uudai order by idud desc";
+    $listpl = pdo_query($sql);
+    return $listpl;
+}
+
+
+
 // function loadall_sanpham_home()
 // {
 //     $sql = "select * from sanpham where 1 order by id desc limit 0,9";
@@ -38,12 +70,12 @@
 //     $listsanpham = pdo_query($sql);
 //     return $listsanpham;
 // }
-// function loadone_sanpham($id)
-// {
-//     $sql = "select * from sanpham where id=" . $id;
-//     $sp = pdo_query_one($sql);
-//     return $sp;
-// }
+function loadone_sanpham($id)
+{
+    $sql = "select * from sanpham where idsp=" . $id;
+    $sp = pdo_query_one($sql);
+    return $sp;
+}
 // function load_tendm($iddm)
 // {
 //     if ($iddm > 0) {
@@ -61,13 +93,22 @@
 //     $listsanpham = pdo_query($sql);
 //     return $listsanpham;
 // }
-// function update_sanpham($tensp, $giasp, $filename, $mota, $id, $iddm)
-// {
-//     if ($filename == "") {
-//         $sql = "update sanpham set name='" . $tensp . "',iddm='" . $iddm . "',price='" . $giasp . "', mota='" . $mota . "' where id=" . $id;
-//     } else {
-//         $sql = "update sanpham set name='" . $tensp . "',iddm='" . $iddm . "',price='" . $giasp . "', img='" . $filename . "', mota='" . $mota . "' where id=" . $id;
-//     }
+function update_sanpham($idsp, $idnsx, $idpl, $idud, $tensp, $giasp, $soluongtk, $hinh, $mota)
+{
+    if ($hinh == "") {
+        $sql = "update sanpham set tensp='" . $tensp . "',giasp='" . $giasp . "',
+        idnsx='" . $idnsx . "',idpl='" . $idpl . "',idud='" . $idud . "',
+        soluongtk='" . $soluongtk . "', mota='" . $mota . "' where idsp=" . $idsp;
+    } else {
+        $sql = "update sanpham set tensp='" . $tensp . "',giasp='" . $giasp . "',
+        idnsx='" . $idnsx . "',idpl='" . $idpl . "',idud='" . $idud . "',
+        soluongtk='" . $soluongtk . "', mota='" . $mota . "', hinh='" . $hinh . "' where idsp=" . $idsp;
+    }
 
-//     pdo_execute($sql);
-// }
+    pdo_execute($sql);
+}
+function showidspMax()
+{
+    $sql = "SELECT idsp FROM sanpham ORDER BY idsp DESC LIMIT 1";
+    return pdo_query_value($sql);
+}

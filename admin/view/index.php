@@ -6,6 +6,15 @@ include "../../../../Duan1/Duan-1/model/nhasanxuat.php";
 include "../../../../Duan1/Duan-1/model/bonhosp.php";
 include "../../../../Duan1/Duan-1/model/mausp.php";
 include "../../../../Duan1/Duan-1/model/user.php";
+include "../../../../Duan1/Duan-1/model/admin.php";
+include "../../../../Duan1/Duan-1/model/khachhang.php";
+include "../../../../Duan1/Duan-1/model/sanpham.php";
+
+$listuser = loadall_nguoidung();
+$listadminfromuser = selectAdmins();
+$listKHfromuser = selectKH();
+
+
 
 
 
@@ -63,6 +72,106 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
 
             break;
+            // conntroller sanpham
+        case "listsp":
+            if (isset($_POST["listok"]) && ($_POST["listok"])) {
+                $kyw = $_POST['kyw'];
+                $iddm = $_POST['idnsx'];
+            } else {
+                $kyw = "";
+                $iddm = 0;
+            }
+            $listnsx = loadall_nhasanxuat();
+
+            $listsp = loadall_sanpham($kyw, $iddm);
+            include "./sanpham/listsanpham.php";
+            break;
+        case "themsp":
+            $listnsx = loadall_nhasanxuat();
+            $listpl = loadall_phanloai();
+            $listud = loadall_ud();
+            $IDmax = showIDspMax();
+
+            if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+
+                $idsp = $_POST["idsp"];
+                $idnsx = $_POST["idnsx"];
+                $idpl = $_POST["idpl"];
+                $idud = $_POST["idud"];
+                $tensp = $_POST["tensp"];
+                $giasp = $_POST["giasp"];
+                $mota = $_POST["mota"];
+                $soluongtk = $_POST["soluongtk"];
+                $hinh = $_FILES['hinh']['name'];
+                $target_dir = "../../upload/";
+                $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+                if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                    echo "The file " . htmlspecialchars(basename($_FILES["hinh"]["name"])) . " has been uploaded.";
+                } else {
+                    echo "Sorry, there was an error uploading your file.";
+                }
+                var_dump($hinh);
+                insert_sanpham($idnsx, $idpl, $idud, $tensp, $giasp, $soluongtk, $hinh, $mota);
+                $IDmax = showIDspMax();
+            }
+            // $listnsx = loadall_nhasanxuat();
+            // $listpl = loadall_phanloai();
+            // $listud = loadall_ud();
+
+            // var_dump($listdanhmuc);
+            include "./sanpham/themsp.php";
+            break;
+
+        case 'xoasp':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_sanpham($_GET['id']);
+            }
+            $listsp = loadall_sanpham("", 0);
+            include "./sanpham/listsanpham.php";
+            break;
+        case 'suasp':
+            $listnsx = loadall_nhasanxuat();
+            $listpl = loadall_phanloai();
+            $listud = loadall_ud();
+            $IDmax = showIDspMax();
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $sp = loadone_sanpham($_GET['id']);
+                extract($sp);
+
+                $idnsx_sp = $idnsx;
+                $idpl_sp = $idpl;
+                $idud_sp = $idud;
+
+                include "./sanpham/suasp.php";
+            }
+            break;
+        case "updatesp":
+
+
+            if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+
+                $idsp = $_POST["idsp"];
+                $idnsx = $_POST["idnsx"];
+                $idpl = $_POST["idpl"];
+                $idud = $_POST["idud"];
+                $tensp = $_POST["tensp"];
+                $giasp = $_POST["giasp"];
+                $mota = $_POST["mota"];
+                $soluongtk = $_POST["soluongtk"];
+                $hinh = $_FILES['hinh']['name'];
+                $target_dir = "../../upload/";
+                $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+                if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                    echo "The file " . htmlspecialchars(basename($_FILES["hinh"]["name"])) . " has been uploaded.";
+                } else {
+                    echo "Sorry, there was an error uploading your file.";
+                }
+                update_sanpham($idsp, $idnsx, $idpl, $idud, $tensp, $giasp, $soluongtk, $hinh, $mota);
+            }
+
+            header("location: index.php?act=listsp");
+            break;
+
             //controller bonhosanpham
         case "listbnsp":
 
@@ -218,30 +327,92 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             // controller Admin
         case 'listAdmin':
             $listqtv = loadall_quantrivien();
-            include "./User/listAdmin.php";
+            include "./User/Admin/listAdmin.php";
             break;
-            // case "adduser":
-            //     $listuser = loadall_nguoidung();
-            //     $IDmax = showiduserMax();
-            //     if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
-            //         $tenuser = $_POST["tenuser"];
-            //         $password = $_POST["password"];
-            //         $quyenhan = $_POST["quyenhan"];
+        case "addAdmin":
+            global $listadminfromuser;
 
-            //         insert_nguoidung($tenuser, $password, $quyenhan);
-            //         $IDmax = showiduserMax();
-            //     }
+            $listadmin = loadall_quantrivien();
+            $IDmax = showidqtvMax();
+            if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+                $iduser = $_POST["iduser"];
+                $tenqtv = $_POST["tenqtv"];
+                $email = $_POST["email"];
+                $address = $_POST["address"];
+                $sdt = $_POST["sdt"];
 
-            //     include "./User/adduser.php";
+                insert_quantrivien($iduser, $tenqtv, $email, $address, $sdt);
+                $IDmax = showidqtvMax();
+            }
 
-            //     break;
-            // case 'xoauser':
-            //     if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-            //         delete_nguoidung($_GET['id']);
-            //     }
-            //     $listuser = loadall_nguoidung();
-            //     include "./User/listuser.php";
-            //     break;
+            include "./User/Admin/addAdmin.php";
+
+            break;
+        case 'xoaAdmin':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_nguoidung($_GET['id']);
+            }
+            $listuser = loadall_nguoidung();
+            include "./User/listuser.php";
+            break;
+        case 'suaAdmin':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $admin = loadone_quantrivien($_GET['id']);
+                extract($admin);
+                $iduser_admin = $iduser;
+                include "./User/Admin/suaAdmin.php";
+            }
+            break;
+        case "updateAdmin":
+            global $listadminfromuser;
+
+            if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+                $iduser = $_POST["iduser"];
+                $idqtv = $_POST["idqtv"];
+                $tenqtv = $_POST["tenqtv"];
+                $email = $_POST["email"];
+                $address = $_POST["address"];
+                $sdt = $_POST["sdt"];
+
+                update_quantrivien($iduser, $idqtv, $tenqtv, $email, $address, $sdt);
+            }
+
+            header("location: index.php?act=listAdmin");
+            break;
+
+            // controller khách hàng
+        case 'listkh':
+            $listkh = loadall_khachhang();
+            include "./User/Khachhang/listKH.php";
+            break;
+        case "addKH":
+            global $listKHfromuser;
+
+            $listkh = loadall_khachhang();
+            $IDmax = showidkhMax();
+            if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
+                $iduser = $_POST["iduser"];
+                $tenkh = $_POST["tenkh"];
+                $email = $_POST["email"];
+                $address = $_POST["address"];
+                $sdt = $_POST["sdt"];
+
+                insert_khachhang($iduser, $tenkh, $email, $address, $sdt);
+                $IDmax = showidkhMax();
+            }
+
+            include "./User/Khachhang/addKH.php";
+
+            break;
+
+
+        case 'xoakh':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_khachhang($_GET['id']);
+            }
+            $listkh = loadall_khachhang();
+            include "./User/Khachhang/listKH.php";
+            break;
             // case 'suauser':
             //     if (isset($_GET['id']) && ($_GET['id'] > 0)) {
             //         $user = loadone_nguoidung($_GET['id']);
@@ -266,8 +437,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
 
             //     break;
-
-
             // thao tac tai khoan
         case 'login':
 

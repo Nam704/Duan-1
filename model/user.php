@@ -41,10 +41,29 @@ function update_nguoidung($id, $tenuser, $password, $quyenhan)
     $stmt->bindParam(4, $id);
 
     // Thực thi câu lệnh SQL
-    $stmt->execute();
+    // $stmt->execute();
+    pdo_execute($sql);
 }
 function showiduserMax()
 {
     $sql = "SELECT iduser FROM nguoidung ORDER BY iduser DESC LIMIT 1";
     return pdo_query_value($sql);
+}
+function selectAdmins()
+{
+    $sql = "SELECT *
+    FROM nguoidung
+    WHERE quyenhan = 1;
+    ";
+    $listadmin = pdo_query($sql);
+    return $listadmin;
+}
+function selectKH()
+{
+    $sql = "SELECT *
+    FROM nguoidung
+    WHERE quyenhan = 0;
+    ";
+    $listadmin = pdo_query($sql);
+    return $listadmin;
 }

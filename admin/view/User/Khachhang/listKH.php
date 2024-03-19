@@ -55,8 +55,8 @@
                                     <thead>
                                         <tr>
                                             <th>ID User</th>
-                                            <th>ID Admin</th>
-                                            <th>Tên Admin </th>
+                                            <th>ID Khách</th>
+                                            <th>Tên khách </th>
                                             <th>Email</th>
                                             <th>Địa chỉ</th>
                                             <th>Số điện thoại</th>
@@ -64,18 +64,22 @@
                                         </tr>
                                     </thead>
                                     <?php
-                                    foreach ($listuser as $user) {
-                                        extract($user);
-                                        $suauser = "./index.php?act=suauser&id=" . $iduser;
-                                        $xoauser = "./index.php?act=xoauser&id=" . $iduser;
+                                    foreach ($listkh as $kh) {
+                                        extract($kh);
+                                        $suauser = "./index.php?act=suakh&id=" . $idkh;
+                                        $xoauser = "./index.php?act=xoakh&id=" . $idkh;
 
                                         echo '<tbody>
                         <tr>
                             
                             <td>' . $iduser . '</td>
-                            <td>' . $tenuser . ' </td>
-                            <td>' . $password . ' </td>
-                            <td>' . $quyenhan . ' </td>
+                            <td>' . $idkh . '</td>
+
+                            <td>' . $tenkh . ' </td>
+                            <td>' . $email . ' </td>
+                            <td>' . $address . ' </td>
+                            <td>' . $sdt . ' </td>
+
                             <td>
                             <a href="' . $suauser . '">Sửa  |  </a>
                             <a href="' . $xoauser . '">Xóa</a>

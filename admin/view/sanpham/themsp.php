@@ -31,19 +31,7 @@
                             <h4 class="header-title mb-4"></h4>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
-                                    <form action="index.php?act=listsp" method="post">
-                                        <input type="text" name="kyw" style="width: 20%;float:left">
-                                        <select name="idnsx" id="" style="float:left; width: 15%;margin-bottom: 10px;font-size: 20px;">
-                                            <option value="0" selected>All</option>
-                                            <?php
-                                            foreach ($listnsx as $nsx) {
-                                                extract($nsx);
-                                                echo '<option  value="' . $idnsx . '">' . $idnsx . ' - ' . $tennsx . '</option>';
-                                            }
-                                            ?>
-                                        </select>
-                                        <input type="submit" name="listok" value="Go" style="float: left; width:10%">
-                                    </form>
+
 
                                 </table>
                             </div>
@@ -66,6 +54,7 @@
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
                                     <thead>
                                         <tr>
+
                                             <th>ID SP</th>
                                             <th>ID NSX</th>
                                             <th>Phân loại </th>
@@ -76,57 +65,68 @@
                                             <th>Số lượng tồn kho</th>
                                             <th>Hình</th>
                                             <th>Mô tả</th>
-                                            <th>Thao tác</th>
-
-
 
 
                                         </tr>
                                     </thead>
-                                    <?php
-                                    foreach ($listsp as $sp) {
-                                        extract($sp);
-                                        $hinhpath = "../../upload/" . $hinh;
-                                        if (is_file($hinhpath)) {
-                                            $hinhsp = "<img src='" . $hinhpath . "' width='100' height='80'>";
-                                        } else {
-                                            $hinhsp = "no photo";
-                                        }
-                                        $suauser = "./index.php?act=suasp&id=" . $idsp;
-                                        $xoauser = "./index.php?act=xoasp&id=" . $idsp;
+                                    <form action="index.php?act=themsp" method="post" enctype="multipart/form-data">
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="text" name="idsp" value="<?= ++$IDmax ?>" readonly style="max-width: 40px;"></td>
 
-                                        echo '<tbody>
-                        <tr>
-                            
-                            <td>' . $idsp . '</td>
-                            <td>' . $idnsx . '</td>
+                                                <td>
+                                                    <select name="idnsx">
+                                                        <?php
+                                                        foreach ($listnsx as $nsx) {
+                                                            extract($nsx);
 
-                            <td>' . $idpl . ' </td>
-                            <td>' . $idud . ' </td>
-                            <td>' . $tensp . ' </td>
-                            <td>' . $giasp . ' </td>
-                            <td>' . $soluongtk . ' </td>
-                            <td>' . $hinhsp . ' </td>
-                            <td>' . $mota . ' </td>
+                                                            echo '<option  value="' . $idnsx . '" > '  . $tennsx .  ' </option>';
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select name=" idpl">
+                                                        <?php
+                                                        foreach ($listpl as $pl) {
+                                                            extract($pl);
+                                                            echo '<option  value="' . $idpl . '" > '  . $tenpl .  ' </option>';
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select name="idud">
+                                                        <?php
+                                                        foreach ($listud as $ud) {
+                                                            extract($ud);
+                                                            echo '<option  value="' . $idud . '" > '  . $tenud .  ' </option>';
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </td>
+                                                <td><input type="text" name="tensp"></td>
+                                                <td><input type="text" name="giasp"></td>
+                                                <td><input type="text" name="soluongtk"></td>
+                                                <td><input type="file" name="hinh"></td>
+                                                <td><input type="text" name="mota"></td>
 
 
 
-                            <td>
-                            <a href="' . $suauser . '">Sửa  |  </a>
-                            <a href="' . $xoauser . '">Xóa</a>
+                                                <td>
 
-                                    </td>
-                                    <td>
-                                </td>
+                                                    <input type="submit" name="themmoi" value="Thêm">
 
-                          
-                            
-                        </tr>
-                        
-                    </tbody>';
-                                    }
-                                    ?>
 
+                                                </td>
+                                                <td>
+
+                                                </td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </form>
                                 </table>
                             </div>
                             <!-- end .table-responsive-->
