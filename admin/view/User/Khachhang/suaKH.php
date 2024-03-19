@@ -53,46 +53,54 @@
                                     <thead>
                                         <tr>
 
-                                            <th>ID User</th>
-                                            <th>Tên user</th>
-                                            <th>Mật khẩu</th>
-                                            <th>Quyền hạn</th>
-                                            <th>Thao tác</th>
+                                            <th>Tên User</th>
+                                            <th>ID KH</th>
+                                            <th>Tên KH </th>
+                                            <th>Email</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Số điện thoại</th>
+
 
                                         </tr>
                                     </thead>
-                                    <form action="index.php?act=updateuser" method="post">
+                                    <form action="index.php?act=updatekh" method="post">
                                         <tbody>
                                             <tr>
 
 
 
                                                 <td>
-                                                    <input type="hidden" name="iduser" value="<?= $iduser ?>">
-                                                    <?= $iduser ?>
+                                                    <select name="iduser">
+                                                        <?php
+                                                        foreach ($listKHfromuser as $user) {
+                                                            extract($user);
+                                                            if ($iduser == $iduser_admin)
+                                                                $s = "selected";
+                                                            else $s = "";
+
+                                                            echo '<option  value="' . $iduser . '" ' . $s . '> '  . $tenuser .  ' </option>';
+                                                        }
+                                                        ?>
+                                                    </select>
                                                 </td>
-                                                <td>
-                                                    <input type="text" name="tenuser" id=""
-                                                        placeholder="<?= $tenuser ?>">
+
+                                                <td><input type="text" name="idkh" value="<?= $idkh ?>" readonly></td>
+
+                                                <td><input type="text" name="tenkh" placeholder="<?= $tenkh ?>"></td>
+                                                <td><input type="text" name="email" placeholder="<?= $email ?>"></td>
+                                                <td><input type="text" name="address" placeholder="<?= $address ?>">
                                                 </td>
-                                                <td>
-                                                    <input type="text" name="password" id=""
-                                                        placeholder="<?= $password ?>">
-                                                </td>
-                                                <td>
-                                                    <input type="number" name="quyenhan" style="min-width:150px"
-                                                        name="quyenhan" min="0" max="1" placeholder="<?= $quyenhan ?>">
-                                                </td>
+                                                <td><input type="text" name="sdt" placeholder="<?= $sdt ?>"></td>
+
+
+
                                                 <td>
 
-                                                    <input type="submit" style="padding:0  15px;" name="themmoi"
-                                                        value="Sửa">
+                                                    <input type="submit" name="themmoi" value="Sửa">
 
 
                                                 </td>
-                                                <td>
 
-                                                </td>
 
                                             </tr>
 
@@ -120,7 +128,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                    document.write(new Date().getFullYear())
+                        document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

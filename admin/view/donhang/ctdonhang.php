@@ -54,19 +54,17 @@
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
                                     <thead>
                                         <tr>
-                                            <th>ID SPBT</th>
-                                            <th>ID idsp</th>
+                                            <th>ID CTDH</th>
+                                            <th>ID GH</th>
+                                            <th>ID ĐH</th>
 
-                                            <th>ID Màu</th>
-                                            <th>ID BNSP </th>
-                                            <th>Giá </th>
+                                            <th>ID SP</th>
+                                            <th>Giá sp </th>
 
                                             <th>Số lượng</th>
+                                            <th>Tổng giá</th>
 
-
-                                            <th>Hình</th>
-
-                                            <th>Thao tác</th>
+                                            <!-- <th>Thao tác</th> -->
 
 
 
@@ -74,45 +72,31 @@
                                         </tr>
                                     </thead>
                                     <?php
-                                    foreach ($listspbt as $spbt) {
-                                        extract($spbt);
-                                        $tenmsp = tenmsp($idmsp);
-                                        $tenbn = tenbnsp($idbnsp);
-                                        $hinhpath = "../../upload/" . $hinh;
-                                        if (is_file($hinhpath)) {
-                                            $hinhsp = "<img src='" . $hinhpath . "' width='100' height='80'>";
-                                        } else {
-                                            $hinhsp = "no photo";
-                                        }
-                                        $suauser = "./index.php?act=suaspbt&id=" . $idspbt;
-                                        $xoauser = "./index.php?act=xoaspbt&id=" . $idspbt;
-                                        // $themspbt = "./index.php?act=themspbt&id=" . $idspbt;
+                                    foreach ($listctdh as $sp) {
+                                        extract($sp);
 
                                         echo '<tbody>
-        <tr>
-            <td>' . $idspbt . '</td>
-            <td>' . $idsp . '</td>
-
-            <td>' . $tenmsp . '</td>';
+                                                    <tr>
+                                                        
+                                                        <td>' . $idctdon . '</td>
+                                                        <td>' . $idgh . '</td>';
 
                                         echo '
-            <td>' . $tenbn . ' GB</td>
-            <td>' . $gia . ' </td>
-            
-            <td>' . $soluong . ' </td>
-            <td>' . $hinhsp . ' </td>
-           
-            <td>
-            <a href="' . $suauser . '">Sửa  |  </a>
-            <a href="' . $xoauser . '">Xóa  </a>';
-
-
-                                        echo '</td>
-        </tr>
-    </tbody>';
+                                                        <td>' . $iddh . ' </td>
+                                                        <td>' . $idsp . ' </td>
+                                                        <td>' . $giasp_ctdh . ' </td>
+                                                        <td>' . $soluong . ' </td>                           
+                                                        <td>' . $tongtien . ' </td>
+                                                        <td>';
+                                        echo '
+                                                                </td>
+                                                                <td>
+                                                            </td>                                                  
+                                                    </tr>
+                        
+                                            </tbody>';
                                     }
                                     ?>
-
 
                                 </table>
                             </div>

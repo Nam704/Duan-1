@@ -33,7 +33,8 @@
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
                                     <form action="index.php?act=listsp" method="post">
                                         <input type="text" name="kyw" style="width: 20%;float:left">
-                                        <select name="idnsx" id="" style="float:left; width: 15%;margin-bottom: 10px;font-size: 20px;">
+                                        <select name="idnsx" id=""
+                                            style="float:left; width: 15%;margin-bottom: 10px;font-size: 20px;">
                                             <option value="0" selected>All</option>
                                             <?php
                                             foreach ($listnsx as $nsx) {
@@ -94,14 +95,19 @@
                                         }
                                         $suauser = "./index.php?act=suasp&id=" . $idsp;
                                         $xoauser = "./index.php?act=xoasp&id=" . $idsp;
+                                        $thembt = "./index.php?act=listbt&id=" . $idsp;
 
                                         echo '<tbody>
                         <tr>
                             
                             <td>' . $idsp . '</td>
-                            <td>' . $idnsx . '</td>
-
-                            <td>' . $idpl . ' </td>
+                            <td>' . $idnsx . '</td>';
+                                        if ($idpl == 2) {
+                                            echo ' <td> Biến thể </td>';
+                                        } else {
+                                            echo ' <td> Thường </td>';
+                                        }
+                                        echo '
                             <td>' . $idud . ' </td>
                             <td>' . $tensp . ' </td>
                             <td>' . $giasp . ' </td>
@@ -113,8 +119,11 @@
 
                             <td>
                             <a href="' . $suauser . '">Sửa  |  </a>
-                            <a href="' . $xoauser . '">Xóa</a>
-
+                            <a href="' . $xoauser . '">Xóa| </a>';
+                                        if ($idpl == 2) {
+                                            echo '<a href="' . $thembt . '">Thêm biến thể</a>';
+                                        }
+                                        echo '
                                     </td>
                                     <td>
                                 </td>
@@ -149,7 +158,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                        document.write(new Date().getFullYear())
+                    document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

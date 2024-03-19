@@ -28,7 +28,8 @@
                 </a>
             </li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarIcons" aria-expanded="false" aria-controls="sidebarIcons" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarIcons" aria-expanded="false" aria-controls="sidebarIcons"
+                    class="side-nav-link">
                     <i class="ri-pencil-ruler-2-line"></i>
                     <span> Đơn hàng </span>
                     <span class="badge bg-warning float-end">New</span>
@@ -38,7 +39,7 @@
                 <div class="collapse" id="sidebarIcons">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="icons-remixicons.html">Danh sách</a>
+                            <a href="index.php?act=listdh">Danh sách</a>
                         </li>
 
                     </ul>
@@ -47,7 +48,8 @@
 
 
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarPagesAuth" aria-expanded="false" aria-controls="sidebarPagesAuth" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarPagesAuth" aria-expanded="false"
+                    aria-controls="sidebarPagesAuth" class="side-nav-link">
                     <i class="ri-group-2-line"></i>
                     <span> Người dùng </span>
                     <span class="menu-arrow"></span>
@@ -57,7 +59,8 @@
 
                         <li>
                         <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarMaps" aria-expanded="false" aria-controls="sidebarMaps" class="side-nav-link">
+                            <a data-bs-toggle="collapse" href="#sidebarMaps" aria-expanded="false"
+                                aria-controls="sidebarMaps" class="side-nav-link">
                                 <span> Danh sách </span>
                                 <span class="menu-arrow"></span>
                             </a>
@@ -79,7 +82,8 @@
             </li>
             <li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarSecondLevel" aria-expanded="false" aria-controls="sidebarSecondLevel">
+                <a data-bs-toggle="collapse" href="#sidebarSecondLevel" aria-expanded="false"
+                    aria-controls="sidebarSecondLevel">
 
                     <span> Thêm mới </span>
                     <span class="menu-arrow"></span>
@@ -119,7 +123,8 @@
     </li>
 
     <li class="side-nav-item">
-        <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">
+        <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts"
+            class="side-nav-link">
             <i class="ri-layout-line"></i>
             <span> Sản phẩm </span>
             <span class="menu-arrow"></span>
@@ -131,6 +136,12 @@
                     <a href="index.php?act=listsp" target="_blank">Danh sách</a>
                 </li>
                 <li>
+                    <a href="index.php?act=listspbt" target="_blank">Danh sách spbt</a>
+                </li>
+                <li>
+                    <a href="index.php?act=themspbt" target="_blank">Thêm spbt</a>
+                </li>
+                <li>
                     <a href="index.php?act=themsp" target="_blank">Thêm sản phẩm</a>
                 </li>
 
@@ -140,7 +151,8 @@
 
     <!-- <li class="side-nav-title">Components</li> -->
     <li class="side-nav-item">
-        <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
+        <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages"
+            class="side-nav-link">
             <i class="ri-pages-line"></i>
             <span> Nhà sản xuất </span>
             <span class="menu-arrow"></span>
@@ -155,11 +167,13 @@
                 </li>
 
 
+
             </ul>
         </div>
     </li>
     <li class="side-nav-item">
-        <a data-bs-toggle="collapse" href="#sidebarBaseUI" aria-expanded="false" aria-controls="sidebarBaseUI" class="side-nav-link">
+        <a data-bs-toggle="collapse" href="#sidebarBaseUI" aria-expanded="false" aria-controls="sidebarBaseUI"
+            class="side-nav-link">
             <i class="ri-briefcase-line"></i>
             <span> Bộ nhớ sản phẩm </span>
             <span class="menu-arrow"></span>
@@ -178,7 +192,8 @@
     </li>
 
     <li class="side-nav-item">
-        <a data-bs-toggle="collapse" href="#sidebarExtendedUI" aria-expanded="false" aria-controls="sidebarExtendedUI" class="side-nav-link">
+        <a data-bs-toggle="collapse" href="#sidebarExtendedUI" aria-expanded="false" aria-controls="sidebarExtendedUI"
+            class="side-nav-link">
             <i class="ri-compasses-2-line"></i>
             <span> Màu sản phẩm </span>
             <span class="menu-arrow"></span>
@@ -198,7 +213,8 @@
 
 
     <li class="side-nav-item">
-        <a data-bs-toggle="collapse" href="#sidebarCharts" aria-expanded="false" aria-controls="sidebarCharts" class="side-nav-link">
+        <a data-bs-toggle="collapse" href="#sidebarCharts" aria-expanded="false" aria-controls="sidebarCharts"
+            class="side-nav-link">
             <i class="ri-donut-chart-fill"></i>
             <span> Thống kê </span>
             <span class="menu-arrow"></span>

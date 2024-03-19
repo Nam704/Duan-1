@@ -54,75 +54,76 @@
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
                                     <thead>
                                         <tr>
-
+                                            <th>ID SPBT</th>
                                             <th>ID SP</th>
-                                            <th>ID NSX</th>
-                                            <th>Phân loại </th>
-                                            <th>ID ưu đãi </th>
+                                            <th>ID Màu</th>
+                                            <th>ID BNSP </th>
+                                            <th>Giá </th>
 
-                                            <th>Tên sản phẩm</th>
-                                            <th>Giá</th>
-                                            <th>Số lượng tồn kho</th>
+                                            <th>Số lượng</th>
+
+
                                             <th>Hình</th>
-                                            <th>Mô tả</th>
+
+                                            <th>Thao tác</th>
 
 
                                         </tr>
                                     </thead>
-                                    <form action="index.php?act=updatesp" method="post" enctype="multipart/form-data">
+                                    <form action="index.php?act=updatespbt" method="post" enctype="multipart/form-data">
                                         <tbody>
                                             <tr>
-                                                <td><input type="text" name="idsp" value="<?= $idsp ?>" readonly style="max-width: 40px;"></td>
-
+                                                <td><input type="text" name="idspbt" value="<?= $idspbt ?>" readonly
+                                                        style="max-width: 40px;"></td>
                                                 <td>
-                                                    <select name="idnsx">
+                                                    <select name="idsp">
                                                         <?php
-                                                        foreach ($listnsx as $nsx) {
-                                                            extract($nsx);
+                                                        foreach ($listsp as $sp) {
+                                                            extract($sp);
 
-                                                            if ($idnsx == $idnsx_sp)
+                                                            if ($idsp == $idsp_spbt)
                                                                 $s = "selected";
                                                             else $s = "";
 
-                                                            echo '<option  value="' . $idnsx . '" ' . $s . '> '  . $tennsx .  ' </option>';
+                                                            echo '<option  value="' . $idsp . '" ' . $s . '> '  . $tensp .  ' </option>';
                                                         }
                                                         ?>
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <select name=" idpl">
+                                                    <select name="idmsp">
                                                         <?php
-                                                        foreach ($listpl as $pl) {
-                                                            extract($pl);
-                                                            if ($idpl == $idpl_sp)
+                                                        foreach ($listmsp as $msp) {
+                                                            extract($msp);
+
+                                                            if ($idmsp == $idmsp_spbt)
                                                                 $s = "selected";
                                                             else $s = "";
 
-                                                            echo '<option  value="' . $idpl . '" ' . $s . '> '  . $tenpl .  ' </option>';
+                                                            echo '<option  value="' . $idmsp . '" ' . $s . '> '  . $tenmausp .  ' </option>';
                                                         }
                                                         ?>
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <select name="idud">
+                                                    <select name="idbnsp">
                                                         <?php
-                                                        foreach ($listud as $ud) {
-                                                            extract($ud);
-                                                            if ($idud == $idud_sp)
+                                                        foreach ($listbnsp as $bnsp) {
+                                                            extract($bnsp);
+                                                            if ($idbnsp == $idbnsp_spbt)
                                                                 $s = "selected";
                                                             else $s = "";
 
-                                                            echo '<option  value="' . $idud . '" ' . $s . '> '  . $tenud .  ' </option>';
+                                                            echo '<option  value="' . $idbnsp . '" ' . $s . '> '  . $kichthuoc .  ' </option>';
                                                         }
                                                         ?>
                                                     </select>
                                                 </td>
-                                                <td><input type="text" name="tensp" placeholder="<?= $tensp ?>"></td>
-                                                <td><input type="text" name="giasp" placeholder="<?= $giasp ?>"></td>
-                                                <td><input type="text" name="soluongtk" placeholder="<?= $soluongtk ?>">
+
+                                                <td><input type="text" name="giasp" placeholder="<?= $gia ?>"></td>
+                                                <td><input type="text" name="soluong" placeholder="<?= $soluong ?>">
                                                 </td>
                                                 <td><input type="file" name="hinh"></td>
-                                                <td><input type="text" name="mota" placeholder="<?= $mota ?>"></td>
 
 
 
@@ -162,7 +163,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                        document.write(new Date().getFullYear())
+                    document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

@@ -55,61 +55,66 @@
                                     <thead>
                                         <tr>
 
+                                            <th>ID SPBT</th>
                                             <th>ID SP</th>
-                                            <th>ID NSX</th>
-                                            <th>Phân loại </th>
-                                            <th>ID ưu đãi </th>
 
-                                            <th>Tên sản phẩm</th>
-                                            <th>Giá</th>
-                                            <th>Số lượng tồn kho</th>
+                                            <th>ID Màu</th>
+                                            <th>ID BNSP </th>
+                                            <th>Giá </th>
+
+                                            <th>Số lượng</th>
+
+
                                             <th>Hình</th>
-                                            <th>Mô tả</th>
+
+                                            <th>Thao tác</th>
+
 
 
                                         </tr>
                                     </thead>
-                                    <form action="index.php?act=themsp" method="post" enctype="multipart/form-data">
+                                    <form action="index.php?act=themspbt" method="post" enctype="multipart/form-data">
                                         <tbody>
                                             <tr>
-                                                <td><input type="text" name="idsp" value="<?= ++$IDmax ?>" readonly style="max-width: 40px;"></td>
-
+                                                <td><input type="text" name="idspbt" value="<?= ++$IDmax ?>" readonly
+                                                        style="max-width: 40px;"></td>
                                                 <td>
-                                                    <select name="idnsx">
+                                                    <select name="idsp">
                                                         <?php
-                                                        foreach ($listnsx as $nsx) {
+                                                        foreach ($listsp as $nsx) {
                                                             extract($nsx);
 
-                                                            echo '<option  value="' . $idnsx . '" > '  . $tennsx .  ' </option>';
+                                                            echo '<option  value="' . $idsp . '" >' . $idsp . ' - '  . $tensp .  ' </option>';
                                                         }
                                                         ?>
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <select name=" idpl">
+                                                    <select name="idmsp">
                                                         <?php
-                                                        foreach ($listpl as $pl) {
+                                                        foreach ($listmsp as $nsx) {
+                                                            extract($nsx);
+
+                                                            echo '<option  value="' . $idmsp . '" >' . $idmsp . ' - '  . $tenmausp .  ' </option>';
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select name="idbnsp">
+                                                        <?php
+                                                        foreach ($listbnsp as $pl) {
                                                             extract($pl);
-                                                            echo '<option  value="' . $idpl . '" > '  . $tenpl .  ' </option>';
+                                                            echo '<option  value="' . $idbnsp . '" > '  . $kichthuoc .  ' </option>';
                                                         }
                                                         ?>
                                                     </select>
                                                 </td>
-                                                <td>
-                                                    <select name="idud">
-                                                        <?php
-                                                        foreach ($listud as $ud) {
-                                                            extract($ud);
-                                                            echo '<option  value="' . $idud . '" > '  . $tenud .  ' </option>';
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </td>
-                                                <td><input type="text" name="tensp"></td>
-                                                <td><input type="text" name="giasp"></td>
-                                                <td><input type="text" name="soluongtk"></td>
+
+
+                                                <td><input type="text" name="gia"></td>
+                                                <td><input type="text" name="soluong"></td>
                                                 <td><input type="file" name="hinh"></td>
-                                                <td><input type="text" name="mota"></td>
 
 
 
@@ -149,7 +154,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                        document.write(new Date().getFullYear())
+                    document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

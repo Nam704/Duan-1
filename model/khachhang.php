@@ -15,34 +15,33 @@ function loadall_khachhang()
     $listkh = pdo_query($sql);
     return $listkh;
 }
-// function loadone_khachhang($id)
-// {
-//     $sql = "select *from khachhang where idqtv=" . $id;
-//     $user = pdo_query_one($sql);
-//     return $user;
-// }
-// function update_khachhang($id, $tenkh,$password,$quyenhan)
-// {
-//     $sql = "update khachhang set tenkh='" . $tenkh . "' where idqtv=" . $id;
-//     pdo_execute($sql);
-// }
-// function update_khachhang($id, $tenkh, $password, $quyenhan)
-// {
-//     // Sử dụng Prepared Statement để ngăn chặn SQL Injection
-//     $sql = "UPDATE khachhang SET tenkh = ?, password = ?, quyenhan = ? WHERE idqtv = ?";
+function loadone_khachhang($id)
+{
+    $sql = "select *from khachhang where idkh=" . $id;
+    $user = pdo_query_one($sql);
+    return $user;
+}
+function update_kh($iduser, $idkh, $tenkh, $email, $address, $sdt)
+{
+    // Sử dụng Prepared Statement để ngăn chặn SQL Injection
+    $sql = "UPDATE khachhang SET tenkh = ?, email = ?, address = ?, sdt = ?, iduser = ? WHERE idkh = ?";
 
-//     // Chuẩn bị câu lệnh SQL
-//     $stmt = pdo_get_connection()->prepare($sql);
+    // Chuẩn bị câu lệnh SQL
+    $stmt = pdo_get_connection()->prepare($sql);
 
-//     // Bind các giá trị vào câu lệnh SQL
-//     $stmt->bindParam(1, $tenkh);
-//     $stmt->bindParam(2, $password);
-//     $stmt->bindParam(3, $quyenhan);
-//     $stmt->bindParam(4, $id);
+    // Bind các giá trị vào câu lệnh SQL
+    $stmt->bindParam(1, $tenkh);
+    $stmt->bindParam(2, $email);
+    $stmt->bindParam(3, $address);
+    $stmt->bindParam(4, $sdt);
+    $stmt->bindParam(5, $iduser);
 
-//     // Thực thi câu lệnh SQL
-//     $stmt->execute();
-// }
+    $stmt->bindParam(6, $idkh);
+
+
+    // Thực thi câu lệnh SQL
+    $stmt->execute();
+}
 function showidkhMax()
 {
     $sql = "SELECT idkh FROM khachhang ORDER BY idkh DESC LIMIT 1";
