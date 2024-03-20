@@ -49,6 +49,12 @@ function showiduserMax()
     $sql = "SELECT iduser FROM nguoidung ORDER BY iduser DESC LIMIT 1";
     return pdo_query_value($sql);
 }
+function check_taikhoan($username, $password)
+{
+    $sql = "select * from nguoidung where tenuser='" . $username . "' and password='" . $password . "'";
+    $sp = pdo_query_one($sql);
+    return $sp;
+}
 function selectAdmins()
 {
     $sql = "SELECT *

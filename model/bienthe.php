@@ -46,6 +46,15 @@ INNER JOIN mausanpham m ON sb.idmsp = m.idmsp
 WHERE sb.idmsp = '$idmsp'";
     return pdo_query_value($sql);
 }
+function selectspbt($id)
+{
+    $sql = "SELECT *
+FROM spbienthe
+WHERE idsp = $id;
+";
+    $listadmin = pdo_query($sql);
+    return $listadmin;
+}
 function tenbnsp($idbnsp)
 {
     $sql = "  SELECT m.kichthuoc

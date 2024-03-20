@@ -367,7 +367,7 @@
                                 <img src="assets/images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
                             </span>
                             <span class="d-lg-block d-none">
-                                <h5 class="my-0 fw-normal">Thomson <i class="ri-arrow-down-s-line d-none d-sm-inline-block align-middle"></i></h5>
+                                <h5 class="my-0 fw-normal"><?= $_SESSION['user']['tenuser'] ?> <i class="ri-arrow-down-s-line d-none d-sm-inline-block align-middle"></i></h5>
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
@@ -401,7 +401,7 @@
                             </a>
 
                             <!-- item-->
-                            <a href="auth-logout-2.html" class="dropdown-item">
+                            <a href="index.php?act=logout" class="dropdown-item">
                                 <i class="ri-logout-box-line fs-18 align-middle me-1"></i>
                                 <span>Logout</span>
                             </a>

@@ -105,17 +105,13 @@
                 </div>
             </li>
             </li>
+
+
             <li>
-                <a href="index.php?act=login">Login</a>
+                <a href="index.php?act=logout">Đăng xuất</a>
             </li>
             <li>
-                <a href="index.php?act=dangki">Register</a>
-            </li>
-            <li>
-                <a href="index.php?act=logout">Logout</a>
-            </li>
-            <li>
-                <a href="index.php?act=forgotpass">Forgot Password</a>
+                <a href="index.php?act=forgotpass">Quên mật khẩu</a>
             </li>
 
         </ul>

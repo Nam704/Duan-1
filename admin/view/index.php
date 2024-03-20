@@ -1,6 +1,6 @@
 <?php
 ob_start();
-
+session_start();
 include "../../../../Duan1/Duan-1/model/pdo.php";
 include "../../../../Duan1/Duan-1/model/nhasanxuat.php";
 include "../../../../Duan1/Duan-1/model/bonhosp.php";
@@ -175,7 +175,26 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             header("location: index.php?act=listsp");
             break;
             // mở rộng sản phẩm biến thể
+        case 'listbt':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $sanpham = loadone_sanpham($_GET['id']);
+                extract($sanpham);
+                // var_dump($iddh);
+                $listbt = selectspbt($idsp);
+                // var_dump($listctdh);
+                foreach ($listbt as $bt) {
+                    extract($bt);
+                    $giasp_ctdh = (float)laygiasp($idsp);
+                    $tongtien = number_format($giasp_ctdh * $soluong, 2);
+                }
 
+
+
+                include "./donhang/ctdonhang.php";
+            }
+
+            break;
+            break;
         case 'listspbt':
             $listmsp = loadall_mausanpham();
             $listbnsp = loadall_bonhosp();
@@ -575,25 +594,66 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             //     break;
             // thao tac tai khoan
-        case 'login':
+            // case "quenmk":
+            //     if (isset($_POST["capmk"]) && ($_POST["capmk"])) {
 
-            ob_clean();
+            //         $email = $_POST['email'];
+            //         $username = $_POST['username'];
+            //         $check_email = check_email_taikhoan($email);
+            //         if (is_array($check_email)) {
+            //             $password_new = $random_number = rand(1000, 9999);
+            //             $update_password = update_password($email, $password_new);
+            //             $_SESSION['user'] = check_taikhoan($username, $password_new);
+            //         }
+            //     }
+            //     include "view/taikhoan/quenmk.php";
+            //     break;
+            // case "dangki":
+            //     if (isset($_POST["dangki"]) && ($_POST["dangki"])) {
+            //         $username = $_POST['username'];
+            //         $password = $_POST['password'];
+            //         $taikhoan = insert_taikhoan($username, $password);
 
-            header("Location: ./User/login.php");
-            exit;
-            break;
-
-        case 'dangki':
-            include "User/register.php";
+            //         $thongbao = "thanh cong";
+            //     }
+            //     include "view/taikhoan/dangki.php";
+            //     break;
+        case "dangnhap":
+            if (isset($_POST["login"])) {
+                $username = $_POST['username'];
+                $password = $_POST['pass'];
+                $check_tk = check_taikhoan($username, $password);
+                if (is_array($check_tk)) {
+                    $_SESSION['user'] = $check_tk;
+                    header('location: index.php');
+                    $_SESSION['thongbao'] = "";
+                    include "home.php";
+                } else {
+                    session_start();
+                    $_SESSION['thongbao'] = "Sai tài khoản hoặc mật khẩu";
+                    header('location: User/login.php');
+                }
+            }
 
             break;
         case 'logout':
+
+            // ob_clean();
+
+            header("Location: ./User/login.php");
+
+            exit;
+            break;
+
+
+        case 'login':
             include "User/logout.php";
 
             break;
         case 'forgotpass':
-            include "User/quenmatkhau.php";
+            header("Location: ./User/quenmatkhau.php");
 
+            exit;
             break;
     }
 } else {
