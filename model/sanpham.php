@@ -53,7 +53,6 @@ function loadall_ud()
 }
 
 
-
 // function loadall_sanpham_home()
 // {
 //     $sql = "select * from sanpham where 1 order by id desc limit 0,9";
@@ -111,4 +110,22 @@ function showidspMax()
 {
     $sql = "SELECT idsp FROM sanpham ORDER BY idsp DESC LIMIT 1";
     return pdo_query_value($sql);
+}
+function tennsx($idnsx)
+{
+    $sql = "  SELECT m.tennsx
+FROM sanpham sb
+INNER JOIN nhasanxuat m ON sb.idnsx = m.idnsx
+WHERE sb.idnsx = '$idnsx'";
+    return pdo_query_value($sql);
+}
+function khoa_sp($id)
+{
+    $sql = "update sanpham set trangthai=1 where idsp=" . $id;
+    pdo_execute($sql);
+}
+function mokhoa_sp($id)
+{
+    $sql = "update sanpham set trangthai=0 where idsp=" . $id;
+    pdo_execute($sql);
 }

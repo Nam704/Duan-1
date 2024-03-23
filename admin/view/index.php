@@ -93,6 +93,19 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $listsp = loadall_sanpham($kyw, $iddm);
             include "./sanpham/listsanpham.php";
             break;
+        case "listspdb":
+            if (isset($_POST["listok"]) && ($_POST["listok"])) {
+                $kyw = $_POST['kyw'];
+                $iddm = $_POST['idnsx'];
+            } else {
+                $kyw = "";
+                $iddm = 0;
+            }
+            $listnsx = loadall_nhasanxuat();
+
+            $listsp = loadall_sanpham($kyw, $iddm);
+            include "./sanpham/listspdungban.php";
+            break;
         case "themsp":
             $listnsx = loadall_nhasanxuat();
             $listpl = loadall_phanloai();
@@ -101,7 +114,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
 
-                $idsp = $_POST["idsp"];
+                // $idsp = $_POST["idsp"];
                 $idnsx = $_POST["idnsx"];
                 $idpl = $_POST["idpl"];
                 $idud = $_POST["idud"];
@@ -124,13 +137,29 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             include "./sanpham/themsp.php";
             break;
+        case 'chitietsp':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $sanpham =  loadone_sanpham($_GET['id']);
+                extract($sanpham);
+                $tennsx = tennsx($idnsx);
+                $listspbt = selectspbt($idsp);
+            }
 
+            include "./sanpham/chitietsp.php";
+            break;
         case 'xoasp':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                delete_sanpham($_GET['id']);
+                khoa_sp($_GET['id']);
             }
             $listsp = loadall_sanpham("", 0);
             include "./sanpham/listsanpham.php";
+            break;
+        case 'mokhoasp':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                mokhoa_sp($_GET['id']);
+            }
+            $listsp = loadall_sanpham("", 0);
+            include "./sanpham/listspdungban.php";
             break;
         case 'suasp':
             $listnsx = loadall_nhasanxuat();
@@ -175,55 +204,41 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             header("location: index.php?act=listsp");
             break;
             // mở rộng sản phẩm biến thể
-        case 'listbt':
+
+        case 'listbtfromsp':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $sanpham = loadone_sanpham($_GET['id']);
                 extract($sanpham);
-                // var_dump($iddh);
-                $listbt = selectspbt($idsp);
-                // var_dump($listctdh);
-                foreach ($listbt as $bt) {
-                    extract($bt);
-                    $giasp_ctdh = (float)laygiasp($idsp);
-                    $tongtien = number_format($giasp_ctdh * $soluong, 2);
-                }
+                // $listmsp = loadall_mausanpham();
+                // $listbnsp = loadall_bonhosp();
+                // $listud = loadall_ud();
+                // $IDmax = showIDspMax();
 
+                $listspbt = selectspbt($_GET['id']);
 
-
-                include "./donhang/ctdonhang.php";
+                include "./sanpham/spbienthe/listspbt.php";
             }
 
             break;
-            break;
-        case 'listspbt':
-            $listmsp = loadall_mausanpham();
-            $listbnsp = loadall_bonhosp();
-            $listud = loadall_ud();
-            $IDmax = showIDspMax();
-
-            $listspbt = loadall_spbienthe();
-
-            include "./sanpham/spbienthe/listspbt.php";
-
-            break;
 
 
-        case "themspbt":
-            $listsp = loadall_sanpham("", 0);
-            $listmsp = loadall_mausanpham();
-            $listbnsp = loadall_bonhosp();
-            // $listud = loadall_ud();
-            $IDmax = showIDspbtMax();
-
+        case "thembttheosp":
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $sanpham = loadone_sanpham($_GET['id']);
+                extract($sanpham);
+                $listsp = loadall_sanpham("", 0);
+                $listmsp = loadall_mausanpham();
+                $listbnsp = loadall_bonhosp();
+                // $listud = loadall_ud();
+                // $IDmax = showIDspbtMax();
+            }
             if (isset($_POST["themmoi"]) && ($_POST["themmoi"])) {
                 $idsp = $_POST["idsp"];
-                $idspbt = $_POST["idspbt"];
+                // $idspbt = $_POST["idspbt"];
                 $idmsp = $_POST["idmsp"];
                 $idbnsp = $_POST["idbnsp"];
-                $gia = $_POST["gia"];
+                $gia = $_POST["giasp"];
                 $soluong = $_POST["soluong"];
-
-
                 $hinh = $_FILES['hinh']['name'];
                 $target_dir = "../../upload/";
                 $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
@@ -232,10 +247,13 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 } else {
                     echo "Sorry, there was an error uploading your file.";
                 }
-                var_dump($hinh);
+                // var_dump($hinh);
                 insert_spbienthe($idmsp, $idbnsp, $idsp, $gia, $soluong, $hinh);
                 $IDmax = showIDspbtMax();
+
+                // include "./sanpham/spbienthe/themspbt.php";
             }
+
             include "./sanpham/spbienthe/themspbt.php";
 
             break;
@@ -296,9 +314,16 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             include "./donhang/listdonhang.php";
             break;
-        case 'xoadh':
+        case 'chapnhandh':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                delete_donhang($_GET['id']);
+                chapnhan($_GET['id']);
+            }
+            $listdh = loadall_donhang();
+            include "./donhang/listdonhang.php";
+            break;
+        case 'tuchoidh':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                tuchoi($_GET['id']);
             }
             $listdh = loadall_donhang();
             include "./donhang/listdonhang.php";
@@ -307,6 +332,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $donhang = loadone_donhang($_GET['id']);
                 extract($donhang);
+                $madonhang = taomadonhang($iddh, $iduser);
                 // var_dump($iddh);
                 $listctdh = selectctdh($iddh);
                 // var_dump($listctdh);
@@ -429,6 +455,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $listuser = loadall_nguoidung();
             include "User/listuser.php";
             break;
+        case 'listuserbikhoa':
+            $listuser = loadall_nguoidung();
+            include "User/listuserbikhoa.php";
+            break;
         case "adduser":
             $listuser = loadall_nguoidung();
             $IDmax = showiduserMax();
@@ -444,9 +474,16 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "./User/adduser.php";
 
             break;
-        case 'xoauser':
+        case 'khoauser':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                delete_nguoidung($_GET['id']);
+                khoa_nguoidung($_GET['id']);
+            }
+            $listuser = loadall_nguoidung();
+            include "./User/listuser.php";
+            break;
+        case 'mokhoauser':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                mokhoa_nguoidung($_GET['id']);
             }
             $listuser = loadall_nguoidung();
             include "./User/listuser.php";
@@ -456,6 +493,13 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $user = loadone_nguoidung($_GET['id']);
                 extract($user);
                 include "./User/suauser.php";
+            }
+            break;
+        case 'DSdonhangfromuser':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $listdh = donhangfromnguoidung($_GET['id']);
+                extract($listdh);
+                include "./donhang/listdonhang.php";
             }
             break;
         case "updateuser":
@@ -502,7 +546,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         case 'xoaAdmin':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                delete_nguoidung($_GET['id']);
+                // delete_nguoidung($_GET['id']);
             }
             $listuser = loadall_nguoidung();
             include "./User/listuser.php";

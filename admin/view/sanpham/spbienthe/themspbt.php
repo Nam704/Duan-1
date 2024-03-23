@@ -32,7 +32,10 @@
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
 
+                                    <a href="./index.php?act=listbtfromsp&id=<?= $idsp ?>">
+                                        <input class="btn btn-soft-primary w-100" type="button" value="Danh sách">
 
+                                    </a>
                                 </table>
                             </div>
                             <!-- end .table-responsive-->
@@ -55,82 +58,68 @@
                                     <thead>
                                         <tr>
 
-                                            <th>ID SPBT</th>
-                                            <th>ID SP</th>
+                                            <th>Tên sản phẩm</th>
+                                            <th>Màu sản phẩm</th>
 
-                                            <th>ID Màu</th>
-                                            <th>ID BNSP </th>
-                                            <th>Giá </th>
+                                            <th>Bộ nhớ</th>
 
-                                            <th>Số lượng</th>
-
-
-                                            <th>Hình</th>
-
-                                            <th>Thao tác</th>
 
 
 
                                         </tr>
                                     </thead>
-                                    <form action="index.php?act=themspbt" method="post" enctype="multipart/form-data">
+                                    <form action="index.php?act=thembttheosp&id=<?= $idsp ?>" method="post" enctype="multipart/form-data">
+
                                         <tbody>
                                             <tr>
-                                                <td><input type="text" name="idspbt" value="<?= ++$IDmax ?>" readonly
-                                                        style="max-width: 40px;"></td>
-                                                <td>
-                                                    <select name="idsp">
-                                                        <?php
-                                                        foreach ($listsp as $nsx) {
-                                                            extract($nsx);
 
-                                                            echo '<option  value="' . $idsp . '" >' . $idsp . ' - '  . $tensp .  ' </option>';
+                                                <td>
+                                                    <input class="form-control" type="hidden" name="idsp" value="<?= $idsp ?>">
+                                                    <input class="form-control" type="text" name="tensp" id="" readonly value="<?= $tensp ?>">
+                                                </td>
+                                                <td>
+                                                    <select name="idmsp" class="form-control">
+                                                        <?php
+                                                        foreach ($listmsp as $msp) {
+                                                            extract($msp);
+                                                            echo '<option  value="' . $idmsp . '"> '  . $tenmausp .  ' </option>';
                                                         }
                                                         ?>
                                                     </select>
                                                 </td>
-                                                <td>
-                                                    <select name="idmsp">
+                                                <td><select name="idbnsp" class="form-control">
                                                         <?php
-                                                        foreach ($listmsp as $nsx) {
-                                                            extract($nsx);
-
-                                                            echo '<option  value="' . $idmsp . '" >' . $idmsp . ' - '  . $tenmausp .  ' </option>';
+                                                        foreach ($listbnsp as $bnsp) {
+                                                            extract($bnsp);
+                                                            echo '<option  value="' . $idbnsp . '"> '  . $kichthuoc .  ' </option>';
                                                         }
                                                         ?>
-                                                    </select>
-                                                </td>
+                                                    </select></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Giá sản phẩm</th>
+                                                <th>Số lượng </th>
+                                                <th>Hình</th>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="form-control" type="number" name="giasp" id=""></td>
+                                                <td><input class="form-control" type="number" name="soluong" id=""></td>
+                                                <td><input class="form-control" type="file" name="hinh" id=""></td>
+                                            </tr>
+
+
+
+                                            <tr>
                                                 <td>
-                                                    <select name="idbnsp">
-                                                        <?php
-                                                        foreach ($listbnsp as $pl) {
-                                                            extract($pl);
-                                                            echo '<option  value="' . $idbnsp . '" > '  . $kichthuoc .  ' </option>';
-                                                        }
-                                                        ?>
-                                                    </select>
+                                                    <input class="btn btn-soft-primary w-100" type="submit" name="themmoi" value="Thêm">
                                                 </td>
 
-
-                                                <td><input type="text" name="gia"></td>
-                                                <td><input type="text" name="soluong"></td>
-                                                <td><input type="file" name="hinh"></td>
-
-
-
-                                                <td>
-
-                                                    <input type="submit" name="themmoi" value="Thêm">
-
-
-                                                </td>
-                                                <td>
-
-                                                </td>
 
                                             </tr>
 
                                         </tbody>
+
+
                                     </form>
                                 </table>
                             </div>
@@ -154,7 +143,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                    document.write(new Date().getFullYear())
+                        document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

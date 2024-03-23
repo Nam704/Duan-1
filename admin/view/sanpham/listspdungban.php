@@ -18,7 +18,7 @@
                                 <li class="breadcrumb-item active">Editable Table</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Editable Table</h4>
+                        <h4 class="page-title">Sản phẩm đã dừng bán</h4>
                     </div>
                 </div>
             </div>
@@ -33,8 +33,7 @@
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
 
                                     <a href="./index.php?act=themsp">
-                                        <input class="btn btn-soft-primary w-100" type="button"
-                                            value="Thêm sản phẩm mới">
+                                        <input class="btn btn-soft-primary w-100" type="button" value="Thêm sản phẩm mới">
 
                                     </a>
                                 </table>
@@ -59,10 +58,8 @@
                             <section class="table-responsive">
                                 <form action="index.php?act=listsp" method="post">
                                     <input type="text" name="kyw" style="width: 20%;float:left">
-                                    <select name="idnsx" id=""
-                                        style="float:left; width: 15%;margin-bottom: 10px;padding: 0.3% ;font-size: 17px;">
-                                        <option class="btn btn-soft-primary" style="font-size: 17px;" value="0"
-                                            selected>All</option>
+                                    <select name="idnsx" id="" style="float:left; width: 15%;margin-bottom: 10px;padding: 0.3% ;font-size: 17px;">
+                                        <option class="btn btn-soft-primary" style="font-size: 17px;" value="0" selected>All</option>
                                         <?php
                                         foreach ($listnsx as $nsx) {
                                             extract($nsx);
@@ -103,84 +100,84 @@
                                     foreach ($listsp as $sp) {
                                         ++$dem;
                                         extract($sp);
-                                        if ($trangthai==0) {
+                                        if ($trangthai == 1) {
                                             # code...
-                                        
-                                        $tennsx = tennsx($idnsx);
-                                        $soluong = soluong($idsp);
 
-                                        $soluongtk = 0;
-                                        foreach ($soluong as $key) {
-                                            $soluongtk += $key["soluong"];
-                                        }
+                                            $tennsx = tennsx($idnsx);
+                                            $soluong = soluong($idsp);
 
-                                        $hinhpath = "../../upload/" . $hinh;
-                                        if (is_file($hinhpath)) {
-                                            $hinhsp = "<img src='" . $hinhpath . "' width='100' height='80'>";
-                                        } else {
-                                            $hinhsp = "no photo";
-                                        }
-                                        $suasp = "./index.php?act=suasp&id=" . $idsp;
-                                        $khoasp = "./index.php?act=xoasp&id=" . $idsp;
-                                        $chitietsp = "./index.php?act=chitietsp&id=" . $idsp;
+                                            $soluongtk = 0;
+                                            foreach ($soluong as $key) {
+                                                $soluongtk += $key["soluong"];
+                                            }
 
-                                        $thembttheosp = "./index.php?act=thembttheosp&id=" . $idsp;
-                                        $hiendsbttheosp = "./index.php?act=listbtfromsp&id=" . $idsp;
-                                        echo '<tr>';
-                                        echo '<td>' . $dem . '</td>';
-                                        echo '<td>' . $tennsx . '</td>';
-                                        if ($idpl == 2) {
-                                            echo '<td> <a href="' . $hiendsbttheosp . '">
+                                            $hinhpath = "../../upload/" . $hinh;
+                                            if (is_file($hinhpath)) {
+                                                $hinhsp = "<img src='" . $hinhpath . "' width='100' height='80'>";
+                                            } else {
+                                                $hinhsp = "no photo";
+                                            }
+                                            $suasp = "./index.php?act=suasp&id=" . $idsp;
+                                            $mokhoasp = "./index.php?act=mokhoasp&id=" . $idsp;
+                                            $chitietsp = "./index.php?act=chitietsp&id=" . $idsp;
+
+                                            $thembttheosp = "./index.php?act=thembttheosp&id=" . $idsp;
+                                            $hiendsbttheosp = "./index.php?act=listbtfromsp&id=" . $idsp;
+                                            echo '<tr>';
+                                            echo '<td>' . $dem . '</td>';
+                                            echo '<td>' . $tennsx . '</td>';
+                                            if ($idpl == 2) {
+                                                echo '<td> <a href="' . $hiendsbttheosp . '">
                                         <input class="btn btn-soft-primary" type="button" value="Biến thể">
                                         </a> </td>';
-                                        } else {
-                                            echo '<td> Thường </td>';
-                                        }
+                                            } else {
+                                                echo '<td> Thường </td>';
+                                            }
 
-                                        // echo '<td>' . $idud . ' </td>';
-                                        if ($idpl == 2) {
-                                            echo '<td> <a href="' . $hiendsbttheosp . '">' . $tensp . '</a> </td>';
-                                        } else {
-                                            echo '<td> ' . $tensp . ' </td>';
-                                        }
-                                        echo '<td>' . $giasp . ' </td>';
-                                        echo '<td>' . $soluongtk . ' </td>';
-                                        if ($idpl == 2) {
-                                            echo '<td> <a href="' . $hiendsbttheosp . '">' . $hinhsp . '</a> </td>';
-                                        } else {
-                                            echo '<td>' . $hinhsp . ' </td>';
-                                        }
+                                            // echo '<td>' . $idud . ' </td>';
+                                            if ($idpl == 2) {
+                                                echo '<td> <a href="' . $hiendsbttheosp . '">' . $tensp . '</a> </td>';
+                                            } else {
+                                                echo '<td> ' . $tensp . ' </td>';
+                                            }
+                                            echo '<td>' . $giasp . ' </td>';
+                                            echo '<td>' . $soluongtk . ' </td>';
+                                            if ($idpl == 2) {
+                                                echo '<td> <a href="' . $hiendsbttheosp . '">' . $hinhsp . '</a> </td>';
+                                            } else {
+                                                echo '<td>' . $hinhsp . ' </td>';
+                                            }
 
 
-                                        echo '<td> <a href="' . $chitietsp . '">
+                                            echo '<td> <a href="' . $chitietsp . '">
                                         <input class="btn btn-soft-primary" type="button" value="Chi tiết">
                                         </a> </td>';
-                                        echo '<td>';
-                                        echo '<a href="' . $suasp . '">
+                                            echo '<td>';
+                                            echo '<a href="' . $suasp . '">
                                         <input class="btn btn-soft-primary" type="button" value="Sửa">
                                         </a> ';
-                                        echo '<a href="' . $khoasp . '">
-                                        <input class="btn btn-soft-primary" type="button" value="Khóa">
+                                            echo '<a href="' . $mokhoasp . '">
+                                        <input class="btn btn-soft-primary" type="button" value="Mở">
                                         </a> ';
-                                        if ($idpl == 2) {
+                                            if ($idpl == 2) {
 
-                                            echo ' <a href="' . $thembttheosp . '">
+                                                echo ' <a href="' . $thembttheosp . '">
                                             <input class="btn btn-soft-primary" type="button" value="Thêm biến thể">
                                             </a> ';
-                                        }
-                                        echo '</td>';
+                                            }
+                                            echo '</td>';
 
-                                        // if ($idpl == 2) {
-                                        //     echo '<tr>';
-                                        //     echo '<td colspan="9"></td>';
-                                        //     echo '<td>';
-                                        //     echo '<a href="' . $thembttheosp . '">Thêm biến thể | </a><br>
-                                        //     <a href="' . $hiendsbttheosp . '">DS biến thể</a>';
-                                        //     echo '</td>';
-                                        //     echo '</tr>';
-                                        // }
+                                            // if ($idpl == 2) {
+                                            //     echo '<tr>';
+                                            //     echo '<td colspan="9"></td>';
+                                            //     echo '<td>';
+                                            //     echo '<a href="' . $thembttheosp . '">Thêm biến thể | </a><br>
+                                            //     <a href="' . $hiendsbttheosp . '">DS biến thể</a>';
+                                            //     echo '</td>';
+                                            //     echo '</tr>';
+                                            // }
+                                        }
                                     }
-                                }
                                     ?>
 
                                 </table>
@@ -205,7 +202,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                    document.write(new Date().getFullYear())
+                        document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

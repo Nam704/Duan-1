@@ -562,6 +562,10 @@ tr {
     border-width: 0
 }
 
+
+/* controller spbt */
+
+
 label {
     display: inline-block
 }
@@ -1802,7 +1806,7 @@ progress {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
         flex: 0 0 auto;
-        width: 25%
+        width: 100%
     }
 
     .col-lg-4 {
@@ -2784,6 +2788,30 @@ progress {
     font-size: .75rem;
     color: var(--tz-secondary-color)
 }
+
+.motasp {
+    display: block;
+    width: 100%;
+    min-height: 100px;
+    padding: .9rem .9rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    color: var(--tz-body-color);
+    background-color: var(--tz-secondary-bg);
+    border: var(--tz-border-width) solid var(--tz-border-color);
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    overflow: auto !important;
+    /* Cho phép cuộn nội dung */
+    white-space: pre-wrap !important;
+    /* Hiển thị nội dung trên nhiều dòng */
+    resize: vertical !important;
+    /* Cho phép thay đổi kích thước chiều cao */
+    /* resize: none; */
+    /* min-height: 209.6px;
+    height: 209.6px; */
+}
+
 
 .form-control {
     display: block;
@@ -5775,8 +5803,17 @@ fieldset:disabled .btn {
     color: var(--tz-card-subtitle-color)
 }
 
-.card-text:last-child {
-    margin-bottom: 0
+/* .card-text:last-child {
+    margin-bottom: 0;
+    
+} */
+.card-text {
+    margin-bottom: 0;
+    margin: 0 10px;
+    font-size: 16px;
+    padding: 10px;
+    text-align: justify;
+
 }
 
 .card-link+.card-link {
@@ -5836,7 +5873,9 @@ fieldset:disabled .btn {
 .card-img,
 .card-img-bottom,
 .card-img-top {
-    width: 100%
+    width: 50%;
+    height: 50%;
+
 }
 
 .card-img,
@@ -9430,7 +9469,57 @@ fieldset:disabled .btn {
 }
 
 .d-block {
-    display: block !important
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    /* Chia thành 2 cột có chiều rộng bằng nhau */
+    gap: 20px;
+
+    height: fit-content;
+}
+
+.list-imgsp,
+.chitietsp {
+    display: block;
+    width: 100%;
+    height: fit-content;
+    /* Chiếm 50% chiều rộng */
+}
+
+.chitietsp>* {
+    margin-top: 10px;
+}
+
+
+
+.card-img-top {
+
+    width: 100%;
+    /* height: 100%; */
+    /* Chiếm 70% chiều rộng của .list-imgsp */
+}
+
+.album-imgs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* Chia thành 5 cột có chiều rộng bằng nhau */
+    gap: 10px;
+    margin: 15px 0;
+    /* Khoảng cách giữa các ảnh */
+    width: 100%;
+    height: auto;
+    /* Sử dụng auto cho chiều cao */
+    /* background-color: aqua; */
+    /* Chiếm 30% chiều rộng của .list-imgsp */
+    position: relative;
+    /* Đặt vị trí tương đối để có thể xác định vị trí của ảnh con */
+}
+
+.album-imgs img {
+    width: 100%;
+    /* Chiều rộng của ảnh là 100% */
+    height: auto;
+    /* Đảm bảo tỉ lệ hình ảnh được giữ nguyên */
 }
 
 .d-grid {
@@ -16607,6 +16696,12 @@ html[data-menu-color=dark] .logo.logo-dark {
     transition: all .25s ease-in-out
 }
 
+/* làm mờ */
+.muted {
+    opacity: 0.5;
+    /* Đặt giá trị mờ tùy thích */
+}
+
 .leftside-menu {
     z-index: 1000;
     bottom: 0;
@@ -18589,6 +18684,9 @@ html[data-layout=topnav] #topnav-color {
 }
 
 .card .header-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: .5rem;
     font-size: 1rem;
     margin-top: 0
@@ -18618,7 +18716,7 @@ html[data-layout=topnav] #topnav-color {
 
 .card-header,
 .card-title {
-    margin-top: 0
+    margin-top: 10px
 }
 
 .card-disabled {

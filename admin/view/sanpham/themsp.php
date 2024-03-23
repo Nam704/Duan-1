@@ -32,7 +32,9 @@
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
 
-
+                                    <a href="./index.php?act=listsp">
+                                        <input class="btn btn-soft-primary w-100" type="submit" name="danhsachuser" value="Danh Sách">
+                                    </a>
                                 </table>
                             </div>
                             <!-- end .table-responsive-->
@@ -55,16 +57,9 @@
                                     <thead>
                                         <tr>
 
-                                            <th>ID SP</th>
-                                            <th>ID NSX</th>
+                                            <th>Tên sản phâm</th>
+                                            <th>Tên nhà sản xuất</th>
                                             <th>Phân loại </th>
-                                            <th>ID ưu đãi </th>
-
-                                            <th>Tên sản phẩm</th>
-                                            <th>Giá</th>
-                                            <th>Số lượng tồn kho</th>
-                                            <th>Hình</th>
-                                            <th>Mô tả</th>
 
 
                                         </tr>
@@ -72,10 +67,10 @@
                                     <form action="index.php?act=themsp" method="post" enctype="multipart/form-data">
                                         <tbody>
                                             <tr>
-                                                <td><input type="text" name="idsp" value="<?= ++$IDmax ?>" readonly style="max-width: 40px;"></td>
+                                                <td><input class="form-control" type="text" name="tensp" placeholder="Tên sản phẩm"></td>
 
                                                 <td>
-                                                    <select name="idnsx">
+                                                    <select name="idnsx" class="form-control">
                                                         <?php
                                                         foreach ($listnsx as $nsx) {
                                                             extract($nsx);
@@ -86,7 +81,7 @@
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <select name=" idpl">
+                                                    <select name=" idpl" class="form-control">
                                                         <?php
                                                         foreach ($listpl as $pl) {
                                                             extract($pl);
@@ -95,35 +90,62 @@
                                                         ?>
                                                     </select>
                                                 </td>
-                                                <td>
-                                                    <select name="idud">
-                                                        <?php
-                                                        foreach ($listud as $ud) {
-                                                            extract($ud);
-                                                            echo '<option  value="' . $idud . '" > '  . $tenud .  ' </option>';
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </td>
-                                                <td><input type="text" name="tensp"></td>
-                                                <td><input type="text" name="giasp"></td>
-                                                <td><input type="text" name="soluongtk"></td>
-                                                <td><input type="file" name="hinh"></td>
-                                                <td><input type="text" name="mota"></td>
+                                            </tr>
+                                            <tr>
 
-
-
-                                                <td>
-
-                                                    <input type="submit" name="themmoi" value="Thêm">
-
-
-                                                </td>
-                                                <td>
-
-                                                </td>
+                                                <th>Loại ưu đãi</th>
+                                                <th>Giá sản phẩm</th>
+                                                <th>Số lượng </th>
 
                                             </tr>
+                                            <td>
+                                                <select name="idud" class="form-control">
+                                                    <?php
+                                                    foreach ($listud as $ud) {
+                                                        extract($ud);
+                                                        echo '<option  value="' . $idud . '" > '  . $tenud .  ' </option>';
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </td>
+
+                                            <td><input type="number" class="form-control" name="giasp" placeholder="Giá sản phẩm"></td>
+                                            <td><input type="number" class="form-control" name="soluongtk" placeholder="Số lượng"></td>
+                                            <tr>
+                                                <th>Mô tả</th>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4">
+                                                    <textarea class="motasp" name="mota" id="" cols="30" rows="5"></textarea>
+
+                                                </td>
+
+
+                                                <!-- <td colspan="4"><input type="text" class="motasp" name="mota">
+                                                </td> -->
+
+                                            </tr>
+                                            <tr>
+
+
+                                                <th>Hình đại diện</th>
+                                                <th>Trạng thái </th>
+                                                <th>Thao tác</th>
+
+                                            </tr>
+                                            <td><input type="file" class="form-control" name="hinh"></td>
+                                            <td><select name="trangthai" class="form-control" id="">
+                                                    <option value="0">Bán ngay</option>
+                                                    <option value="1">Chưa bán</option>
+
+                                                </select></td>
+                                            <td>
+                                                <input class="btn btn-soft-primary w-100" type="submit" name="themmoi" value="Thêm">
+                                            </td>
+
+
+                                            </tr>
+
 
                                         </tbody>
                                     </form>

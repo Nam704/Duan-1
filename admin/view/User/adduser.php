@@ -31,7 +31,10 @@
                             <h4 class="header-title mb-4"></h4>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
-
+                                    <a href="./index.php?act=listuser">
+                                        <input class="btn btn-soft-primary w-100" type="submit" name="danhsachuser"
+                                            value="Danh Sách">
+                                    </a>
 
                                 </table>
                             </div>
@@ -55,11 +58,11 @@
                                     <thead>
                                         <tr>
 
-                                            <th>ID User</th>
+                                            <!-- <th>STT</th> -->
                                             <th>Tên user</th>
                                             <th>Mật khẩu</th>
                                             <th>Quyền hạn</th>
-                                            <th>Thao tác</th>
+
 
 
                                         </tr>
@@ -67,22 +70,27 @@
                                     <form action="index.php?act=adduser" method="post">
                                         <tbody>
                                             <tr>
-                                                <td>
-                                                    <?= ++$IDmax ?>
+
+                                                <td><input class="form-control" type="text" name="tenuser" id=""></td>
+                                                <td><input class="form-control" type="password" name="password" id="">
                                                 </td>
-                                                <td><input type="text" name="tenuser" id=""></td>
-                                                <td><input type="password" name="password" id=""></td>
-                                                <td><input type="number" style="min-width:150px" name="quyenhan" min="0" max="1">
-                                                </td>
-
+                                                <td><input class="form-control" type="number" style="min-width:150px"
+                                                        name="quyenhan" min="0" max="1"> </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Email</th>
+                                                <th>Địa chỉ</th>
+                                                <th>Số điện thoại</th>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="form-control" type="text" name="email" id=""></td>
+                                                <td><input class="form-control" type="text" name="address" id=""></td>
+                                                <td><input class="form-control" type="text" name="sdt" id=""></td>
+                                            </tr>
+                                            <tr>
                                                 <td>
-
-                                                    <input type="submit" name="themmoi" value="Thêm">
-
-
-                                                </td>
-                                                <td>
-
+                                                    <input class="btn btn-soft-primary w-100" type="submit"
+                                                        name="themmoi" value="Thêm">
                                                 </td>
 
                                             </tr>
@@ -111,7 +119,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                        document.write(new Date().getFullYear())
+                    document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

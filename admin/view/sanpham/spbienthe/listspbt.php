@@ -32,7 +32,11 @@
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
 
+                                    <a href="./index.php?act=thembttheosp&id=<?= $idsp ?>">
+                                        <input class="btn btn-soft-primary w-100" type="button"
+                                            value="Thêm mới biến thể">
 
+                                    </a>
                                 </table>
                             </div>
                             <!-- end .table-responsive-->
@@ -49,16 +53,16 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title mb-4">Inline edit</h4>
+                            <h4 class="header-title mb-4"> Các biến thể của: <?= $tensp ?></h4>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
                                     <thead>
                                         <tr>
-                                            <th>ID SPBT</th>
-                                            <th>ID idsp</th>
+                                            <th>STT</th>
 
-                                            <th>ID Màu</th>
-                                            <th>ID BNSP </th>
+
+                                            <th>Màu Sản phẩm</th>
+                                            <th>Bộ nhớ</th>
                                             <th>Giá </th>
 
                                             <th>Số lượng</th>
@@ -74,8 +78,10 @@
                                         </tr>
                                     </thead>
                                     <?php
+                                    $dem = 0;
                                     foreach ($listspbt as $spbt) {
                                         extract($spbt);
+                                        ++$dem;
                                         $tenmsp = tenmsp($idmsp);
                                         $tenbn = tenbnsp($idbnsp);
                                         $hinhpath = "../../upload/" . $hinh;
@@ -90,8 +96,8 @@
 
                                         echo '<tbody>
         <tr>
-            <td>' . $idspbt . '</td>
-            <td>' . $idsp . '</td>
+            <td>' . $dem . '</td>
+            
 
             <td>' . $tenmsp . '</td>';
 
@@ -136,7 +142,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                        document.write(new Date().getFullYear())
+                    document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

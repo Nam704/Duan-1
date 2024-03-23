@@ -37,14 +37,65 @@ function loadall_donhang()
 
 function tenkh($idkh)
 {
-    $sql = "  SELECT m.tenkh
+    $sql = "  SELECT m.tenuser
 FROM donhang sb
-INNER JOIN khachhang m ON sb.idkh = m.idkh
-WHERE sb.idkh = '$idkh'";
+INNER JOIN nguoidung m ON sb.iduser = m.iduser
+WHERE sb.iduser = '$idkh'";
     return pdo_query_value($sql);
 }
-
-
+function trangthaiDH($trangthai)
+{
+    if ($trangthai == 1) {
+        return "Chờ xác nhận";
+    } elseif ($trangthai == 2) {
+        return "Đã xác nhận";
+    } elseif ($trangthai == 3) {
+        return "Đang chuẩn bị hàng";
+    } elseif ($trangthai == 4) {
+        return "Đơn hàng đax giao cho đơn vị vận chuyển";
+    } elseif ($trangthai == 5) {
+        return "Đơn hàng đang trên đường đến bạn";
+    } elseif ($trangthai == 6) {
+        return "Người dùng xác nhận nhận đơn";
+    } elseif ($trangthai == 7) {
+        return "Người dùng hủy đơn";
+    } elseif ($trangthai == 8) {
+        return "Người dùng hoàn đơn";
+    } elseif ($trangthai == 9) {
+        return "Từ chối bán hàng";
+    }
+}
+function PTthanhtoan($thanhtoan)
+{
+    if ($thanhtoan == 0) {
+        return "Giao tiền khi nhận hàng";
+    } elseif ($thanhtoan == 1) {
+        return "thanh toán online";
+    }
+}
+function tongtientuCTDH($id)
+{
+    $sql = "SELECT tonggia
+FROM chitietdonhang
+WHERE iddh = $id;
+";
+    $listadmin = pdo_query($sql);
+    $tongtien = 0;
+    foreach ($listadmin as $key) {
+        $tongtien += $key["tonggia"];
+    }
+    return $tongtien;
+}
+function chapnhan($iddh)
+{
+    $sql = "update donhang set trangthai=2 where iddh=" . $iddh;
+    return pdo_execute($sql);
+}
+function tuchoi($iddh)
+{
+    $sql = "update donhang set trangthai=9 where iddh=" . $iddh;
+    return pdo_execute($sql);
+}
 
 // function loadall_donhang_home()
 // {

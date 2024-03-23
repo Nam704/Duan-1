@@ -54,12 +54,12 @@
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
                                     <thead>
                                         <tr>
-                                            <th>ID CTDH</th>
-                                            <th>ID GH</th>
-                                            <th>ID ĐH</th>
+                                            <th>STT</th>
+                                            <!-- <th>ID GH</th> -->
+                                            <!-- <th>Mã ĐH</th> -->
 
-                                            <th>ID SP</th>
-                                            <th>Giá sp </th>
+                                            <th>Tên sản phẩm</th>
+                                            <th>Giá sản phẩm </th>
 
                                             <th>Số lượng</th>
                                             <th>Tổng giá</th>
@@ -72,18 +72,21 @@
                                         </tr>
                                     </thead>
                                     <?php
+                                    $dem = 0;
                                     foreach ($listctdh as $sp) {
                                         extract($sp);
-
+                                        ++$dem;
+                                        $tensp = laytensp($idsp);
+                                        //<td>' . $idgh . '</td>
                                         echo '<tbody>
                                                     <tr>
                                                         
-                                                        <td>' . $idctdon . '</td>
-                                                        <td>' . $idgh . '</td>';
+                                                        <td>' . $dem . '</td>';
+
 
                                         echo '
-                                                        <td>' . $iddh . ' </td>
-                                                        <td>' . $idsp . ' </td>
+                                                        
+                                                        <td>' . $tensp . ' </td>
                                                         <td>' . $giasp_ctdh . ' </td>
                                                         <td>' . $soluong . ' </td>                           
                                                         <td>' . $tongtien . ' </td>

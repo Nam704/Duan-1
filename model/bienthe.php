@@ -55,6 +55,15 @@ WHERE idsp = $id;
     $listadmin = pdo_query($sql);
     return $listadmin;
 }
+function soluong($id)
+{
+
+    $sql = "SELECT m.soluong
+    FROM sanpham sb
+    INNER JOIN spbienthe m ON sb.idsp = m.idsp
+    WHERE m.idsp = '$id'";
+    return pdo_query($sql);
+}
 function tenbnsp($idbnsp)
 {
     $sql = "  SELECT m.kichthuoc

@@ -4,10 +4,15 @@ function insert_nguoidung($tenuser, $password, $quyenhan)
     $sql = "insert into nguoidung(tenuser,password,quyenhan) values('$tenuser','$password','$quyenhan')";
     pdo_execute($sql);
 }
-function delete_nguoidung($id)
+function khoa_nguoidung($id)
 {
-    $sql = "delete from nguoidung where iduser=" . $id;
-    pdo_query($sql);
+    $sql = "update nguoidung set trangthai=1 where iduser=" . $id;
+    pdo_execute($sql);
+}
+function mokhoa_nguoidung($id)
+{
+    $sql = "update nguoidung set trangthai=0 where iduser=" . $id;
+    pdo_execute($sql);
 }
 function loadall_nguoidung()
 {
@@ -20,6 +25,12 @@ function loadone_nguoidung($id)
     $sql = "select *from nguoidung where iduser=" . $id;
     $user = pdo_query_one($sql);
     return $user;
+}
+function donhangfromnguoidung($iduser)
+{
+    $sql = "select * from donhang where iduser=" . $iduser;
+    $listuser = pdo_query($sql);
+    return $listuser;
 }
 // function update_nguoidung($id, $tenuser,$password,$quyenhan)
 // {
@@ -72,4 +83,20 @@ function selectKH()
     ";
     $listadmin = pdo_query($sql);
     return $listadmin;
+}
+function quyenhan($quyenhan)
+{
+    if ($quyenhan == 1) {
+        return "Quản Lý";
+    } else {
+        return "Người dùng";
+    }
+}
+function trangthai($quyenhan)
+{
+    if ($quyenhan == 1) {
+        return "Đã khóa";
+    } else {
+        return "Bình thường";
+    }
 }

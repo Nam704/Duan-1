@@ -32,7 +32,11 @@
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
 
+                                    <a href="./index.php?act=adduser">
+                                        <input class="btn btn-soft-primary w-100" type="button"
+                                            value="Thêm người dùng mới">
 
+                                    </a>
                                 </table>
                             </div>
                             <!-- end .table-responsive-->
@@ -49,49 +53,94 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title mb-4">Inline edit</h4>
+                            <div class="header-title ">
+                                <h4>
+                                    <a href="index.php?act=listuser">Danh sách người dùng</a>
+
+                                </h4>
+                                <h6>
+                                    <a href="index.php?act=listuserbikhoa">Danh sách người dùng bị khóa</a>
+                                </h6>
+                            </div>
+
+
+
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
                                     <thead>
                                         <tr>
 
-                                            <th>ID User</th>
+                                            <th>STT</th>
                                             <th>Tên user</th>
                                             <th>Mật khẩu</th>
                                             <th>Quyền hạn</th>
+                                            <th>Email</th>
+                                            <th>Địa chỉ</th>
+                                            <th>SĐT</th>
+                                            <th>Trạng thái</th>
+
                                             <th>Thao tác</th>
 
                                         </tr>
                                     </thead>
                                     <?php
+                                    $dem = 0;
                                     foreach ($listuser as $user) {
+                                        ++$dem;
                                         extract($user);
+                                        if ($trangthai==0) {
+                                            # code...
+                                        
+                                        $quyenhan1 = quyenhan($quyenhan);
+                                        $trangthai1 = trangthai($trangthai);
                                         $suauser = "./index.php?act=suauser&id=" . $iduser;
-                                        $xoauser = "./index.php?act=xoauser&id=" . $iduser;
-
-                                        echo '<tbody>
+                                        $khoauser = "./index.php?act=khoauser&id=" . $iduser;
+                                        $mokhoauser = "./index.php?act=mokhoauser&id=" . $iduser;
+                                        $chitiet = "./index.php?act=DSdonhangfromuser&id=" . $iduser;
+                                        if ($trangthai == 1) {
+                                            $lammo = 'muted';
+                                        } else {
+                                            $lammo = '';
+                                        }
+                                        echo '<tbody   >
                         <tr>
-                            
-                            <td>' . $iduser . '</td>
-                            <td>' . $tenuser . ' </td>
-                            <td>' . $password . ' </td>
-                            <td>' . $quyenhan . ' </td>
+                            <td class="' . $lammo . '">' . $dem . '</td>
+                            <td class="' . $lammo . '">' . $tenuser . ' </td>
+                            <td class="' . $lammo . '">' . $password . ' </td>
+                            <td class="' . $lammo . '">' . $quyenhan1 . ' </td>
+                            <td class="' . $lammo . '">' . $email . ' </td>
+                            <td class="' . $lammo . '">' . $address . ' </td>
+                            <td class="' . $lammo . '">' . $sdt . ' </td>
+                            <td class="' . $lammo . '">' . $trangthai1 . ' </td>
                             <td>
-                            <a href="' . $suauser . '">Sửa  |  </a>
-                            <a href="' . $xoauser . '">Xóa</a>
+                            <a href="' . $suauser . '">
+                            <input class="btn btn-soft-primary" type="button" value="Sửa">
+                            </a>';
 
-                                    </td>
-                                    <td>
+                                        if ($trangthai == 0) {
+                                            echo ' 
+                                            <a href="' . $khoauser . '">
+                                            <input class="btn btn-soft-primary" type="button" value="Khóa"></a> ';
+                                        } else {
+                                            echo ' <a href="' . $mokhoauser . '">
+                                                    <input class="btn btn-soft-primary" type="button" value="Mở khóa">
+                                                    </a> ';
+                                        }
+
+                                        echo '
+                                        <a href="' . $chitiet . '">
+<input class="btn btn-soft-primary" type="button" value="Đơn đã mua">
+ </a>
                                 </td>
 
                           
                             
                         </tr>
+
                         
-                    </tbody>';
+                    </tbody>';}
                                     }
                                     ?>
-
                                 </table>
                             </div>
                             <!-- end .table-responsive-->
@@ -114,7 +163,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                        document.write(new Date().getFullYear())
+                    document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>
