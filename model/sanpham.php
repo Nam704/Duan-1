@@ -51,7 +51,118 @@ function loadall_ud()
     $listpl = pdo_query($sql);
     return $listpl;
 }
+function showimgsp($id)
+{
+    $sql  = "SELECT img_name FROM
+	         images where idsp=$id";
 
+    $stmt = pdo_get_connection()->prepare($sql);
+    $stmt->execute();
+
+    $images = $stmt->fetchAll();
+    return $images;
+}
+function uploadimgsp($idsp)
+{
+
+
+    if (isset($_POST['themmoi'])) {
+
+        # database connection file
+        // include 'db.conn.php';
+        // include '../model/pdo.php';
+
+        $images = $_FILES['images'];
+
+        # Number of images
+        $num_of_imgs = count($images['name']);
+        if ($num_of_imgs <= 6) {
+            for ($i = 0; $i < $num_of_imgs; $i++) {
+
+                # get the image info and store them in var
+                $image_name = $images['name'][$i];
+                $tmp_name   = $images['tmp_name'][$i];
+                $error      = $images['error'][$i];
+
+                # if there is not error occurred while uploading
+                if ($error === 0) {
+
+                    # get image extension store it in var
+                    $img_ex = pathinfo($image_name, PATHINFO_EXTENSION);
+                    $img_ex_lc = strtolower($img_ex);
+
+                    /** 
+                crating array that stores allowed
+                to upload image extensions.
+                     **/
+                    $allowed_exs = array('jpg', 'jpeg', 'png', 'jfif');
+
+
+                    /** 
+                check if the the image extension 
+                is present in $allowed_exs array
+                     **/
+
+                    if (in_array($img_ex_lc, $allowed_exs)) {
+                        /** 
+                     renaming the image name with 
+                     with random string
+                         **/
+                        $new_img_name = uniqid('IMG-', true) . '.' . $img_ex_lc;
+                        // $new_img_name = "anhsanpham_" . $idsp;
+
+                        # crating upload path on root directory
+                        $img_upload_path = '../../upload/' . $new_img_name;
+
+                        # inserting imge name into database
+
+                        $sql  = "INSERT INTO images (img_name,idsp)
+                             VALUES ('$new_img_name', '$idsp')";
+                        $stmt = pdo_get_connection()->prepare($sql);
+                        // $stmt->execute([$new_img_name], $idsp);
+                        $stmt = pdo_execute($sql);
+
+                        # move uploaded image to 'uploads' folder
+                        move_uploaded_file($tmp_name, $img_upload_path);
+
+                        # redirect to 'index.php'
+                        // header("Location: index.php");
+                    } else {
+                        # error message
+                        $em = "You can't upload files of this type";
+
+                        /*
+                    redirect to 'index.php' and 
+                    passing the error message
+                    */
+
+                        header("Location: index.php?thembttheosp=$em");
+                    }
+                } else {
+                    # error message
+                    $em = "Unknown Error Occurred while uploading";
+
+                    /*
+                redirect to 'index.php' and 
+                passing the error message
+                */
+
+                    header("Location: index.php?thembttheosp=$em");
+                }
+            }
+        } else {
+            # error message
+            $em = "Không thể tải nhiều hơn 6 ảnh";
+
+            /*
+        redirect to 'index.php' and 
+        passing the error message
+        */
+
+            header("Location: index.php?thembttheosp=$em");
+        }
+    }
+}
 
 // function loadall_sanpham_home()
 // {

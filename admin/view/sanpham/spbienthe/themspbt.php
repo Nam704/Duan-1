@@ -68,14 +68,17 @@
 
                                         </tr>
                                     </thead>
-                                    <form action="index.php?act=thembttheosp&id=<?= $idsp ?>" method="post" enctype="multipart/form-data">
+                                    <form action="index.php?act=thembttheosp&id=<?= $idsp ?>" method="post"
+                                        enctype="multipart/form-data">
 
                                         <tbody>
                                             <tr>
 
                                                 <td>
-                                                    <input class="form-control" type="hidden" name="idsp" value="<?= $idsp ?>">
-                                                    <input class="form-control" type="text" name="tensp" id="" readonly value="<?= $tensp ?>">
+                                                    <input class="form-control" type="hidden" name="idsp"
+                                                        value="<?= $idsp ?>">
+                                                    <input class="form-control" type="text" name="tensp" id="" readonly
+                                                        value="<?= $tensp ?>">
                                                 </td>
                                                 <td>
                                                     <select name="idmsp" class="form-control">
@@ -104,14 +107,20 @@
                                             <tr>
                                                 <td><input class="form-control" type="number" name="giasp" id=""></td>
                                                 <td><input class="form-control" type="number" name="soluong" id=""></td>
-                                                <td><input class="form-control" type="file" name="hinh" id=""></td>
+                                                <!-- <td><input class="form-control" type="file" name="hinh" id=""></td> -->
+                                                <td>
+                                                    <input type="file" class="form-control" name="images[]" multiple>
+                                                </td>
+
                                             </tr>
+
 
 
 
                                             <tr>
                                                 <td>
-                                                    <input class="btn btn-soft-primary w-100" type="submit" name="themmoi" value="Thêm">
+                                                    <input class="btn btn-soft-primary w-100" type="submit"
+                                                        name="themmoi" value="Thêm">
                                                 </td>
 
 
@@ -143,7 +152,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                        document.write(new Date().getFullYear())
+                    document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

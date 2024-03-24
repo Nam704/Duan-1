@@ -4,9 +4,9 @@
 //     $sql = "insert into spbienthe(idnsx,idpl,idud,tensp,giasp,soluongtk,hinh,mota) values('$idnsx', '$idpl', '$idud', '$tensp', '$giasp', '$soluongtk', '$hinh', '$mota')";
 //     pdo_execute($sql);
 // }
-function insert_spbienthe($idmsp, $idbnsp, $idsp, $gia, $soluong, $hinh)
+function insert_spbienthe($idmsp, $idbnsp, $idsp, $gia, $soluong)
 {
-    $sql = "INSERT INTO spbienthe( idmsp, idbnsp, idsp, gia, soluong, hinh) VALUES ( :idmsp, :idbnsp, :idsp, :gia, :soluong, :hinh) ";
+    $sql = "INSERT INTO spbienthe( idmsp, idbnsp, idsp, gia, soluong) VALUES ( :idmsp, :idbnsp, :idsp, :gia, :soluong) ";
     $conn = pdo_get_connection();
     $stmt = $conn->prepare($sql);
 
@@ -16,7 +16,7 @@ function insert_spbienthe($idmsp, $idbnsp, $idsp, $gia, $soluong, $hinh)
 
     $stmt->bindParam(':gia', $gia);
     $stmt->bindParam(':soluong', $soluong);
-    $stmt->bindParam(':hinh', $hinh);
+    // $stmt->bindParam(':hinh', $hinh);
     $stmt->execute();
 }
 

@@ -33,6 +33,7 @@ include "header.php";
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
+
             // controller nhasanxuat
         case "listnsx":
 
@@ -223,12 +224,22 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
 
         case "thembttheosp":
+
+            if (isset($_GET['error'])) {
+                echo "<p class='error'>";
+                echo htmlspecialchars($_GET['error']);
+                echo "</p>";
+                break;
+            }
+
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $sanpham = loadone_sanpham($_GET['id']);
                 extract($sanpham);
                 $listsp = loadall_sanpham("", 0);
                 $listmsp = loadall_mausanpham();
                 $listbnsp = loadall_bonhosp();
+
+
                 // $listud = loadall_ud();
                 // $IDmax = showIDspbtMax();
             }
@@ -239,16 +250,19 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $idbnsp = $_POST["idbnsp"];
                 $gia = $_POST["giasp"];
                 $soluong = $_POST["soluong"];
-                $hinh = $_FILES['hinh']['name'];
-                $target_dir = "../../upload/";
-                $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
-                if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                    echo "The file " . htmlspecialchars(basename($_FILES["hinh"]["name"])) . " has been uploaded.";
-                } else {
-                    echo "Sorry, there was an error uploading your file.";
-                }
+                $listimgsp = uploadimgsp($_GET['id']);
+                // $hinh = $_FILES['hinh']['name'];
+                // $target_dir = "../../upload/";
+                // $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+                // if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                //     echo "The file " . htmlspecialchars(basename($_FILES["hinh"]["name"])) . " has been uploaded.";
+                // } else {
+                //     echo "Sorry, there was an error uploading your file.";
+                // }
                 // var_dump($hinh);
-                insert_spbienthe($idmsp, $idbnsp, $idsp, $gia, $soluong, $hinh);
+                // insert_spbienthe($idmsp, $idbnsp, $idsp, $gia, $soluong, $hinh);
+                insert_spbienthe($idmsp, $idbnsp, $idsp, $gia, $soluong);
+
                 $IDmax = showIDspbtMax();
 
                 // include "./sanpham/spbienthe/themspbt.php";
