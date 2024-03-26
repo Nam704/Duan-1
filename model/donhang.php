@@ -86,6 +86,16 @@ WHERE iddh = $id;
     }
     return $tongtien;
 }
+function capnhattonggiaDH($iddh, $tonggia)
+{
+    $sql = "update donhang set tonggia=$tonggia where iddh=" . $iddh;
+    return pdo_execute($sql);
+}
+function tongtienallDH()
+{
+    $sql = "SELECT SUM(tonggia) AS total_revenue FROM donhang";
+    return pdo_query_value($sql);
+}
 function chapnhan($iddh)
 {
     $sql = "update donhang set trangthai=2 where iddh=" . $iddh;
@@ -119,7 +129,11 @@ function loadone_donhang($id)
     $sp = pdo_query_one($sql);
     return $sp;
 }
-
+function tongsodonhang()
+{
+    $sql = "SELECT COUNT(*) AS total_orders FROM donhang";
+    return pdo_query_value($sql);
+}
 // function load_tendm($iddm)
 // {
 //     if ($iddm > 0) {

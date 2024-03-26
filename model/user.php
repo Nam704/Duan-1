@@ -1,7 +1,7 @@
 <?php
-function insert_nguoidung($tenuser, $password, $quyenhan)
+function insert_nguoidung($tenuser, $password, $quyenhan, $email, $address, $sdt)
 {
-    $sql = "insert into nguoidung(tenuser,password,quyenhan) values('$tenuser','$password','$quyenhan')";
+    $sql = "insert into nguoidung(tenuser,password,quyenhan,email,address,sdt) values('$tenuser','$password','$quyenhan','$email','$address','$sdt')";
     pdo_execute($sql);
 }
 function khoa_nguoidung($id)
@@ -37,10 +37,10 @@ function donhangfromnguoidung($iduser)
 //     $sql = "update nguoidung set tenuser='" . $tenuser . "' where iduser=" . $id;
 //     pdo_execute($sql);
 // }
-function update_nguoidung($id, $tenuser, $password, $quyenhan)
+function update_nguoidung($id, $tenuser, $password, $quyenhan, $email, $address, $sdt)
 {
     // Sử dụng Prepared Statement để ngăn chặn SQL Injection
-    $sql = "UPDATE nguoidung SET tenuser = ?, password = ?, quyenhan = ? WHERE iduser = ?";
+    $sql = "UPDATE nguoidung SET tenuser = ?, password = ?, quyenhan = ?, email = ?, address = ?, sdt = ? WHERE iduser = ?";
 
     // Chuẩn bị câu lệnh SQL
     $stmt = pdo_get_connection()->prepare($sql);
@@ -49,11 +49,19 @@ function update_nguoidung($id, $tenuser, $password, $quyenhan)
     $stmt->bindParam(1, $tenuser);
     $stmt->bindParam(2, $password);
     $stmt->bindParam(3, $quyenhan);
-    $stmt->bindParam(4, $id);
+    $stmt->bindParam(4, $email);
+    $stmt->bindParam(5, $address);
+    $stmt->bindParam(6, $sdt);
+    $stmt->bindParam(7, $id);
 
     // Thực thi câu lệnh SQL
-    // $stmt->execute();
-    pdo_execute($sql);
+    $stmt->execute();
+    // pdo_execute($sql);
+}
+function tongsonguoidung()
+{
+    $sql = "SELECT COUNT(*) AS total_orders FROM nguoidung";
+    return pdo_query_value($sql);
 }
 function showiduserMax()
 {

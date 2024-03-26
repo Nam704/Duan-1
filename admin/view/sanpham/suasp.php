@@ -55,16 +55,11 @@
                                     <thead>
                                         <tr>
 
-                                            <th>ID SP</th>
-                                            <th>ID NSX</th>
-                                            <th>Phân loại </th>
-                                            <th>ID ưu đãi </th>
-
                                             <th>Tên sản phẩm</th>
-                                            <th>Giá</th>
-                                            <th>Số lượng tồn kho</th>
+                                            <th>Tên nhà sản xuất</th>
+                                            <th>Phân loại </th>
                                             <th>Hình</th>
-                                            <th>Mô tả</th>
+
 
 
                                         </tr>
@@ -72,10 +67,14 @@
                                     <form action="index.php?act=updatesp" method="post" enctype="multipart/form-data">
                                         <tbody>
                                             <tr>
-                                                <td><input type="text" name="idsp" value="<?= $idsp ?>" readonly style="max-width: 40px;"></td>
+
+                                                <input type="hidden" name="idsp" value="<?= $idsp ?>">
+                                                <td>
+                                                    <input class="form-control" type="text" name="tensp" placeholder="<?= $tensp ?>" value="<?= $tensp ?>">
+                                                </td>
 
                                                 <td>
-                                                    <select name="idnsx">
+                                                    <select name="idnsx" class="form-control">
                                                         <?php
                                                         foreach ($listnsx as $nsx) {
                                                             extract($nsx);
@@ -90,7 +89,7 @@
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <select name=" idpl">
+                                                    <select name=" idpl" class="form-control">
                                                         <?php
                                                         foreach ($listpl as $pl) {
                                                             extract($pl);
@@ -103,8 +102,25 @@
                                                         ?>
                                                     </select>
                                                 </td>
+                                                <td><input type="file" class="form-control" name="hinh"></td>
+                                            <tr>
+                                                <th>Mô tả</th>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4">
+                                                    <textarea class="motasp" name="mota" id="" cols="30" rows="5" value="<? $mota ?>"></textarea>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Ưu đãi </th>
+                                                <th>Giá</th>
+                                                <th>Số lượng tồn kho</th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                            <tr>
                                                 <td>
-                                                    <select name="idud">
+                                                    <select class="form-control" name="idud">
                                                         <?php
                                                         foreach ($listud as $ud) {
                                                             extract($ud);
@@ -117,24 +133,24 @@
                                                         ?>
                                                     </select>
                                                 </td>
-                                                <td><input type="text" name="tensp" placeholder="<?= $tensp ?>"></td>
-                                                <td><input type="text" name="giasp" placeholder="<?= $giasp ?>"></td>
-                                                <td><input type="text" name="soluongtk" placeholder="<?= $soluongtk ?>">
+
+                                                <td><input type="text" class="form-control" name="giasp" placeholder="<?= $giasp ?>"></td>
+                                                <td><input type="text" class="form-control" name="soluongtk" placeholder="<?= $soluongtk ?>">
                                                 </td>
-                                                <td><input type="file" name="hinh"></td>
-                                                <td><input type="text" name="mota" placeholder="<?= $mota ?>"></td>
+
+
+
 
 
 
                                                 <td>
 
-                                                    <input type="submit" name="themmoi" value="Sửa">
+                                                    <input type="submit" class="btn btn-soft-primary w-100" name="themmoi" value="Sửa">
 
 
                                                 </td>
-                                                <td>
 
-                                                </td>
+                                            </tr>
 
                                             </tr>
 

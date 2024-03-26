@@ -86,10 +86,10 @@
                 <div class="collapse" id="sidebarLayouts">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="index.php?act=listsp" target="_blank">Sản phẩm đang bán</a>
+                            <a href="index.php?act=listsp">Sản phẩm đang bán</a>
                         </li>
                         <li>
-                            <a href="index.php?act=listspdb" target="_blank">Sản phẩm dừng bán</a>
+                            <a href="index.php?act=listspdb">Sản phẩm dừng bán</a>
                         </li>
 
 

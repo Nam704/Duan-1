@@ -84,6 +84,7 @@
                                         $trangthaidonhang = trangthaiDH($trangthai);
                                         $PTTT = PTthanhtoan($ptthanhtoan);
                                         $tongtien = tongtientuCTDH($iddh);
+                                        capnhattonggiaDH($iddh, $tongtien);
                                         if ($trangthai == 1) {
                                             $lammo = 'muted';
                                         } else {

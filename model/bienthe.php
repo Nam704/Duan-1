@@ -4,6 +4,16 @@
 //     $sql = "insert into spbienthe(idnsx,idpl,idud,tensp,giasp,soluongtk,hinh,mota) values('$idnsx', '$idpl', '$idud', '$tensp', '$giasp', '$soluongtk', '$hinh', '$mota')";
 //     pdo_execute($sql);
 // }
+function khoa_spbt($id)
+{
+    $sql = "update spbienthe set trangthai=1 where idspbt=" . $id;
+    pdo_execute($sql);
+}
+function mokhoa_spbt($id)
+{
+    $sql = "update spbienthe set trangthai=0 where idspbt=" . $id;
+    pdo_execute($sql);
+}
 function insert_spbienthe($idmsp, $idbnsp, $idsp, $gia, $soluong)
 {
     $sql = "INSERT INTO spbienthe( idmsp, idbnsp, idsp, gia, soluong) VALUES ( :idmsp, :idbnsp, :idsp, :gia, :soluong) ";
@@ -63,6 +73,15 @@ function soluong($id)
     INNER JOIN spbienthe m ON sb.idsp = m.idsp
     WHERE m.idsp = '$id'";
     return pdo_query($sql);
+}
+function tongsoluongspbttrongsp($id)
+{
+    $listsoluong = soluong($id);
+    $tong = 0;
+    foreach ($listsoluong as $soluong) :
+        $tong += $soluong["soluong"];
+    endforeach;
+    return $tong;
 }
 function tenbnsp($idbnsp)
 {

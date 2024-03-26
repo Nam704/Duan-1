@@ -31,6 +31,10 @@
                             <h4 class="header-title mb-4"></h4>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
+                                    <a href="./index.php?act=listuser">
+                                        <input class="btn btn-soft-primary w-100" type="submit" name="danhsachuser" value="Danh Sách">
+                                    </a>
+
                                 </table>
                             </div>
                             <!-- end .table-responsive-->
@@ -47,17 +51,18 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title mb-4"></h4>
+                            <h4 class="header-title mb-4">Inline edit</h4>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
                                     <thead>
                                         <tr>
 
-                                            <th>ID User</th>
+                                            <!-- <th>STT</th> -->
                                             <th>Tên user</th>
                                             <th>Mật khẩu</th>
                                             <th>Quyền hạn</th>
-                                            <th>Thao tác</th>
+
+
 
                                         </tr>
                                     </thead>
@@ -65,33 +70,29 @@
                                         <tbody>
                                             <tr>
 
+                                                <input type="hidden" name="iduser" value="<?= $iduser ?>">
 
 
-                                                <td>
-                                                    <input type="hidden" name="iduser" value="<?= $iduser ?>">
-                                                    <?= $iduser ?>
+                                                <td><input class="form-control" type="text" name="tenuser" value="<?= $tenuser ?>" placeholder="<?= $tenuser ?>" id="">
                                                 </td>
-                                                <td>
-                                                    <input type="text" name="tenuser" id=""
-                                                        placeholder="<?= $tenuser ?>">
+                                                <td><input class="form-control" type="password" name="password" value="<?= $password ?>" placeholder="<?= $password ?>" id="">
                                                 </td>
-                                                <td>
-                                                    <input type="text" name="password" id=""
-                                                        placeholder="<?= $password ?>">
+                                                <td><input class="form-control" type="number" style="min-width:150px" value="<?= $quyenhan ?>" placeholder="<?= $quyenhan ?>" name="quyenhan" min="0" max="1">
                                                 </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Email</th>
+                                                <th>Địa chỉ</th>
+                                                <th>Số điện thoại</th>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="form-control" type="text" placeholder="<?= $email ?>" value="<?= $email ?>" name="email" id=""></td>
+                                                <td><input class="form-control" type="text" placeholder="<?= $address ?>" value="<?= $address ?>" name="address" id=""></td>
+                                                <td><input class="form-control" type="text" placeholder="<?= $sdt ?>" name="sdt" value="<?= $sdt ?>" id=""></td>
+                                            </tr>
+                                            <tr>
                                                 <td>
-                                                    <input type="number" name="quyenhan" style="min-width:150px"
-                                                        name="quyenhan" min="0" max="1" placeholder="<?= $quyenhan ?>">
-                                                </td>
-                                                <td>
-
-                                                    <input type="submit" style="padding:0  15px;" name="themmoi"
-                                                        value="Sửa">
-
-
-                                                </td>
-                                                <td>
-
+                                                    <input class="btn btn-soft-primary w-100" type="submit" name="themmoi" value="Cập nhật">
                                                 </td>
 
                                             </tr>
@@ -120,7 +121,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                    document.write(new Date().getFullYear())
+                        document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

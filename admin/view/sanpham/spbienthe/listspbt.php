@@ -33,8 +33,7 @@
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
 
                                     <a href="./index.php?act=thembttheosp&id=<?= $idsp ?>">
-                                        <input class="btn btn-soft-primary w-100" type="button"
-                                            value="Thêm mới biến thể">
+                                        <input class="btn btn-soft-primary w-100" type="button" value="Thêm mới biến thể">
 
                                     </a>
                                 </table>
@@ -53,7 +52,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title mb-4"> Các biến thể của: <?= $tensp ?></h4>
+                            <h4 class="header-title mb-4">
+                                Các biến thể của:
+                            </h4>
+                            <a style="font-size: 16px;" href="index.php?act=chitietsp&id=<?= $idsp ?>"><?= $tensp ?></a>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
                                     <thead>
@@ -68,7 +70,7 @@
                                             <th>Số lượng</th>
 
 
-                                            <th>Hình</th>
+                                            <!-- <th>Hình</th> -->
 
                                             <th>Thao tác</th>
 
@@ -84,36 +86,57 @@
                                         ++$dem;
                                         $tenmsp = tenmsp($idmsp);
                                         $tenbn = tenbnsp($idbnsp);
-                                        $hinhpath = "../../upload/" . $hinh;
-                                        if (is_file($hinhpath)) {
-                                            $hinhsp = "<img src='" . $hinhpath . "' width='100' height='80'>";
-                                        } else {
-                                            $hinhsp = "no photo";
-                                        }
+                                        // $hinhpath = "../../upload/" . $hinh;
+                                        // if (is_file($hinhpath)) {
+                                        //     $hinhsp = "<img src='" . $hinhpath . "' width='100' height='80'>";
+                                        // } else {
+                                        //     $hinhsp = "no photo";
+                                        // }
                                         $suauser = "./index.php?act=suaspbt&id=" . $idspbt;
-                                        $xoauser = "./index.php?act=xoaspbt&id=" . $idspbt;
+                                        $xoauser = "./index.php?act=khoaspbt&id=" . $idspbt;
+                                        $mokhoa = "./index.php?act=mokhoaspbt&id=" . $idspbt;
+                                        if ($trangthai == 1) {
+                                            $lammo = 'muted';
+                                        } else {
+                                            $lammo = '';
+                                        }
                                         // $themspbt = "./index.php?act=themspbt&id=" . $idspbt;
 
                                         echo '<tbody>
         <tr>
-            <td>' . $dem . '</td>
+            <td class="' . $lammo . '">' . $dem . '</td>
             
 
-            <td>' . $tenmsp . '</td>';
+            <td class="' . $lammo . '">' . $tenmsp . '</td>';
 
                                         echo '
-            <td>' . $tenbn . ' GB</td>
-            <td>' . $gia . ' </td>
+            <td class="' . $lammo . '">' . $tenbn . ' GB</td>
+            <td class="' . $lammo . '">' . $gia . ' </td>
             
-            <td>' . $soluong . ' </td>
-            <td>' . $hinhsp . ' </td>
+            <td class="' . $lammo . '">' . $soluong . ' </td>';
+
+                                        echo '
            
             <td>
-            <a href="' . $suauser . '">Sửa  |  </a>
-            <a href="' . $xoauser . '">Xóa  </a>';
+            <a href="' . $suauser . '">
+            
+                            <input class="btn btn-soft-primary" type="button" value="Sửa">
+                            </a>';
+                                        if ($trangthai == 0) {
+                                            echo '<a href="' . $xoauser . '">
+                                <input class="btn btn-soft-primary" type="button" value="Khóa">
+                                </a>';
+                                            # code...
+                                        } elseif ($trangthai == 1) {
+                                            # code...
+                                            echo ' <a href="' . $mokhoa . '">
+                                <input class="btn btn-soft-primary" type="button" value="Mỏ khóa">
+                                </a>';
+                                        }
 
+                                        echo '       
 
-                                        echo '</td>
+            </td>
         </tr>
     </tbody>';
                                     }
@@ -142,7 +165,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                    document.write(new Date().getFullYear())
+                        document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

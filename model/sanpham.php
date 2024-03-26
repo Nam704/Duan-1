@@ -62,6 +62,11 @@ function showimgsp($id)
     $images = $stmt->fetchAll();
     return $images;
 }
+function kiemtraSLanhsp($idsp)
+{
+    $sql = "SELECT COUNT(*) AS num_rows FROM images WHERE idsp =$idsp";
+    return pdo_query_value($sql);
+}
 function uploadimgsp($idsp)
 {
 
@@ -71,95 +76,90 @@ function uploadimgsp($idsp)
         # database connection file
         // include 'db.conn.php';
         // include '../model/pdo.php';
-
         $images = $_FILES['images'];
 
         # Number of images
         $num_of_imgs = count($images['name']);
-        if ($num_of_imgs <= 6) {
-            for ($i = 0; $i < $num_of_imgs; $i++) {
+        (int) $SLanhsp = kiemtraSLanhsp($idsp);
+        if (((int)$SLanhsp >= 0) && ((int)$SLanhsp <= 6) || ((int)$SLanhsp + $num_of_imgs <= 6)) {
+            if ($num_of_imgs <= 6) {
+                for ($i = 0; $i < $num_of_imgs; $i++) {
 
-                # get the image info and store them in var
-                $image_name = $images['name'][$i];
-                $tmp_name   = $images['tmp_name'][$i];
-                $error      = $images['error'][$i];
+                    # get the image info and store them in var
+                    $image_name = $images['name'][$i];
+                    $tmp_name   = $images['tmp_name'][$i];
+                    $error      = $images['error'][$i];
 
-                # if there is not error occurred while uploading
-                if ($error === 0) {
+                    # if there is not error occurred while uploading
+                    if ($error === 0) {
 
-                    # get image extension store it in var
-                    $img_ex = pathinfo($image_name, PATHINFO_EXTENSION);
-                    $img_ex_lc = strtolower($img_ex);
+                        # get image extension store it in var
+                        $img_ex = pathinfo($image_name, PATHINFO_EXTENSION);
+                        $img_ex_lc = strtolower($img_ex);
 
-                    /** 
-                crating array that stores allowed
-                to upload image extensions.
-                     **/
-                    $allowed_exs = array('jpg', 'jpeg', 'png', 'jfif');
-
-
-                    /** 
-                check if the the image extension 
-                is present in $allowed_exs array
-                     **/
-
-                    if (in_array($img_ex_lc, $allowed_exs)) {
                         /** 
-                     renaming the image name with 
-                     with random string
+                    crating array that stores allowed
+                    to upload image extensions.
                          **/
-                        $new_img_name = uniqid('IMG-', true) . '.' . $img_ex_lc;
-                        // $new_img_name = "anhsanpham_" . $idsp;
+                        $allowed_exs = array('jpg', 'jpeg', 'png', 'jfif');
 
-                        # crating upload path on root directory
-                        $img_upload_path = '../../upload/' . $new_img_name;
 
-                        # inserting imge name into database
+                        /** 
+                    check if the the image extension 
+                    is present in $allowed_exs array
+                         **/
 
-                        $sql  = "INSERT INTO images (img_name,idsp)
-                             VALUES ('$new_img_name', '$idsp')";
-                        $stmt = pdo_get_connection()->prepare($sql);
-                        // $stmt->execute([$new_img_name], $idsp);
-                        $stmt = pdo_execute($sql);
+                        if (in_array($img_ex_lc, $allowed_exs)) {
+                            /** 
+                         renaming the image name with 
+                         with random string
+                             **/
+                            $new_img_name = uniqid('IMG-', true) . '.' . $img_ex_lc;
+                            // $new_img_name = "anhsanpham_" . $idsp;
 
-                        # move uploaded image to 'uploads' folder
-                        move_uploaded_file($tmp_name, $img_upload_path);
+                            # crating upload path on root directory
+                            $img_upload_path = '../../upload/' . $new_img_name;
 
-                        # redirect to 'index.php'
-                        // header("Location: index.php");
-                    } else {
-                        # error message
-                        $em = "You can't upload files of this type";
+                            # inserting imge name into database
 
-                        /*
-                    redirect to 'index.php' and 
-                    passing the error message
-                    */
+                            $sql  = "INSERT INTO images (img_name,idsp)
+                                 VALUES ('$new_img_name', '$idsp')";
+                            $stmt = pdo_get_connection()->prepare($sql);
+                            // $stmt->execute([$new_img_name], $idsp);
+                            $stmt = pdo_execute($sql);
 
-                        header("Location: index.php?thembttheosp=$em");
+                            # move uploaded image to 'uploads' folder
+                            move_uploaded_file($tmp_name, $img_upload_path);
+
+                            # redirect to 'index.php'
+                            // header("Location: index.php");
+                        } else {
+                            # error message
+                            $em = "You can't upload files of this type";
+
+                            /*
+                        redirect to 'index.php' and 
+                        passing the error message
+                        */
+
+                            header("Location: index.php?act=thembttheosp&id=$idsp&error=$em");
+                        }
                     }
-                } else {
-                    # error message
-                    $em = "Unknown Error Occurred while uploading";
-
-                    /*
-                redirect to 'index.php' and 
-                passing the error message
-                */
-
-                    header("Location: index.php?thembttheosp=$em");
+                    // else {
+                    //     $em = "Unknown Error Occurred while uploading";
+                    //     header("Location: index.php?act=thembttheosp&id=$idsp&error=$em");
+                    // }
                 }
+            } else {
+                # error message
+                $em = "Không thể tải nhiều hơn 6 ảnh";
+                header("Location: index.php?act=thembttheosp&id=$idsp&error=$em");
             }
         } else {
+            $SLthemanh = 6 - (int)$SLanhsp;
             # error message
-            $em = "Không thể tải nhiều hơn 6 ảnh";
-
-            /*
-        redirect to 'index.php' and 
-        passing the error message
-        */
-
-            header("Location: index.php?thembttheosp=$em");
+            $em = "Số lượng ảnh bạn đã thêm trước đó là: $SLanhsp <br>  Bạn chỉ có thể thêm $SLthemanh";
+            header("Location: index.php?act=thembttheosp&id=$idsp&error=$em");
         }
     }
 }
@@ -229,6 +229,39 @@ FROM sanpham sb
 INNER JOIN nhasanxuat m ON sb.idnsx = m.idnsx
 WHERE sb.idnsx = '$idnsx'";
     return pdo_query_value($sql);
+}
+function tentrangthaisp($id)
+{
+    if ($id == 0) {
+        return "Đang bán";
+    } elseif ($id == 1) {
+        return "Dừng bán";
+    }
+}
+function giaspmax($id)
+{
+    $sql = "SELECT MAX(gia) AS max_gia FROM spbienthe where idsp=$id";
+    return pdo_query_value($sql);
+}
+function giaspmin($id)
+{
+    $sql = "SELECT  MIN(gia) AS min_gia FROM spbienthe where idsp=$id";
+    return pdo_query_value($sql);
+}
+function listgiasp($id)
+{
+    $sql = "select giasp from sanpham where idsp=$id";
+    return pdo_query($sql);
+}
+function listmspbt($id)
+{
+    $sql = "select idmsp from spbienthe where idsp=$id";
+    return pdo_query($sql);
+}
+function listbnspbt($id)
+{
+    $sql = "select idbnsp from spbienthe where idsp=$id";
+    return pdo_query($sql);
 }
 function khoa_sp($id)
 {

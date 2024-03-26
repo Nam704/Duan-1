@@ -31,7 +31,10 @@
                             <h4 class="header-title mb-4"></h4>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
+                                    <a href="./index.php?act=listspbt&id=<?= $idsp ?>">
+                                        <input class="btn btn-soft-primary w-100" type="button" value="Danh sách biến thể của sản phẩm">
 
+                                    </a>
 
                                 </table>
                             </div>
@@ -49,23 +52,19 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title mb-4">Inline edit</h4>
+                            <h4 class="header-title mb-4">Biến thể của: </h4>
+                            <a style="font-size: 16px;" href="index.php?act=chitietsp&id=<?= $idsp ?>"><?= $tensp ?></a>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
                                     <thead>
                                         <tr>
-                                            <th>ID SPBT</th>
-                                            <th>ID SP</th>
-                                            <th>ID Màu</th>
-                                            <th>ID BNSP </th>
+                                            <!-- <th>ID SPBT</th> -->
+                                            <!-- <th>ID SP</th> -->
+                                            <th>Màu</th>
+                                            <th>Bộ nhớ sản phẩm </th>
                                             <th>Giá </th>
 
-                                            <th>Số lượng</th>
 
-
-                                            <th>Hình</th>
-
-                                            <th>Thao tác</th>
 
 
                                         </tr>
@@ -73,25 +72,11 @@
                                     <form action="index.php?act=updatespbt" method="post" enctype="multipart/form-data">
                                         <tbody>
                                             <tr>
-                                                <td><input type="text" name="idspbt" value="<?= $idspbt ?>" readonly
-                                                        style="max-width: 40px;"></td>
-                                                <td>
-                                                    <select name="idsp">
-                                                        <?php
-                                                        foreach ($listsp as $sp) {
-                                                            extract($sp);
+                                                <input type="hidden" name="idspbt" value="<?= $idspbt ?>">
+                                                <input type="hidden" name="idsp" value="<?= $idsp ?>">
 
-                                                            if ($idsp == $idsp_spbt)
-                                                                $s = "selected";
-                                                            else $s = "";
-
-                                                            echo '<option  value="' . $idsp . '" ' . $s . '> '  . $tensp .  ' </option>';
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </td>
                                                 <td>
-                                                    <select name="idmsp">
+                                                    <select name="idmsp" class="form-control">
                                                         <?php
                                                         foreach ($listmsp as $msp) {
                                                             extract($msp);
@@ -106,7 +91,7 @@
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <select name="idbnsp">
+                                                    <select name="idbnsp" class="form-control">
                                                         <?php
                                                         foreach ($listbnsp as $bnsp) {
                                                             extract($bnsp);
@@ -120,22 +105,22 @@
                                                     </select>
                                                 </td>
 
-                                                <td><input type="text" name="giasp" placeholder="<?= $gia ?>"></td>
-                                                <td><input type="text" name="soluong" placeholder="<?= $soluong ?>">
+                                                <td><input type="number" name="giasp" class="form-control" placeholder="<?= $gia ?>"></td>
+                                            <tr>
+                                                <th>Số lượng</th>
+                                                <th>Hình</th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text" class="form-control" name="soluong" placeholder="<?= $soluong ?>">
                                                 </td>
-                                                <td><input type="file" name="hinh"></td>
-
-
-
+                                                <td><input type="file" class="form-control" name="hinh"></td>
                                                 <td>
-
-                                                    <input type="submit" name="themmoi" value="Sửa">
-
-
+                                                    <input class="btn btn-soft-primary w-100" type="submit" name="themmoi" value="Sửa">
                                                 </td>
-                                                <td>
+                                            </tr>
 
-                                                </td>
+
 
                                             </tr>
 
@@ -163,7 +148,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                    document.write(new Date().getFullYear())
+                        document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

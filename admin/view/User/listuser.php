@@ -33,8 +33,7 @@
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
 
                                     <a href="./index.php?act=adduser">
-                                        <input class="btn btn-soft-primary w-100" type="button"
-                                            value="Thêm người dùng mới">
+                                        <input class="btn btn-soft-primary w-100" type="button" value="Thêm người dùng mới">
 
                                     </a>
                                 </table>
@@ -88,21 +87,21 @@
                                     foreach ($listuser as $user) {
                                         ++$dem;
                                         extract($user);
-                                        if ($trangthai==0) {
+                                        if ($trangthai == 0) {
                                             # code...
-                                        
-                                        $quyenhan1 = quyenhan($quyenhan);
-                                        $trangthai1 = trangthai($trangthai);
-                                        $suauser = "./index.php?act=suauser&id=" . $iduser;
-                                        $khoauser = "./index.php?act=khoauser&id=" . $iduser;
-                                        $mokhoauser = "./index.php?act=mokhoauser&id=" . $iduser;
-                                        $chitiet = "./index.php?act=DSdonhangfromuser&id=" . $iduser;
-                                        if ($trangthai == 1) {
-                                            $lammo = 'muted';
-                                        } else {
-                                            $lammo = '';
-                                        }
-                                        echo '<tbody   >
+
+                                            $quyenhan1 = quyenhan($quyenhan);
+                                            $trangthai1 = trangthai($trangthai);
+                                            $suauser = "./index.php?act=suauser&id=" . $iduser;
+                                            $khoauser = "./index.php?act=khoauser&id=" . $iduser;
+                                            $mokhoauser = "./index.php?act=mokhoauser&id=" . $iduser;
+                                            $chitiet = "./index.php?act=DSdonhangfromuser&id=" . $iduser;
+                                            if ($trangthai == 1) {
+                                                $lammo = 'muted';
+                                            } else {
+                                                $lammo = '';
+                                            }
+                                            echo '<tbody   >
                         <tr>
                             <td class="' . $lammo . '">' . $dem . '</td>
                             <td class="' . $lammo . '">' . $tenuser . ' </td>
@@ -117,17 +116,17 @@
                             <input class="btn btn-soft-primary" type="button" value="Sửa">
                             </a>';
 
-                                        if ($trangthai == 0) {
-                                            echo ' 
+                                            if ($trangthai == 0) {
+                                                echo ' 
                                             <a href="' . $khoauser . '">
                                             <input class="btn btn-soft-primary" type="button" value="Khóa"></a> ';
-                                        } else {
-                                            echo ' <a href="' . $mokhoauser . '">
+                                            } else {
+                                                echo ' <a href="' . $mokhoauser . '">
                                                     <input class="btn btn-soft-primary" type="button" value="Mở khóa">
                                                     </a> ';
-                                        }
+                                            }
 
-                                        echo '
+                                            echo '
                                         <a href="' . $chitiet . '">
 <input class="btn btn-soft-primary" type="button" value="Đơn đã mua">
  </a>
@@ -138,7 +137,8 @@
                         </tr>
 
                         
-                    </tbody>';}
+                    </tbody>';
+                                        }
                                     }
                                     ?>
                                 </table>
@@ -163,7 +163,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                    document.write(new Date().getFullYear())
+                        document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

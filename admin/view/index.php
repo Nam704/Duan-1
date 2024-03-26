@@ -16,10 +16,12 @@ include "../../../../Duan1/Duan-1/model/ctdonhang.php";
 
 
 
-
+$tongsodonhang = tongsodonhang();
 $listuser = loadall_nguoidung();
 $listadminfromuser = selectAdmins();
 $listKHfromuser = selectKH();
+$tongtienallDH = tongtienallDH();
+$tongalluser = tongsonguoidung();
 
 
 
@@ -144,6 +146,13 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 extract($sanpham);
                 $tennsx = tennsx($idnsx);
                 $listspbt = selectspbt($idsp);
+                $listimgsp = showimgsp($idsp);
+                $listgiasp = listgiasp($idsp);
+                $giaspmax = giaspmax($idsp);
+                $giaspmin = giaspmin($idsp);
+                $tongsl = tongsoluongspbttrongsp($idsp);
+                $listmsp = listmspbt($idsp);
+                $listbnsp = listbnspbt($idsp);
             }
 
             include "./sanpham/chitietsp.php";
@@ -225,12 +234,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
         case "thembttheosp":
 
-            if (isset($_GET['error'])) {
-                echo "<p class='error'>";
-                echo htmlspecialchars($_GET['error']);
-                echo "</p>";
-                break;
-            }
+
 
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $sanpham = loadone_sanpham($_GET['id']);
@@ -239,7 +243,15 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $listmsp = loadall_mausanpham();
                 $listbnsp = loadall_bonhosp();
 
-
+                if (isset($_GET['error'])) {
+                    // echo "<p class='error'>";
+                    // echo htmlspecialchars($_GET['error']);
+                    // echo "</p>";
+                    $error = $_GET['error'];
+                    // var_dump($error);
+                    // die();
+                    // break;
+                }
                 // $listud = loadall_ud();
                 // $IDmax = showIDspbtMax();
             }
@@ -272,11 +284,26 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             break;
 
-        case 'xoaspbt':
-            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                delete_spbienthe($_GET['id']);
+        case 'khoaspbt':
+            if (isset($_GET['id'])) {
+                khoa_spbt($_GET['id']);
+                $spbt = loadone_spbienthe($_GET['id']);
+                extract($spbt);
+                $sanpham = loadone_sanpham($idsp);
+                extract($sanpham);
             }
-            $listspbt = loadall_spbienthe("", 0);
+            $listspbt = selectspbt($idsp);
+            include "./sanpham/spbienthe/listspbt.php";
+            break;
+        case 'mokhoaspbt':
+            if (isset($_GET['id'])) {
+                mokhoa_spbt($_GET['id']);
+                $spbt = loadone_spbienthe($_GET['id']);
+                extract($spbt);
+                $sanpham = loadone_sanpham($idsp);
+                extract($sanpham);
+            }
+            $listspbt = selectspbt($idsp);
             include "./sanpham/spbienthe/listspbt.php";
             break;
         case 'suaspbt':
@@ -291,7 +318,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $idmsp_spbt = $idmsp;
                 $idbnsp_spbt = $idbnsp;
                 $IDmax = showIDspbtMax();
-
+                $sanpham = loadone_sanpham($idsp);
+                extract($sanpham);
                 include "./sanpham/spbienthe/suaspbt.php";
             }
             break;
@@ -480,8 +508,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $tenuser = $_POST["tenuser"];
                 $password = $_POST["password"];
                 $quyenhan = $_POST["quyenhan"];
-
-                insert_nguoidung($tenuser, $password, $quyenhan);
+                $email = $_POST["email"];
+                $address = $_POST["address"];
+                $sdt = $_POST["sdt"];
+                insert_nguoidung($tenuser, $password, $quyenhan, $email, $address, $sdt);
                 $IDmax = showiduserMax();
             }
 
@@ -523,7 +553,11 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $iduser = $_POST["iduser"];
                 $password = $_POST["password"];
                 $quyenhan = $_POST["quyenhan"];
-                update_nguoidung($iduser, $tenuser, $password, $quyenhan);
+                $email = $_POST["email"];
+                $address = $_POST["address"];
+                $sdt = $_POST["sdt"];
+
+                update_nguoidung($iduser, $tenuser, $password, $quyenhan, $email, $address, $sdt);
             }
 
             header("Location: index.php?act=listuser");
