@@ -22,7 +22,7 @@ function laygiasp($id)
 }
 function taomadonhang($iddh, $iduser)
 {
-    return "MDH_" . $iddh . "_" . $iduser;
+    return uniqid('MDH-', true) . $iddh . "_" . $iduser;
 }
 // function laytensp($id)
 // {

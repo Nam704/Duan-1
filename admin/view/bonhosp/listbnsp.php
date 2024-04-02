@@ -32,7 +32,10 @@
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
 
+                                    <a href="./index.php?act=addbnsp">
+                                        <input class="btn btn-soft-primary w-100" type="button" value="Thêm bộ nhớ sản phẩm mới">
 
+                                    </a>
                                 </table>
                             </div>
                             <!-- end .table-responsive-->
@@ -55,7 +58,7 @@
                                     <thead>
                                         <tr>
 
-                                            <th>ID BNSP</th>
+                                            <th>STT</th>
 
                                             <th>Kích thước</th>
                                             <th>Thao tác</th>
@@ -67,17 +70,32 @@
                                         extract($bnsp);
                                         $suabnsp = "./index.php?act=suabnsp&id=" . $idbnsp;
                                         $xoabnsp = "./index.php?act=xoabnsp&id=" . $idbnsp;
-
+                                        $mokhoa = "./index.php?act=mokhoabnsp&id=" . $idbnsp;
+                                        if ($trangthai == 1) {
+                                            $lammo = 'muted';
+                                        } else {
+                                            $lammo = '';
+                                        }
                                         echo '<tbody>
                         <tr>
                             
-                            <td>' . $idbnsp . '</td>
-                            <td>' . $kichthuoc . ' GB</td>
+                            <td class="' . $lammo . '">' . $idbnsp . '</td>
+                            <td class="' . $lammo . '"> ' . $kichthuoc . ' GB</td>
                
                             <td>
-                            <a href="' . $suabnsp . '">Sửa  |  </a>
-                            <a href="' . $xoabnsp . '">Xóa</a>
-
+                            <a href="' . $suabnsp . '">
+                            <input class="btn btn-soft-primary" type="button" value="Sửa">
+                            </a>';
+                                        if ($trangthai == 0) {
+                                            echo '<a href="' . $xoabnsp . '">
+                            <input class="btn btn-soft-primary" type="button" value="Khóa">
+                            </a> ';
+                                        } elseif ($trangthai == 1) {
+                                            echo '<a href="' . $mokhoa . '">
+                                <input class="btn btn-soft-primary" type="button" value="Mở khóa">
+                                </a> ';
+                                        }
+                                        echo '
                                     </td>
                                     <td>
                                 </td>

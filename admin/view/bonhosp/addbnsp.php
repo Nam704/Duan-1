@@ -31,7 +31,10 @@
                             <h4 class="header-title mb-4"></h4>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
+                                    <a href="./index.php?act=listbnsp">
+                                        <input class="btn btn-soft-primary w-100" type="button" value="Danh sách bộ nhớ sản phẩm">
 
+                                    </a>
 
                                 </table>
                             </div>
@@ -55,7 +58,7 @@
                                     <thead>
                                         <tr>
 
-                                            <th>ID BNSP</th>
+                                            <th>STT</th>
 
                                             <th>Kích thước bộ nhớ</th>
                                             <th>Thao tác</th>
@@ -71,10 +74,10 @@
                                                 <td>
                                                     <?= ++$IDmax ?>
                                                 </td>
-                                                <td><input type="text" name="tenbnsp" id=""></td>
+                                                <td><input class="form-control" type="text" name="tenbnsp" id=""></td>
                                                 <td>
 
-                                                    <input type="submit" name="themmoi" value="Thêm">
+                                                    <input class="btn btn-soft-primary w-100" type="submit" name="themmoi" value="Thêm">
 
 
                                                 </td>

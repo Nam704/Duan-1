@@ -21,6 +21,16 @@ function loadone_bonhosp($id)
     $bnsp = pdo_query_one($sql);
     return $bnsp;
 }
+function khoa_bnsp($id)
+{
+    $sql = "update bonhosp set trangthai=1 where idbnsp=" . $id;
+    pdo_execute($sql);
+}
+function mokhoa_bnsp($id)
+{
+    $sql = "update bonhosp set trangthai=0 where idbnsp=" . $id;
+    pdo_execute($sql);
+}
 function update_bonhosp($id, $kichthuoc)
 {
     $sql = "update bonhosp set kichthuoc='" . $kichthuoc . "' where idbnsp=" . $id;

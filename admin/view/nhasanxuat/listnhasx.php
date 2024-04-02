@@ -32,7 +32,11 @@
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
 
+                                    <a href="./index.php?act=addnsx">
+                                        <input class="btn btn-soft-primary w-100" type="button"
+                                            value="Thêm nhà sản xuất mới">
 
+                                    </a>
                                 </table>
                             </div>
                             <!-- end .table-responsive-->
@@ -55,7 +59,7 @@
                                     <thead>
                                         <tr>
 
-                                            <th>ID nhà sản xuất</th>
+                                            <th>STT</th>
 
                                             <th>Tên nhà sản xuất</th>
                                             <th>Thao tác</th>
@@ -63,20 +67,37 @@
                                         </tr>
                                     </thead>
                                     <?php
+                                    $dem = 0;
                                     foreach ($listnsx as $nsx) {
+                                        ++$dem;
                                         extract($nsx);
                                         $suansx = "./index.php?act=suansx&id=" . $idnsx;
                                         $xoansx = "./index.php?act=xoansx&id=" . $idnsx;
+                                        $mokhoa = "./index.php?act=mokhoansx&id=" . $idnsx;
 
+                                        if ($trangthai == 1) {
+                                            $lammo = 'muted';
+                                        } else {
+                                            $lammo = '';
+                                        }
                                         echo '<tbody>
                         <tr>
                            
-                            <td>' . $idnsx . '</td>
-                            <td>' . $tennsx . '</td>
+                            <td class="' . $lammo . '">' . $dem . '</td>
+                            <td class="' . $lammo . '">' . $tennsx . '</td>
                
                             <td>
-                            <a href="' . $suansx . '">Sửa  |  </a>
-                            <a href="' . $xoansx . '">Xóa</a>
+                            <a class="btn btn-soft-primary" href="' . $suansx . '">Sửa    </a>';
+                                        if ($trangthai == 0) {
+                                            echo '<a href="' . $xoansx . '">
+                                        <input class="btn btn-soft-primary" type="button" value="Khóa">
+                                        </a> ';
+                                        } elseif ($trangthai == 1) {
+                                            echo '<a href="' . $mokhoa . '">
+                                            <input class="btn btn-soft-primary" type="button" value="Mở khóa">
+                                            </a> ';
+                                        }
+                                        echo '
 
                                     </td>
                                     <td>
@@ -112,7 +133,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                        document.write(new Date().getFullYear())
+                    document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

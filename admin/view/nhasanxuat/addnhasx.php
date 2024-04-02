@@ -31,7 +31,10 @@
                             <h4 class="header-title mb-4"></h4>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
+                                    <a href="./index.php?act=listnsx">
+                                        <input class="btn btn-soft-primary w-100" type="button" value="Danh sách nhà sản xuất">
 
+                                    </a>
 
                                 </table>
                             </div>
@@ -71,10 +74,10 @@
                                                 <td>
                                                     <?= ++$IDmax ?>
                                                 </td>
-                                                <td><input type="text" name="tennsx" id=""></td>
+                                                <td><input class="form-control" type="text" name="tennsx" id=""></td>
                                                 <td>
 
-                                                    <input type="submit" name="themmoi" value="Thêm">
+                                                    <input type="submit" class="btn btn-soft-primary w-100" name="themmoi" value="Thêm">
 
 
                                                 </td>

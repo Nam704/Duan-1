@@ -31,6 +31,11 @@
                             <h4 class="header-title mb-4"></h4>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
+
+                                    <a href="./index.php?act=listnsx">
+                                        <input class="btn btn-soft-primary w-100" type="button" value="Danh sách nhà sản xuất">
+
+                                    </a>
                                 </table>
                             </div>
                             <!-- end .table-responsive-->
@@ -53,7 +58,7 @@
                                     <thead>
                                         <tr>
 
-                                            <th>ID nhà sản xuất</th>
+                                            <th>STT</th>
 
                                             <th>Tên nhà sản xuất</th>
                                             <th>Thao tác</th>
@@ -71,11 +76,11 @@
                                                     <input type="hidden" name="idnsx" value="<?= $idnsx ?>">
                                                     <?= $idnsx ?>
                                                 </td>
-                                                <td><input type="text" name="tennsx" id="" placeholder="<?= $tennsx ?>">
+                                                <td><input type="text" class="form-control" name="tennsx" id="" value="<?= $tennsx ?>" placeholder="<?= $tennsx ?>">
                                                 </td>
                                                 <td>
 
-                                                    <input type="submit" style="padding:0  15px;" name="themmoi" value="Sửa">
+                                                    <input type="submit" class="btn btn-soft-primary w-100" name="themmoi" value="Sửa">
 
 
                                                 </td>

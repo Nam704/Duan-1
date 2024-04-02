@@ -18,10 +18,15 @@ include "../../../../Duan1/Duan-1/model/ctdonhang.php";
 
 $tongsodonhang = tongsodonhang();
 $listuser = loadall_nguoidung();
-$listadminfromuser = selectAdmins();
-$listKHfromuser = selectKH();
+// $listadminfromuser = selectAdmins();
+// $listKHfromuser = selectKH();
 $tongtienallDH = tongtienallDH();
 $tongalluser = tongsonguoidung();
+$listdonhang = loadall_donhang();
+// $DStrangthaidon = load_alltrangthaidon();
+
+// var_dump($listdonhang);
+extract($listdonhang);
 
 
 
@@ -57,7 +62,14 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         case 'xoansx':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                delete_nhasanxuat($_GET['id']);
+                khoa_nsx($_GET['id']);
+            }
+            $listnsx = loadall_nhasanxuat();
+            include "./nhasanxuat/listnhasx.php";
+            break;
+        case 'mokhoansx':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                mokhoa_nsx($_GET['id']);
             }
             $listnsx = loadall_nhasanxuat();
             include "./nhasanxuat/listnhasx.php";
@@ -350,38 +362,98 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
             // controller donhang
         case "listdh":
+            if (isset($_GET['trangthai'])) {
+                $trangthai = $_GET['trangthai'];
+                $listdh = listDHtheotrangthai($trangthai);
+            }
 
-
-            $listdh = loadall_donhang();
 
             include "./donhang/listdonhang.php";
+            break;
+        case "trangthaitt":
+            if (isset($_GET['trangthai']) && isset($_GET['id'])) {
+                $trangthai = (int)$_GET['trangthai'];
+                $trangthaitt = ++$trangthai;
+                $iddh = $_GET['id'];
+                capnhattranthai($iddh, $trangthaitt);
+                // --$trangthai;
+                $listdh = listDHtheotrangthai($trangthai);
+            }
+
+
+            include "./donhang/listdonhang.php";
+            break;
+        case "tuchoihoandon":
+            if (isset($_GET['trangthai']) && isset($_GET['id'])) {
+                $trangthai = (int)$_GET['trangthai'];
+                $iddh = $_GET['id'];
+                capnhattranthai($iddh, $trangthai);
+                $listdh = listDHtheotrangthai($trangthai);
+                include "./donhang/listdonhang.php";
+            }
+
+
+            break;
+        case "chapnhanhoandon":
+            if (isset($_GET['trangthai']) && isset($_GET['id'])) {
+                $trangthai = (int)$_GET['trangthai'];
+                $iddh = $_GET['id'];
+                capnhattranthai($iddh, $trangthai);
+                $listdh = listDHtheotrangthai($trangthai);
+                include "./donhang/listdonhang.php";
+            }
+
+
+            break;
+        case "chapnhanhuydon":
+            if (isset($_GET['trangthai']) && isset($_GET['id'])) {
+                $trangthai = (int)$_GET['trangthai'];
+                $iddh = $_GET['id'];
+                capnhattranthai($iddh, $trangthai);
+                $listdh = listDHtheotrangthai(7);
+                include "./donhang/listdonhang.php";
+            }
+
+
             break;
         case 'chapnhandh':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 chapnhan($_GET['id']);
             }
-            $listdh = loadall_donhang();
-            include "./donhang/listdonhang.php";
+            if (isset($_GET['trangthai'])) {
+                $trangthai = $_GET['trangthai'];
+
+                $listdh = listDHtheotrangthai($trangthai);
+
+                include "./donhang/listdonhang.php";
+            }
             break;
         case 'tuchoidh':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 tuchoi($_GET['id']);
             }
-            $listdh = loadall_donhang();
-            include "./donhang/listdonhang.php";
+            if (isset($_GET['trangthai'])) {
+                $trangthai = $_GET['trangthai'];
+
+                $listdh = listDHtheotrangthai($trangthai);
+
+                include "./donhang/listdonhang.php";
+            }
             break;
         case 'listctdh':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $donhang = loadone_donhang($_GET['id']);
                 extract($donhang);
+                $khachhang = loadone_nguoidung($iduser);
+                extract($khachhang);
                 $madonhang = taomadonhang($iddh, $iduser);
                 // var_dump($iddh);
                 $listctdh = selectctdh($iddh);
                 // var_dump($listctdh);
                 foreach ($listctdh as $ctdh) {
                     extract($ctdh);
-                    $giasp_ctdh = (float)laygiasp($idsp);
-                    $tongtien = number_format($giasp_ctdh * $soluong, 2);
+                    // $giasp_ctdh = (float)laygiasp($idsp);
+                    $tongtien = number_format($giasp * $soluong, 2);
                 }
 
 
@@ -412,7 +484,14 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         case 'xoabnsp':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                delete_bonhosp($_GET['id']);
+                khoa_bnsp($_GET['id']);
+            }
+            $listbnsp = loadall_bonhosp();
+            include "./bonhosp/listbnsp.php";
+            break;
+        case 'mokhoabnsp':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                mokhoa_bnsp($_GET['id']);
             }
             $listbnsp = loadall_bonhosp();
             include "./bonhosp/listbnsp.php";
@@ -465,7 +544,14 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         case 'xoamsp':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                delete_mausanpham($_GET['id']);
+                khoa_msp($_GET['id']);
+            }
+            $listmsp = loadall_mausanpham();
+            include "./mausanpham/listmsp.php";
+            break;
+        case 'mokhoamsp':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                mokhoa_msp($_GET['id']);
             }
             $listmsp = loadall_mausanpham();
             include "./mausanpham/listmsp.php";
@@ -486,7 +572,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
                 update_mausanpham($idmsp, $tenmsp);
             }
-            header("Location: index.php?act=listmsp");
+            header("Location: index.php?act=listmausp");
 
 
 
@@ -542,6 +628,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         case 'DSdonhangfromuser':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $listdh = donhangfromnguoidung($_GET['id']);
+                // $tenkhach = tenkh($_GET['id']);
                 extract($listdh);
                 include "./donhang/listdonhang.php";
             }
@@ -714,10 +801,17 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             if (isset($_POST["login"])) {
                 $username = $_POST['username'];
                 $password = $_POST['pass'];
-                $check_tk = check_taikhoan($username, $password);
-                if (is_array($check_tk)) {
-                    $_SESSION['user'] = $check_tk;
+                $nguoidung = check_taikhoan($username, $password);
+                extract($nguoidung);
+                if ($quyenhan == 1) {
+                    // if (is_array($check_tk)) {
+                    $_SESSION['user'] = $nguoidung;
                     header('location: index.php');
+                    $_SESSION['thongbao'] = "";
+                    include "home.php";
+                } elseif ($quyenhan == 0) {
+                    $_SESSION['user'] = $nguoidung;
+                    header('location: ../../view/index.php');
                     $_SESSION['thongbao'] = "";
                     include "home.php";
                 } else {
@@ -752,3 +846,5 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
     include "home.php";
 }
 include "footer.php";
+?>
+<img src="" alt="">

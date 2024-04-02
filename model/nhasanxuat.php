@@ -31,3 +31,13 @@ function showIDnsxMax()
     $sql = "SELECT idnsx FROM nhasanxuat ORDER BY idnsx DESC LIMIT 1";
     return pdo_query_value($sql);
 }
+function khoa_nsx($id)
+{
+    $sql = "update nhasanxuat set trangthai=1 where idnsx=" . $id;
+    pdo_execute($sql);
+}
+function mokhoa_nsx($id)
+{
+    $sql = "update nhasanxuat set trangthai=0 where idnsx=" . $id;
+    pdo_execute($sql);
+}

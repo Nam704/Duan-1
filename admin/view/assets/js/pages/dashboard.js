@@ -9,6 +9,7 @@
       grid: { padding: { left: 0, right: 0 } },
       colors: ["#3e60d5", "#47ad77", "#fa5c7c", "#ffbc00"],
     };
+    // tạo biểu đồ cột
     var e = ["#3e60d5", "#47ad77", "#fa5c7c", "#ffbc00"],
       t = r("#revenue-chart").data("colors"),
       a = {

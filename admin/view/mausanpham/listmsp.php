@@ -32,7 +32,11 @@
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
 
+                                    <a href="./index.php?act=addmsp">
+                                        <input class="btn btn-soft-primary w-100" type="button"
+                                            value="Thêm màu sản phẩm mới">
 
+                                    </a>
                                 </table>
                             </div>
                             <!-- end .table-responsive-->
@@ -55,7 +59,7 @@
                                     <thead>
                                         <tr>
 
-                                            <th>ID Màu</th>
+                                            <th>STT</th>
 
                                             <th>Tên màu</th>
                                             <th>Thao tác</th>
@@ -67,17 +71,32 @@
                                         extract($msp);
                                         $suamsp = "./index.php?act=suamsp&id=" . $idmsp;
                                         $xoamsp = "./index.php?act=xoamsp&id=" . $idmsp;
-
+                                        $mokhoa = "./index.php?act=mokhoamsp&id=" . $idmsp;
+                                        if ($trangthai == 1) {
+                                            $lammo = 'muted';
+                                        } else {
+                                            $lammo = '';
+                                        }
                                         echo '<tbody>
                         <tr>
                             
-                            <td>' . $idmsp . '</td>
-                            <td>' . $tenmausp . ' </td>
+                            <td class="' . $lammo . '">' . $idmsp . '</td>
+                            <td class="' . $lammo . '">' . $tenmausp . ' </td>
                
                             <td>
-                            <a href="' . $suamsp . '">Sửa  |  </a>
-                            <a href="' . $xoamsp . '">Xóa</a>
-
+                            <a href="' . $suamsp . '">
+                            <input class="btn btn-soft-primary" type="button" value="Sửa">
+                            </a>';
+                                        if ($trangthai == 0) {
+                                            echo '<a href="' . $xoamsp . '">
+                            <input class="btn btn-soft-primary" type="button" value="Khóa">
+                            </a> ';
+                                        } elseif ($trangthai == 1) {
+                                            echo '<a href="' . $mokhoa . '">
+                                <input class="btn btn-soft-primary" type="button" value="Mở khóa">
+                                </a> ';
+                                        }
+                                        echo '
                                     </td>
                                     <td>
                                 </td>
@@ -112,7 +131,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                        document.write(new Date().getFullYear())
+                    document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

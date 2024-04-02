@@ -34,7 +34,11 @@ function loadall_donhang()
     $listdonhang = pdo_query($sql);
     return $listdonhang;
 }
-
+function tenkhach($iduser)
+{
+    $sql = "select tenuser from nguoidung where iduser=$iduser";
+    return pdo_query_value($sql);
+}
 function tenkh($idkh)
 {
     $sql = "  SELECT m.tenuser
@@ -52,18 +56,37 @@ function trangthaiDH($trangthai)
     } elseif ($trangthai == 3) {
         return "Đang chuẩn bị hàng";
     } elseif ($trangthai == 4) {
-        return "Đơn hàng đax giao cho đơn vị vận chuyển";
+        return "Đã giao cho đơn vị vận chuyển";
     } elseif ($trangthai == 5) {
-        return "Đơn hàng đang trên đường đến bạn";
+        return "Đang trên đường đến khách";
     } elseif ($trangthai == 6) {
-        return "Người dùng xác nhận nhận đơn";
+        return "Giao thành công";
     } elseif ($trangthai == 7) {
-        return "Người dùng hủy đơn";
+        return "Đơn hủy do khách";
     } elseif ($trangthai == 8) {
-        return "Người dùng hoàn đơn";
+        return "Khách hoàn đơn";
     } elseif ($trangthai == 9) {
-        return "Từ chối bán hàng";
+        return "Đơn hủy do người bán";
+    } elseif ($trangthai == 10) {
+        return "Đơn hoàn được chấp nhận";
+    } elseif ($trangthai == 11) {
+        return "Đơn hoàn bị từ chối";
+    } elseif ($trangthai == 12) {
+        return "Đơn hủy được chấp nhận";
     }
+}
+function load_alltrangthaidon()
+{
+    $sql = "select distinct idth from trangthaidonhang";
+    $listtrangthai = pdo_query($sql);
+    return $listtrangthai;
+}
+function listDHtheotrangthai($trangthai)
+{
+
+    $sql = "select * from donhang where trangthai=$trangthai";
+    $listdonhang = pdo_query($sql);
+    return $listdonhang;
 }
 function PTthanhtoan($thanhtoan)
 {
@@ -106,7 +129,11 @@ function tuchoi($iddh)
     $sql = "update donhang set trangthai=9 where iddh=" . $iddh;
     return pdo_execute($sql);
 }
-
+function capnhattranthai($iddh, $trangthai)
+{
+    $sql = "update donhang set trangthai=$trangthai where iddh=" . $iddh;
+    return pdo_execute($sql);
+}
 // function loadall_donhang_home()
 // {
 //     $sql = "select * from donhang where 1 order by id desc limit 0,9";

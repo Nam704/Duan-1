@@ -31,6 +31,11 @@
                             <h4 class="header-title mb-4"></h4>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
+                                    <a href="./index.php?act=listbnsp">
+                                        <input class="btn btn-soft-primary w-100" type="button"
+                                            value="Danh sách bộ nhớ sản phẩm">
+
+                                    </a>
                                 </table>
                             </div>
                             <!-- end .table-responsive-->
@@ -53,7 +58,7 @@
                                     <thead>
                                         <tr>
 
-                                            <th>ID BNSP</th>
+                                            <th>STT</th>
 
                                             <th>Kích thước</th>
                                             <th>Thao tác</th>
@@ -70,12 +75,13 @@
                                                     <input type="hidden" name="idbnsp" value="<?= $idbnsp ?>">
                                                     <?= $idbnsp ?>
                                                 </td>
-                                                <td><input type="text" name="kichthuoc" id="" placeholder="<?= $kichthuoc ?>">
+                                                <td><input class="form-control" type="text" name="kichthuoc" id=""
+                                                        placeholder="<?= $kichthuoc ?>" value="<?= $kichthuoc ?>">
                                                 </td>
                                                 <td>
 
-                                                    <input type="submit" style="padding:0  15px;" name="themmoi" value="Sửa">
-
+                                                    <input type="submit" class="btn btn-soft-primary w-100"
+                                                        name="themmoi" value="Sửa">
 
                                                 </td>
                                                 <td>
@@ -108,7 +114,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                        document.write(new Date().getFullYear())
+                    document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

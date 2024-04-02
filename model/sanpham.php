@@ -69,95 +69,40 @@ function kiemtraSLanhsp($idsp)
 }
 function uploadimgsp($idsp)
 {
-
-
     if (isset($_POST['themmoi'])) {
-
-        # database connection file
-        // include 'db.conn.php';
-        // include '../model/pdo.php';
         $images = $_FILES['images'];
-
-        # Number of images
         $num_of_imgs = count($images['name']);
         (int) $SLanhsp = kiemtraSLanhsp($idsp);
         if (((int)$SLanhsp >= 0) && ((int)$SLanhsp <= 6) || ((int)$SLanhsp + $num_of_imgs <= 6)) {
             if ($num_of_imgs <= 6) {
                 for ($i = 0; $i < $num_of_imgs; $i++) {
-
-                    # get the image info and store them in var
                     $image_name = $images['name'][$i];
                     $tmp_name   = $images['tmp_name'][$i];
                     $error      = $images['error'][$i];
-
-                    # if there is not error occurred while uploading
                     if ($error === 0) {
-
-                        # get image extension store it in var
                         $img_ex = pathinfo($image_name, PATHINFO_EXTENSION);
                         $img_ex_lc = strtolower($img_ex);
-
-                        /** 
-                    crating array that stores allowed
-                    to upload image extensions.
-                         **/
                         $allowed_exs = array('jpg', 'jpeg', 'png', 'jfif');
-
-
-                        /** 
-                    check if the the image extension 
-                    is present in $allowed_exs array
-                         **/
-
                         if (in_array($img_ex_lc, $allowed_exs)) {
-                            /** 
-                         renaming the image name with 
-                         with random string
-                             **/
                             $new_img_name = uniqid('IMG-', true) . '.' . $img_ex_lc;
-                            // $new_img_name = "anhsanpham_" . $idsp;
-
-                            # crating upload path on root directory
                             $img_upload_path = '../../upload/' . $new_img_name;
-
-                            # inserting imge name into database
-
                             $sql  = "INSERT INTO images (img_name,idsp)
                                  VALUES ('$new_img_name', '$idsp')";
                             $stmt = pdo_get_connection()->prepare($sql);
-                            // $stmt->execute([$new_img_name], $idsp);
                             $stmt = pdo_execute($sql);
-
-                            # move uploaded image to 'uploads' folder
                             move_uploaded_file($tmp_name, $img_upload_path);
-
-                            # redirect to 'index.php'
-                            // header("Location: index.php");
                         } else {
-                            # error message
                             $em = "You can't upload files of this type";
-
-                            /*
-                        redirect to 'index.php' and 
-                        passing the error message
-                        */
-
                             header("Location: index.php?act=thembttheosp&id=$idsp&error=$em");
                         }
                     }
-                    // else {
-                    //     $em = "Unknown Error Occurred while uploading";
-                    //     header("Location: index.php?act=thembttheosp&id=$idsp&error=$em");
-                    // }
                 }
             } else {
-                # error message
                 $em = "Không thể tải nhiều hơn 6 ảnh";
                 header("Location: index.php?act=thembttheosp&id=$idsp&error=$em");
             }
         } else {
             $SLthemanh = 6 - (int)$SLanhsp;
-            # error message
             $em = "Số lượng ảnh bạn đã thêm trước đó là: $SLanhsp <br>  Bạn chỉ có thể thêm $SLthemanh";
             header("Location: index.php?act=thembttheosp&id=$idsp&error=$em");
         }
@@ -180,6 +125,14 @@ function uploadimgsp($idsp)
 //     $listsanpham = pdo_query($sql);
 //     return $listsanpham;
 // }
+function loadall_sanpham_dangban()
+{
+    $sql = "select * from sanpham where trangthai=0";
+
+
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;
+}
 function loadone_sanpham($id)
 {
     $sql = "select * from sanpham where idsp=" . $id;
@@ -197,12 +150,12 @@ function loadone_sanpham($id)
 //         return "";
 //     }
 // }
-// function load_sanpham_cungloai($id, $iddm)
-// {
-//     $sql = "select *from sanpham where iddm=$iddm and id<>" . $id;
-//     $listsanpham = pdo_query($sql);
-//     return $listsanpham;
-// }
+function load_sanpham_cungloai($idsp, $idnsx)
+{
+    $sql = "select *from sanpham where idnsx=$idnsx and idsp<>" . $idsp;
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;
+}
 function update_sanpham($idsp, $idnsx, $idpl, $idud, $tensp, $giasp, $soluongtk, $hinh, $mota)
 {
     if ($hinh == "") {
@@ -243,9 +196,19 @@ function giaspmax($id)
     $sql = "SELECT MAX(gia) AS max_gia FROM spbienthe where idsp=$id";
     return pdo_query_value($sql);
 }
+function giaspallmax()
+{
+    $sql = "SELECT MAX(giasp) AS max_gia FROM sanpham ";
+    return pdo_query_value($sql);
+}
 function giaspmin($id)
 {
     $sql = "SELECT  MIN(gia) AS min_gia FROM spbienthe where idsp=$id";
+    return pdo_query_value($sql);
+}
+function giaspallmin()
+{
+    $sql = "SELECT  MIN(giasp) AS min_gia FROM sanpham ";
     return pdo_query_value($sql);
 }
 function listgiasp($id)

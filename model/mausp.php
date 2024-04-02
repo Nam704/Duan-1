@@ -9,6 +9,16 @@ function delete_mausanpham($id)
     $sql = "delete from mausanpham where idmsp=" . $id;
     pdo_query($sql);
 }
+function khoa_msp($id)
+{
+    $sql = "update mausanpham set trangthai=1 where idmsp=" . $id;
+    pdo_execute($sql);
+}
+function mokhoa_msp($id)
+{
+    $sql = "update mausanpham set trangthai=0 where idmsp=" . $id;
+    pdo_execute($sql);
+}
 function loadall_mausanpham()
 {
     $sql = "select * from mausanpham order by idmsp desc";

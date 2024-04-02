@@ -1,170 +1,201 @@
-	<!-- footer_section - start
+<!-- footer_section - start
 		================================================== -->
-	<footer class="footer_section supermarket_footer clearfix">
-	    <div class="footer_widget_area sec_ptb_100 bg_white clearfix">
-	        <div class="container">
-	            <div class="row justify-content-lg-between">
+<footer class="footer_section electronic_footer clearfix">
+    <div class="footer_widget_area clearfix">
+        <div class="container maxw_1600">
+            <div class="row justify-content-lg-between">
+                <div class="col-lg-3 col-md-4">
+                    <div class="footer_widget footer_about">
+                        <div class="brand_logo mb_30">
+                            <a href="index.html">
+                                <img src="assets/images/logo/logo_17_1x.png"
+                                    srcset="assets/images/logo/logo_17_2x.png 2x" alt="logo_not_found">
+                            </a>
+                        </div>
+                        <p class="mb_30">
+                            Phasellus justo ligula, dictum sit amet tortor eu, iaculis tristique turpis. Mauris non orci
+                            sed est suscipit tempor ut quis felis. Praesent pellentesque
+                        </p>
 
-	                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-	                    <div class="footer_widget footer_useful_links clearfix">
-	                        <h3 class="footer_widget_title">Buyer Central</h3>
-	                        <ul class="ul_li_block clearfix">
-	                            <li><a href="#!">Sign in</a></li>
-	                            <li><a href="#!">Buyer Protection</a></li>
-	                            <li><a href="#!">Payment Options</a></li>
-	                            <li><a href="#!">Shipping Policy</a></li>
-	                            <li><a href="#!">Return Policy</a></li>
-	                        </ul>
-	                    </div>
-	                </div>
+                        <div class="footer_electronic_hotline mb_30">
+                            <i class="fal fa-headset"></i>
+                            <h4>GOT QUESTION? CALL US 24/7!</h4>
+                            <span>801 017 197</span>
+                        </div>
 
-	                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-	                    <div class="footer_widget bestrated_products">
-	                        <h3 class="footer_widget_title">Best Rated Products</h3>
+                        <ul class="circle_social_links ul_li clearfix">
+                            <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#!"><i class="fab fa-pinterest-p"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
 
-	                        <div class="supermarket_product_small">
-	                            <span class="item_type">Speakers</span>
-	                            <h3 class="item_title">
-	                                <a href="#!">Red Wireless Headphone Solo 2 HD</a>
-	                            </h3>
-	                            <span class="item_price">£2,300</span>
-	                            <ul class="rating_star ul_li clearfix">
-	                                <li><i class="fas fa-star"></i></li>
-	                                <li><i class="fas fa-star"></i></li>
-	                                <li><i class="fas fa-star"></i></li>
-	                                <li><i class="fas fa-star"></i></li>
-	                                <li><i class="fal fa-star"></i></li>
-	                            </ul>
-	                        </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="footer_widget footer_useful_links clearfix">
+                        <h3 class="footer_widget_title text-white text-uppercase">FIND IT FAST</h3>
+                        <ul class="ul_li_block clearfix">
+                            <li><a href="#!">Laptops, Ultrabooks & Computers</a></li>
+                            <li><a href="#!">Cameras & Photography</a></li>
+                            <li><a href="#!">Smart Phones & Tablets</a></li>
+                            <li><a href="#!">Video Games & Consoles</a></li>
+                            <li><a href="#!">TV & Audio</a></li>
+                            <li><a href="#!">Gadgets</a></li>
+                            <li><a href="#!">Car Electronic & GPS</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-	                        <div class="supermarket_product_small">
-	                            <span class="item_type">Speakers</span>
-	                            <h3 class="item_title">
-	                                <a href="#!">Red Wireless Headphone Solo 2 HD</a>
-	                            </h3>
-	                            <span class="item_price">£2,300</span>
-	                            <ul class="rating_star ul_li clearfix">
-	                                <li><i class="fas fa-star"></i></li>
-	                                <li><i class="fas fa-star"></i></li>
-	                                <li><i class="fas fa-star"></i></li>
-	                                <li><i class="fas fa-star"></i></li>
-	                                <li><i class="fal fa-star"></i></li>
-	                            </ul>
-	                        </div>
-	                    </div>
-	                </div>
+                <div class="col-lg-2 col-md-4">
+                    <div class="footer_widget footer_useful_links clearfix">
+                        <h3 class="footer_widget_title text-white text-uppercase">CUSTOMER CARE</h3>
+                        <ul class="ul_li_block clearfix">
+                            <li><a href="#!">My Account</a></li>
+                            <li><a href="#!">Track your Order</a></li>
+                            <li><a href="#!">Wishlist</a></li>
+                            <li><a href="#!">Customer Service</a></li>
+                            <li><a href="#!">Returns/Exchange</a></li>
+                            <li><a href="#!">FAQs</a></li>
+                            <li><a href="#!">Product Support</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-	                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-	                    <div class="footer_widget footer_useful_links clearfix">
-	                        <h3 class="footer_widget_title">Information</h3>
-	                        <ul class="ul_li_block clearfix">
-	                            <li><a href="#!">About Us</a></li>
-	                            <li><a href="#!">Band of Trust</a></li>
-	                            <li><a href="#!">Market History</a></li>
-	                            <li><a href="#!">News</a></li>
-	                            <li><a href="#!">Contact us</a></li>
-	                        </ul>
-	                    </div>
-	                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer_widget footer_recent_post">
+                        <h3 class="footer_widget_title text-white text-uppercase mb-0">Weekly Selected</h3>
+                        <div class="row justify-content-lg-between">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="electronic_product_small">
+                                    <a class="item_image" href="#!">
+                                        <img src="assets/images/shop/electronic/img_27.png" alt="image_not_found">
+                                    </a>
+                                    <div class="item_content">
+                                        <h4 class="item_title">
+                                            <a href="#!">Red Wireless Headphones Solo</a>
+                                        </h4>
+                                        <span class="item_price">$3,49.99</span>
+                                    </div>
+                                </div>
 
-	                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-	                    <div class="footer_widget supermarket_footer_contact">
-	                        <h3 class="footer_widget_title">Contact info</h3>
-	                        <ul class="ul_li_block clearfix">
-	                            <li>
-	                                <div class="item_icon">
-	                                    <i class="fas fa-map-marker-alt"></i>
-	                                </div>
-	                                <div class="item_content">
-	                                    <p class="mb-0">
-	                                        1789 Street Name, City Name, United States
-	                                    </p>
-	                                </div>
-	                            </li>
-	                            <li>
-	                                <div class="item_icon">
-	                                    <i class="fas fa-phone-alt"></i>
-	                                </div>
-	                                <div class="item_content">
-	                                    <p class="mb-0">0092 - 123 455 789</p>
-	                                    <p class="mb-0">+123 958 789</p>
-	                                </div>
-	                            </li>
-	                            <li>
-	                                <div class="item_icon">
-	                                    <i class="fas fa-envelope"></i>
-	                                </div>
-	                                <div class="item_content">
-	                                    <p class="mb-0">Email: support@uxnaqvi.com</p>
-	                                    <p class="mb-0">9AM-5PM, Mon - Sat, GMT+3</p>
-	                                </div>
-	                            </li>
-	                        </ul>
-	                    </div>
-	                </div>
+                                <div class="electronic_product_small">
+                                    <a class="item_image" href="#!">
+                                        <img src="assets/images/shop/electronic/img_31.png" alt="image_not_found">
+                                    </a>
+                                    <div class="item_content">
+                                        <h4 class="item_title">
+                                            <a href="#!">Red Wireless Headphones Solo</a>
+                                        </h4>
+                                        <span class="item_price">$3,49.99</span>
+                                    </div>
+                                </div>
 
-	            </div>
-	        </div>
-	    </div>
+                                <div class="electronic_product_small">
+                                    <a class="item_image" href="#!">
+                                        <img src="assets/images/shop/electronic/img_24.png" alt="image_not_found">
+                                    </a>
+                                    <div class="item_content">
+                                        <h4 class="item_title">
+                                            <a href="#!">Red Wireless Headphones Solo</a>
+                                        </h4>
+                                        <span class="item_price">$3,49.99</span>
+                                    </div>
+                                </div>
+                            </div>
 
-	    <div class="footer_middle sec_ptb_50 text-white clearfix" data-bg-color="#23292d">
-	        <div class="container">
-	            <div class="row align-items-center justify-content-center">
-	                <div class="col-lg-5 col-md-7 col-sm-9 col-xs-12">
-	                    <div class="form_item mb-0">
-	                        <form action="#">
-	                            <input type="email" name="email" placeholder="Enter Your Email Address">
-	                            <button type="submit" class="submit_btn">Sign Up</button>
-	                        </form>
-	                    </div>
-	                </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="electronic_product_small">
+                                    <a class="item_image" href="#!">
+                                        <img src="assets/images/shop/electronic/img_23.png" alt="image_not_found">
+                                    </a>
+                                    <div class="item_content">
+                                        <h4 class="item_title">
+                                            <a href="#!">Red Wireless Headphones Solo</a>
+                                        </h4>
+                                        <span class="item_price">$3,49.99</span>
+                                    </div>
+                                </div>
 
-	                <div class="col-lg-3 col-md-7 col-sm-9 col-xs-12">
-	                    <div class="footer_electronic_hotline mb_30">
-	                        <i class="fal fa-headset"></i>
-	                        <h4 class="text-white">GOT QUESTION? CALL US 24/7!</h4>
-	                        <span>801 017 197</span>
-	                    </div>
-	                </div>
+                                <div class="electronic_product_small">
+                                    <a class="item_image" href="#!">
+                                        <img src="assets/images/shop/electronic/img_26.png" alt="image_not_found">
+                                    </a>
+                                    <div class="item_content">
+                                        <h4 class="item_title">
+                                            <a href="#!">Red Wireless Headphones Solo</a>
+                                        </h4>
+                                        <span class="item_price">$3,49.99</span>
+                                    </div>
+                                </div>
 
-	                <div class="col-lg-4 col-md-7 col-sm-9 col-xs-12">
-	                    <ul class="circle_social_links ul_li_right clearfix">
-	                        <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-	                        <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-	                        <li><a href="#!"><i class="fab fa-google-plus-g"></i></a></li>
-	                        <li><a href="#!"><i class="fab fa-dribbble"></i></a></li>
-	                        <li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
-	                    </ul>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
+                                <div class="electronic_product_small">
+                                    <a class="item_image" href="#!">
+                                        <img src="assets/images/shop/electronic/img_07.png" alt="image_not_found">
+                                    </a>
+                                    <div class="item_content">
+                                        <h4 class="item_title">
+                                            <a href="#!">Red Wireless Headphones Solo</a>
+                                        </h4>
+                                        <span class="item_price">$3,49.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	    <div class="footer_bottom text-white clearfix" data-bg-color="#191e22">
-	        <div class="container">
-	            <div class="row justify-content-lg-between">
-	                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-	                    <p class="copyright_text mb-0">© <a href="#!" class="author_link text-white">jthemes</a> - All
-	                        rights Reserved</p>
-	                </div>
-
-	                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-	                    <div class="payment_methods float-lg-right float-md-right">
-	                        <img src="./view/assets/images/payment_methods_01.png" alt="image_not_found">
-	                    </div>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-	</footer>
-	<!-- footer_section - end
+    <div class="footer_bottom text-center bg_black clearfix">
+        <div class="container maxw_1600">
+            <p class="copyright_text mb-0">Copyright © 2021, <a href="#!" class="author_link">Neoncart</a> marketplace
+                eCommerce. All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+<!-- footer_section - end
 		================================================== -->
-	<?php include "connectscrip.php"; ?>
 
 
+<!-- fraimwork - jquery include -->
+<script src="assets/js/jquery-3.5.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
 
-	</body>
+<!-- mobile menu - jquery include -->
+<script src="assets/js/mCustomScrollbar.js"></script>
 
-	<!-- Mirrored from www.jthemes.net/themes/html/neoncart/home_supermarket.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Mar 2024 16:55:09 GMT -->
+<!-- animation - jquery include -->
+<script src="assets/js/parallaxie.js"></script>
+<script src="assets/js/wow.min.js"></script>
 
-	</html>
+<!-- nice select - jquery include -->
+<script src="assets/js/nice-select.min.js"></script>
+
+<!-- carousel - jquery include -->
+<script src="assets/js/slick.min.js"></script>
+
+<!-- countdown timer - jquery include -->
+<script src="assets/js/countdown.js"></script>
+
+<!-- popup images & videos - jquery include -->
+<script src="assets/js/magnific-popup.min.js"></script>
+
+<!-- filtering & masonry layout - jquery include -->
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<script src="assets/js/masonry.pkgd.min.js"></script>
+<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+
+<!-- jquery ui - jquery include -->
+<script src="assets/js/jquery-ui.js"></script>
+
+<!-- custom - jquery include -->
+<script src="assets/js/custom.js"></script>
+
+
+</body>
+
+<!-- Mirrored from jthemes.net/themes/html/neoncart/electronic_shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Mar 2024 09:54:20 GMT -->
+
+</html>

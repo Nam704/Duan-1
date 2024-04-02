@@ -18,7 +18,15 @@
                                 <li class="breadcrumb-item active">Editable Table</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Editable Table</h4>
+                        <h4 class="page-title"> <?php
+                                                if ($_GET["act"] != "DSdonhangfromuser") {
+                                                    echo 'Danh sách đơn hàng: ' . trangthaiDH($trangthai);
+                                                } elseif ($_GET["act"] == "DSdonhangfromuser") {
+                                                    echo 'Danh sách đơn hàng của: ' . tenkhach($_GET['id']);
+                                                }
+
+                                                ?>
+                        </h4>
                     </div>
                 </div>
             </div>
@@ -31,7 +39,42 @@
                             <h4 class="header-title mb-4"></h4>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
+                                    <thead>
+                                        <tr>
+                                            <?php
+                                            if ($_GET["act"] != "DSdonhangfromuser") {
+                                                $DStrangthaidon = load_alltrangthaidon();
+                                                $dem = 0;
 
+                                                foreach ($DStrangthaidon as $ttdonhang) {
+                                                    extract($ttdonhang);
+                                                    $tenth = trangthaiDH($idth);
+                                                    if ($ttdonhang["idth"] == $_GET["trangthai"]) {
+                                                        $noibat = 'background-color: rgb(180, 180, 227)!important;color: white';
+                                                    } else {
+                                                        $noibat = '';
+                                                    }
+                                                    ++$dem;
+                                                    if ($dem == 7) {
+                                                        # code...
+                                                        echo '</tr><tr>';
+                                                    }
+                                                    echo '
+                                                   <td>
+                                                        <a href="./index.php?act=listdh&trangthai=' . $ttdonhang["idth"] . '">
+                                                            <input style="' . $noibat . '" class="btn btn-soft-primary w-100" type="button" value="' . $tenth . '">
+                                                        </a>
+                                                    </td>
+                                                   ';
+                                                }
+                                            }
+
+
+                                            ?>
+
+                                        </tr>
+
+                                    </thead>
 
                                 </table>
                             </div>
@@ -59,7 +102,7 @@
                                             <th>Ngày đặt</th>
 
                                             <th>Trạng thái</th>
-                                            <th>Địa chỉ </th>
+
 
                                             <th>SĐT</th>
                                             <th>Thanh toán</th>
@@ -78,14 +121,24 @@
                                         extract($sp);
                                         ++$dem;
                                         $tenkh = tenkh($iduser);
-                                        $chapnhan = "./index.php?act=chapnhandh&id=" . $iddh;
-                                        $tuchoi = "./index.php?act=tuchoidh&id=" . $iddh;
+                                        (int)$trangthai;
+                                        // $trangthaikt = $trangthai + 1;
+                                        $chapnhan = "./index.php?act=chapnhandh&id=" . $iddh . "&trangthai=9";
+                                        $tuchoi = "./index.php?act=tuchoidh&id=" . $iddh . "&trangthai=2";
+
+                                        $chapnhanhoandon = "./index.php?act=chapnhanhoandon&id=" . $iddh . "&trangthai=10";
+                                        $chapnhanhuydon = "./index.php?act=chapnhanhuydon&id=" . $iddh . "&trangthai=12";
+
+                                        $trangthaitt = "./index.php?act=trangthaitt&id=" . $iddh . "&trangthai=$trangthai";
+
+                                        $tuchoihoandon = "./index.php?act=tuchoihoandon&id=" . $iddh . "&trangthai=11";
+
                                         $chitiet = "./index.php?act=listctdh&id=" . $iddh;
                                         $trangthaidonhang = trangthaiDH($trangthai);
                                         $PTTT = PTthanhtoan($ptthanhtoan);
                                         $tongtien = tongtientuCTDH($iddh);
                                         capnhattonggiaDH($iddh, $tongtien);
-                                        if ($trangthai == 1) {
+                                        if ($trangthai == 12) {
                                             $lammo = 'muted';
                                         } else {
                                             $lammo = '';
@@ -93,35 +146,59 @@
                                         echo '<tbody>
                         <tr>
                             
-                            <td>' . $dem . '</td>
-                            <td>' . $tenkh . '</td>';
+                            <td class="$lammo">' . $dem . '</td>
+                            <td class="$lammo">' . $tenkh . '</td>';
 
                                         echo '
-                            <td>' . $ngaydh . ' </td>
-                            <td>' . $trangthaidonhang . ' </td>
-                            <td>' . $diachigh . ' </td>
-                            <td>' . $sdt . ' </td>
-                            <td>' . $PTTT . ' </td>
-                            <td>' . $tongtien . ' </td>
+                            <td class="$lammo">' . $ngaydh . ' </td>
+                            <td class="$lammo">' . $trangthaidonhang . ' </td>
+                           
+                            <td class="$lammo">' . $sdt . ' </td>
+                            <td class="$lammo">' . $PTTT . ' </td>
+                            <td class="$lammo">' . $tongtien . ' </td>
 
 
 
-                            <td>
-                            <a href="' . $chapnhan . '">
-                            <input class="btn btn-soft-primary" type="button" value="Xác nhận">
-                            </a>';
+                            <td>';
+                                        if ($_GET["act"] != "DSdonhangfromuser") {
+                                            if ($trangthai == 1) {
+                                                echo '
+                                <a href="' . $chapnhan . '">
+                                <input class="btn btn-soft-primary" type="button" value="Xác nhận">
+                                </a>';
+                                            } elseif ($trangthai == 9) {
+                                                echo '
+                                            <a href="' . $chapnhan . '">
+                                            <input class="btn btn-soft-primary" type="button" value="Xác nhận lại">
+                                            </a>';
+                                            }
 
-                                        if ($trangthai != 9) {
-                                            echo ' 
+
+                                            if ($trangthai == 1) {
+                                                echo ' 
                                             <a href="' . $tuchoi . '">
                                             <input class="btn btn-soft-primary" type="button" value="Từ chối"></a> ';
+                                            }
+                                            // } else {
+                                            if ($trangthai >= 2 && $trangthai <= 6) {
+                                                echo ' <a href="' . $trangthaitt . '">
+                                                    <input class="btn btn-soft-primary" type="button" value="Chuyển tiếp">
+                                                    </a> ';
+                                            }
+                                            if ($trangthai == 7) {
+                                                echo ' <a href="' . $trangthaitt . '">
+                                                    <input class="btn btn-soft-primary" type="button" value="Chấp nhận hủy đơn">
+                                                    </a> ';
+                                            }
+                                            if ($trangthai == 8) {
+                                                echo ' <a href="' . $chapnhanhoandon . '">
+                                                    <input class="btn btn-soft-primary" type="button" value="Chấp nhận hoàn đơn">
+                                                    </a> ';
+                                                echo ' <a href="' . $tuchoihoandon . '">
+                                                    <input class="btn btn-soft-primary" type="button" value="Từ chối hoàn đơn">
+                                                    </a> ';
+                                            }
                                         }
-                                        // } else {
-                                        //     echo ' <a href="' . $mokhoauser . '">
-                                        //             <input class="btn btn-soft-primary" type="button" value="Mở khóa">
-                                        //             </a> ';
-                                        // }
-
                                         echo '
                                         <a href="' . $chitiet . '">
 <input class="btn btn-soft-primary" type="button" value="Chi tiết">
