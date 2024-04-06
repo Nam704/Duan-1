@@ -39,6 +39,19 @@ function loadall_sanpham($kyw, $iddm)
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
+function loadall_sanphamclien($kyw, $iddm)
+{
+    $sql = "select * from sanpham where 1 and trangthai=0";
+    if ($kyw != "") {
+        $sql .= " and tensp like '%" . $kyw . "%'";
+    }
+    if ($iddm > 0) {
+        $sql .= " and idnsx ='" . $iddm . "' ";
+    }
+    $sql .= " order by idsp desc";
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;
+}
 function loadall_phanloai()
 {
     $sql = "select * from phanloai order by idpl desc";
@@ -152,7 +165,7 @@ function loadone_sanpham($id)
 // }
 function load_sanpham_cungloai($idsp, $idnsx)
 {
-    $sql = "select *from sanpham where idnsx=$idnsx and idsp<>" . $idsp;
+    $sql = "select *from sanpham where idnsx=$idnsx and trangthai=0 and idsp<>" . $idsp;
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
@@ -218,12 +231,12 @@ function listgiasp($id)
 }
 function listmspbt($id)
 {
-    $sql = "select idmsp from spbienthe where idsp=$id";
+    $sql = "select DISTINCT  idmsp from spbienthe where idsp=$id";
     return pdo_query($sql);
 }
 function listbnspbt($id)
 {
-    $sql = "select idbnsp from spbienthe where idsp=$id";
+    $sql = "select DISTINCT idbnsp from spbienthe where idsp=$id";
     return pdo_query($sql);
 }
 function khoa_sp($id)
@@ -235,4 +248,9 @@ function mokhoa_sp($id)
 {
     $sql = "update sanpham set trangthai=0 where idsp=" . $id;
     pdo_execute($sql);
+}
+function layidspbt($idsp, $idmsp, $idbnsp)
+{
+    $sql = "select * from spbienthe where idsp=$idsp and idbnsp=$idbnsp and idmsp=$idmsp";
+    return pdo_query($sql);
 }

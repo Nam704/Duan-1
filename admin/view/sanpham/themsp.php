@@ -33,7 +33,8 @@
                                 <table class="table table-centered mb-0 table-nowrap" id="inline-editable">
 
                                     <a href="./index.php?act=listsp">
-                                        <input class="btn btn-soft-primary w-100" type="submit" name="danhsachuser" value="Danh Sách">
+                                        <input class="btn btn-soft-primary w-100" type="submit" name="danhsachuser"
+                                            value="Danh Sách">
                                     </a>
                                 </table>
                             </div>
@@ -67,7 +68,8 @@
                                     <form action="index.php?act=themsp" method="post" enctype="multipart/form-data">
                                         <tbody>
                                             <tr>
-                                                <td><input class="form-control" type="text" name="tensp" placeholder="Tên sản phẩm"></td>
+                                                <td><input class="form-control" type="text" name="tensp"
+                                                        placeholder="Tên sản phẩm"></td>
 
                                                 <td>
                                                     <select name="idnsx" class="form-control">
@@ -109,14 +111,17 @@
                                                 </select>
                                             </td>
 
-                                            <td><input type="number" class="form-control" name="giasp" placeholder="Giá sản phẩm"></td>
-                                            <td><input type="number" class="form-control" name="soluongtk" placeholder="Số lượng"></td>
+                                            <td><input type="number" class="form-control" name="giasp"
+                                                    placeholder="Giá sản phẩm"></td>
+                                            <td><input type="number" class="form-control" name="soluongtk"
+                                                    placeholder="Số lượng"></td>
                                             <tr>
                                                 <th>Mô tả</th>
                                             </tr>
                                             <tr>
                                                 <td colspan="4">
-                                                    <textarea class="motasp" name="mota" id="" cols="30" rows="5"></textarea>
+                                                    <textarea class="motasp" name="mota" id="" cols="30"
+                                                        rows="5"></textarea>
 
                                                 </td>
 
@@ -140,7 +145,8 @@
 
                                                 </select></td>
                                             <td>
-                                                <input class="btn btn-soft-primary w-100" type="submit" name="themmoi" value="Thêm">
+                                                <input class="btn btn-soft-primary w-100" type="submit" name="themmoi"
+                                                    value="Thêm">
                                             </td>
 
 
@@ -171,7 +177,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                        document.write(new Date().getFullYear())
+                    document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>

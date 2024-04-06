@@ -1,6 +1,7 @@
 <?php
 ob_start();
 session_start();
+
 include "../../../../Duan1/Duan-1/model/pdo.php";
 include "../../../../Duan1/Duan-1/model/nhasanxuat.php";
 include "../../../../Duan1/Duan-1/model/bonhosp.php";
@@ -12,10 +13,6 @@ include "../../../../Duan1/Duan-1/model/sanpham.php";
 include "../../../../Duan1/Duan-1/model/bienthe.php";
 include "../../../../Duan1/Duan-1/model/donhang.php";
 include "../../../../Duan1/Duan-1/model/ctdonhang.php";
-
-
-
-
 $tongsodonhang = tongsodonhang();
 $listuser = loadall_nguoidung();
 // $listadminfromuser = selectAdmins();
@@ -23,6 +20,7 @@ $listuser = loadall_nguoidung();
 $tongtienallDH = tongtienallDH();
 $tongalluser = tongsonguoidung();
 $listdonhang = loadall_donhang();
+
 // $DStrangthaidon = load_alltrangthaidon();
 
 // var_dump($listdonhang);
@@ -32,11 +30,8 @@ extract($listdonhang);
 
 
 
-// loadall_nhasanxuat();
-// var_dump(loadall_nhasanxuat());
-// include "../Duan1/Duan-1/model/pdo.php";
-
 include "header.php";
+
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
@@ -802,6 +797,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $username = $_POST['username'];
                 $password = $_POST['pass'];
                 $nguoidung = check_taikhoan($username, $password);
+                // var_dump($nguoidung, $username, $password);
+                // die();
                 extract($nguoidung);
                 if ($quyenhan == 1) {
                     // if (is_array($check_tk)) {
@@ -846,5 +843,3 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
     include "home.php";
 }
 include "footer.php";
-?>
-<img src="" alt="">

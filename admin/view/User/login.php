@@ -65,19 +65,13 @@ session_start();
                                                         your
                                                         password?</a>
                                                 <p style="color: red;">
-                                                    <?php
-                                                    // Bắt đầu phiên làm việc
-
-                                                    // Kiểm tra xem session 'thongbao' có tồn tại không
-                                                    if (isset($_SESSION['thongbao'])) {
-                                                        // Sử dụng session 'thongbao' nếu tồn tại
-                                                        $thongbao = $_SESSION['thongbao'];
-                                                        // Sau khi sử dụng xong, bạn có thể xóa session này
-                                                        // unset($_SESSION['thongbao']);
-                                                    }
-
-                                                    // Tiếp tục xử lý trang login...
-                                                    ?></small><?= $thongbao ?>
+                                                    </small><?php
+                                                            if (isset($_SESSION['thongbao'])) {
+                                                                $thongbao = $_SESSION['thongbao'];
+                                                                echo $thongbao;
+                                                              
+                                                            }
+                                                            ?>
                                                 </p>
 
 

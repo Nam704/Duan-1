@@ -73,21 +73,15 @@
 
                         </div>
                     </div>
-
+                    <!-- Timkhiem -->
                     <div class="col-lg-6">
-                        <form action="#">
+                        <form action="index.php?act=timkiemsp" method="post">
                             <div class="medical_search_bar">
                                 <div class="form_item">
-                                    <input type="search" name="search" placeholder="search here...">
+                                    <input type="text" name="kyw" placeholder="search here...">
                                 </div>
                                 <div class="option_select">
-                                    <!-- <select>
-                                        <option data-display="All Category">Select A Option</option>
-                                        <option value="1">Some option</option>
-                                        <option value="2">Another option</option>
-                                        <option value="3" disabled>A disabled option</option>
-                                        <option value="4">Potato</option>
-                                    </select> -->
+
                                     <select name="idnsx" class="form-control">
                                         <?php
                                         foreach ($listnsx as $nsx) {
@@ -98,9 +92,15 @@
                                         ?>
                                     </select>
                                 </div>
-                                <button type="submit" class="submit_btn"><i class="fal fa-search"></i></button>
+                                <input type="hidden" name="act" value="timkiemsp">
+                                <button type="submit" name="timkiem" class="submit_btn">
+                                    <i class="fal fa-search"></i></button>
+                                <!-- <input type="submit" name="Test" value="Gửi"> -->
                             </div>
                         </form>
+
+
+
                     </div>
 
                     <div class="col-lg-3">
@@ -108,7 +108,12 @@
                             <li>
                                 <a class="mobile_menu_btn" href="#">
                                     <i class="fas fa-user"></i>
-                                    <span>Login</span>
+                                    <span><?php
+                                            if (isset($_SESSION['user'])) {
+                                                echo $_SESSION['user']['tenuser'];
+                                                // var_dump($_SESSION['user']);
+                                            } else echo "Login";
+                                            ?></span>
                                 </a>
                             </li>
                             <li>
@@ -143,11 +148,11 @@
                     <div class="col-lg-8">
                         <nav class="main_menu clearfix">
                             <ul class="ul_li text-uppercase clearfix">
-                                <li><a href="#!">Super deals</a></li>
-                                <li><a href="#!">Mother`s Day</a></li>
-                                <li><a href="#!">Apple Week</a></li>
-                                <li><a href="#!">Logitech Sale</a></li>
-                                <li><a href="#!">Headphones Sale</a></li>
+                                <li><a href="#!">Sản phẩm mới</a></li>
+                                <li><a href="#!">Sản phẩm bán chạy</a></li>
+                                <li><a href="#!">Sản phẩm giảm giá</a></li>
+                                <!-- <li><a href="#!">Logitech Sale</a></li>
+                                <li><a href="#!">Headphones Sale</a></li> -->
                             </ul>
                         </nav>
                     </div>
@@ -182,122 +187,4 @@
 
         <!-- sidebar mobile menu & sidebar cart - start
 			================================================== -->
-        <div class="sidebar-menu-wrapper">
-            <div class="cart_sidebar">
-                <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
-
-                <ul class="cart_items_list ul_li_block mb_30 clearfix">
-                    <li>
-                        <div class="item_image">
-                            <img src="assets/images/cart/img_01.jpg" alt="image_not_found">
-                        </div>
-                        <div class="item_content">
-                            <h4 class="item_title">Yellow Blouse</h4>
-                            <span class="item_price">$30.00</span>
-                        </div>
-                        <button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
-                    </li>
-                    <li>
-                        <div class="item_image">
-                            <img src="assets/images/cart/img_01.jpg" alt="image_not_found">
-                        </div>
-                        <div class="item_content">
-                            <h4 class="item_title">Yellow Blouse</h4>
-                            <span class="item_price">$30.00</span>
-                        </div>
-                        <button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
-                    </li>
-                    <li>
-                        <div class="item_image">
-                            <img src="assets/images/cart/img_01.jpg" alt="image_not_found">
-                        </div>
-                        <div class="item_content">
-                            <h4 class="item_title">Yellow Blouse</h4>
-                            <span class="item_price">$30.00</span>
-                        </div>
-                        <button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
-                    </li>
-                </ul>
-
-                <ul class="total_price ul_li_block mb_30 clearfix">
-                    <li>
-                        <span>Subtotal:</span>
-                        <span>$90</span>
-                    </li>
-                    <li>
-                        <span>Vat 5%:</span>
-                        <span>$4.5</span>
-                    </li>
-                    <li>
-                        <span>Discount 20%:</span>
-                        <span>- $18.9</span>
-                    </li>
-                    <li>
-                        <span>Total:</span>
-                        <span>$75.6</span>
-                    </li>
-                </ul>
-
-                <ul class="btns_group ul_li_block clearfix">
-                    <li><a href="shop_cart.html">View Cart</a></li>
-                    <li><a href="shop_checkout.html">Checkout</a></li>
-                </ul>
-            </div>
-
-            <div class="sidebar_mobile_menu">
-                <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
-
-                <div class="msb_widget brand_logo text-center">
-                    <a href="index.html">
-                        <img src="assets/images/logo/logo_25_1x.png" alt="logo_not_found">
-                    </a>
-                </div>
-
-                <div class="msb_widget mobile_menu_list clearfix">
-                    <h3 class="title_text mb_15 text-uppercase"><i class="far fa-bars mr-2"></i> Menu List</h3>
-                    <ul class="ul_li_block clearfix">
-                        <li class="active dropdown">
-                            <a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
-                            <ul class="ul_li_block dropdown-menu">
-                                <li></li>
-                            </ul>
-                        </li>
-
-                        <li class="dropdown">
-                            <a href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown">
-                                    <a href="#!" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">Register</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="signup.html">Sign Up</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html">Conatct</a></li>
-                    </ul>
-                </div>
-
-                <div class="user_info">
-                    <h3 class="title_text mb_30 text-uppercase"><i class="fas fa-user mr-2"></i> User Info</h3>
-                    <div class="profile_info clearfix">
-                        <div class="user_thumbnail">
-                            <img src="assets/images/meta/img_01.png" alt="thumbnail_not_found">
-                        </div>
-                        <div class="user_content">
-                            <h4 class="user_name">Jone Doe</h4>
-                            <span class="user_title">Seller</span>
-                        </div>
-                    </div>
-                    <ul class="settings_options ul_li_block clearfix">
-                        <li><a href="#!"><i class="fal fa-user-circle"></i> Profile</a></li>
-                        <li><a href="#!"><i class="fal fa-user-cog"></i> Settings</a></li>
-                        <li><a href="#!"><i class="fal fa-sign-out-alt"></i> Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="overlay"></div>
-        </div>
+        <?php include "box_right_cart.php" ?>

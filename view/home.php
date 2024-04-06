@@ -4,7 +4,7 @@
 
 <!-- breadcrumb_section - start
 			================================================== -->
-<div class="container maxw_1600">
+<!-- <div class="container maxw_1600">
     <div class="f2_breadcrumb_nav_wrap mt-0 sec_ptb_50">
         <ul class="ce_breadcrumb_nav ul_li clearfix">
             <li><a href="#!">Home</a></li>
@@ -13,7 +13,7 @@
             <li>Shop Page</li>
         </ul>
     </div>
-</div>
+</div> -->
 <!-- breadcrumb_section - end
 			================================================== -->
 
@@ -190,15 +190,18 @@
                                         <li>-5%</li>
                                     </ul>
                                     <div class="item_image">
-                                        <img src="../upload/' . $hinh . '" alt="image_not_found">
+                                    <a href="index.php?act=ctsanpham&idsp=' . $idsp . '&idnsx=' . $idnsx . '" >
+                                    <img src="../upload/' . $hinh . '" alt="image_not_found">
+                                    </a>
+                                        
                                     </div>
                                     <div class="item_content">
                                         <span class="item_name">' . tennsx($idnsx) . '</span>
                                         <h3 class="item_title">
-                                            <a href="#!">' . $tensp . '</a>
+                                            <a href="index.php?act=ctsanpham&idsp=' . $idsp . '&idnsx=' . $idnsx . '">' . $tensp . '</a>
                                         </h3>
                                         <span class="item_price">' . $giasp . '</span>
-                                        <a href="index.php?act=ctsanpham&idsp=' . $idsp . '&idnsx=' . $idnsx . '" class="custom_btn btn_sm bg_electronic_blue wg100">Add to cart</a>
+                                        <a href="index.php?act=ctsanpham&idsp=' . $idsp . '&idnsx=' . $idnsx . '" class="custom_btn btn_sm bg_electronic_blue wg100">Chi tiết</a>
                                     </div>
                                 </div>
                             </li>

@@ -694,6 +694,7 @@ hr {
   float: left;
   list-style: none;
   display: inline-block;
+  text-align: center;
 }
 
 .ul_li {
@@ -5628,7 +5629,7 @@ button {
 /* default breadcrumb - start */
 .breadcrumb_section {
   z-index: 1;
-  min-height: 575px;
+  /* min-height: 575px; */
   position: relative;
   padding: 100px 0px;
   padding-bottom: 180px;
@@ -20011,11 +20012,12 @@ blockquote .blockquote_title {
   width: 30px;
   height: 30px;
   display: flex;
-  margin-right: 5px;
+  margin: 5px auto;
   align-items: center;
   border-radius: 100%;
   justify-content: center;
   border: 1px solid #b6b8ba;
+
 }
 
 .shop_details_content .item_color_list small {
@@ -20029,7 +20031,7 @@ blockquote .blockquote_title {
 }
 
 .shop_details_content .item_size_list li:last-child {
-  margin-left: 20px;
+  /* margin-left: 10px; */
 }
 
 .shop_details_content .item_size_list button {
@@ -20038,6 +20040,17 @@ blockquote .blockquote_title {
   color: #3d3d3d;
   font-weight: 700;
   border: 1px solid #030303;
+}
+
+.shop_details_content .item_size_list span {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  margin-right: 5px;
+  align-items: center;
+  border-radius: 100%;
+  justify-content: center;
+  border: 1px solid #b6b8ba;
 }
 
 .shop_details_content .item_size_list button:hover {

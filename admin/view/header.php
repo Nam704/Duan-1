@@ -90,20 +90,24 @@
 
                 <ul class="topbar-menu d-flex align-items-center gap-3">
                     <li class="dropdown d-lg-none">
-                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
                             <i class="ri-search-line fs-22"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
                             <form class="p-3">
-                                <input type="search" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                <input type="search" class="form-control" placeholder="Search ..."
+                                    aria-label="Recipient's username">
                             </form>
                         </div>
                     </li>
 
                     <li class="dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
                             <img src="assets/images/flags/us.jpg" alt="user-image" class="me-0 me-sm-1" height="12">
-                            <span class="align-middle d-none d-lg-inline-block">English</span> <i class="ri-arrow-down-s-line d-none d-sm-inline-block align-middle"></i>
+                            <span class="align-middle d-none d-lg-inline-block">English</span> <i
+                                class="ri-arrow-down-s-line d-none d-sm-inline-block align-middle"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated">
 
@@ -135,7 +139,8 @@
                     </li>
 
                     <li class="dropdown notification-list">
-                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
                             <i class="ri-mail-line fs-22"></i>
                             <span class="noti-icon-badge badge text-bg-purple">4</span>
                         </a>
@@ -156,16 +161,19 @@
                             <div style="max-height: 300px;" data-simplebar>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
+                                <a href="javascript:void(0);"
+                                    class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
                                                 <div class="notify-icon">
-                                                    <img src="assets/images/users/avatar-1.jpg" class="img-fluid rounded-circle" alt="" />
+                                                    <img src="assets/images/users/avatar-1.jpg"
+                                                        class="img-fluid rounded-circle" alt="" />
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1 text-truncate ms-2">
-                                                <h5 class="noti-item-title fw-semibold fs-14">Cristina Pride <small class="fw-normal text-muted float-end ms-1">1 day ago</small>
+                                                <h5 class="noti-item-title fw-semibold fs-14">Cristina Pride <small
+                                                        class="fw-normal text-muted float-end ms-1">1 day ago</small>
                                                 </h5>
                                                 <small class="noti-item-subtitle text-muted">Hi, How are you? What about
                                                     our
@@ -176,16 +184,19 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
+                                <a href="javascript:void(0);"
+                                    class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
                                                 <div class="notify-icon">
-                                                    <img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" />
+                                                    <img src="assets/images/users/avatar-2.jpg"
+                                                        class="img-fluid rounded-circle" alt="" />
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1 text-truncate ms-2">
-                                                <h5 class="noti-item-title fw-semibold fs-14">Sam Garret <small class="fw-normal text-muted float-end ms-1">2 day ago</small>
+                                                <h5 class="noti-item-title fw-semibold fs-14">Sam Garret <small
+                                                        class="fw-normal text-muted float-end ms-1">2 day ago</small>
                                                 </h5>
                                                 <small class="noti-item-subtitle text-muted">Yeah everything is
                                                     fine</small>
@@ -195,16 +206,19 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
+                                <a href="javascript:void(0);"
+                                    class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
                                                 <div class="notify-icon">
-                                                    <img src="assets/images/users/avatar-3.jpg" class="img-fluid rounded-circle" alt="" />
+                                                    <img src="assets/images/users/avatar-3.jpg"
+                                                        class="img-fluid rounded-circle" alt="" />
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1 text-truncate ms-2">
-                                                <h5 class="noti-item-title fw-semibold fs-14">Karen Robinson <small class="fw-normal text-muted float-end ms-1">2 day ago</small>
+                                                <h5 class="noti-item-title fw-semibold fs-14">Karen Robinson <small
+                                                        class="fw-normal text-muted float-end ms-1">2 day ago</small>
                                                 </h5>
                                                 <small class="noti-item-subtitle text-muted">Wow that's great</small>
                                             </div>
@@ -213,16 +227,19 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
+                                <a href="javascript:void(0);"
+                                    class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
                                                 <div class="notify-icon">
-                                                    <img src="assets/images/users/avatar-4.jpg" class="img-fluid rounded-circle" alt="" />
+                                                    <img src="assets/images/users/avatar-4.jpg"
+                                                        class="img-fluid rounded-circle" alt="" />
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1 text-truncate ms-2">
-                                                <h5 class="noti-item-title fw-semibold fs-14">Sherry Marshall <small class="fw-normal text-muted float-end ms-1">3 day ago</small>
+                                                <h5 class="noti-item-title fw-semibold fs-14">Sherry Marshall <small
+                                                        class="fw-normal text-muted float-end ms-1">3 day ago</small>
                                                 </h5>
                                                 <small class="noti-item-subtitle text-muted">Hi, How are you? What about
                                                     our
@@ -233,16 +250,19 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
+                                <a href="javascript:void(0);"
+                                    class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
                                                 <div class="notify-icon">
-                                                    <img src="assets/images/users/avatar-5.jpg" class="img-fluid rounded-circle" alt="" />
+                                                    <img src="assets/images/users/avatar-5.jpg"
+                                                        class="img-fluid rounded-circle" alt="" />
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1 text-truncate ms-2">
-                                                <h5 class="noti-item-title fw-semibold fs-14">Shawn Millard <small class="fw-normal text-muted float-end ms-1">4 day ago</small>
+                                                <h5 class="noti-item-title fw-semibold fs-14">Shawn Millard <small
+                                                        class="fw-normal text-muted float-end ms-1">4 day ago</small>
                                                 </h5>
                                                 <small class="noti-item-subtitle text-muted">Yeah everything is
                                                     fine</small>
@@ -253,7 +273,8 @@
                             </div>
 
                             <!-- All-->
-                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary text-decoration-underline fw-bold notify-item border-top border-light py-2">
+                            <a href="javascript:void(0);"
+                                class="dropdown-item text-center text-primary text-decoration-underline fw-bold notify-item border-top border-light py-2">
                                 View All
                             </a>
 
@@ -261,7 +282,8 @@
                     </li>
 
                     <li class="dropdown notification-list">
-                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
                             <i class="ri-notification-3-line fs-22"></i>
                             <span class="noti-icon-badge badge text-bg-pink">3</span>
                         </a>
@@ -342,7 +364,8 @@
                             </div>
 
                             <!-- All-->
-                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary text-decoration-underline fw-bold notify-item border-top border-light py-2">
+                            <a href="javascript:void(0);"
+                                class="dropdown-item text-center text-primary text-decoration-underline fw-bold notify-item border-top border-light py-2">
                                 View All
                             </a>
 
@@ -362,12 +385,15 @@
                     </li>
 
                     <li class="dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none nav-user" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle arrow-none nav-user" data-bs-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
                             <span class="account-user-avatar">
-                                <img src="assets/images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
+                                <img src="assets/images/users/avatar-1.jpg" alt="user-image" width="32"
+                                    class="rounded-circle">
                             </span>
                             <span class="d-lg-block d-none">
-                                <h5 class="my-0 fw-normal"><?= $_SESSION['user']['tenuser'] ?> <i class="ri-arrow-down-s-line d-none d-sm-inline-block align-middle"></i></h5>
+                                <h5 class="my-0 fw-normal"><?= $_SESSION['user']['tenuser'] ?> <i
+                                        class="ri-arrow-down-s-line d-none d-sm-inline-block align-middle"></i></h5>
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">

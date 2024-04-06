@@ -44,33 +44,42 @@
                                             <?php
                                             if ($_GET["act"] != "DSdonhangfromuser") {
                                                 $DStrangthaidon = load_alltrangthaidon();
-                                                $dem = 0;
-
                                                 foreach ($DStrangthaidon as $ttdonhang) {
                                                     extract($ttdonhang);
-                                                    $tenth = trangthaiDH($idth);
-                                                    if ($ttdonhang["idth"] == $_GET["trangthai"]) {
-                                                        $noibat = 'background-color: rgb(180, 180, 227)!important;color: white';
-                                                    } else {
-                                                        $noibat = '';
-                                                    }
-                                                    ++$dem;
-                                                    if ($dem == 7) {
-                                                        # code...
-                                                        echo '</tr><tr>';
-                                                    }
-                                                    echo '
-                                                   <td>
-                                                        <a href="./index.php?act=listdh&trangthai=' . $ttdonhang["idth"] . '">
-                                                            <input style="' . $noibat . '" class="btn btn-soft-primary w-100" type="button" value="' . $tenth . '">
-                                                        </a>
-                                                    </td>
-                                                   ';
                                                 }
-                                            }
+                                            } ?>
 
+                                            <select class="btn btn-soft-primary w-100" name="trangthai"
+                                                id="trangthaiSelect">
+                                                <?php
+    if ($_GET["act"] != "DSdonhangfromuser") {
+        $DStrangthaidon = load_alltrangthaidon();
+        $dem = 0;
+        foreach ($DStrangthaidon as $ttdonhang) {
+            extract($ttdonhang);
+            $tenth = trangthaiDH($idth);
+            if ($ttdonhang["idth"] == $_GET["trangthai"]) {
+                $noibat = 'background-color: rgb(180, 180, 227)!important;color: white';
+            } else {
+                $noibat = '';
+            }
+            echo '<option value="' . $ttdonhang["idth"] . '" style="' . $noibat . '">' . $tenth . '</option>';
+        }
+    }
+    ?>
 
-                                            ?>
+                                            </select>
+                                            <script>
+                                            // Chuyển hướng khi chọn tùy chọn từ ComboBox
+                                            document.getElementById("trangthaiSelect").addEventListener("change",
+                                                function() {
+                                                    var selectedOption = this.value;
+                                                    if (selectedOption !== "") {
+                                                        window.location.href = "./index.php?act=listdh&trangthai=" +
+                                                            selectedOption;
+                                                    }
+                                                });
+                                            </script>
 
                                         </tr>
 
@@ -236,7 +245,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <script>
-                        document.write(new Date().getFullYear())
+                    document.write(new Date().getFullYear())
                     </script> © Velonic - Theme by <b>Techzaa</b>
                 </div>
             </div>
