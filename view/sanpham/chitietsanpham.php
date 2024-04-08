@@ -1,15 +1,15 @@
 <style>
-    .selected-size {
-        border: 2px solid #ffa500;
-        /* Màu sắc đã chọn */
-        /* color: white; */
-        /* Màu chữ */
-    }
+.selected-size {
+    border: 2px solid #ffa500;
+    /* Màu sắc đã chọn */
+    /* color: white; */
+    /* Màu chữ */
+}
 
-    .selected-color {
-        border: 2px solid #ffa500;
-        /* Viền màu sắc đã chọn */
-    }
+.selected-color {
+    border: 2px solid #ffa500;
+    /* Viền màu sắc đã chọn */
+}
 </style>
 <?php
 
@@ -104,7 +104,8 @@
                         <div class="col-lg-5">
                             <div class="item_brand d-flex align-items-center">
                                 <span class="brand_title">Brands:</span>
-                                <span class="brand_image d-flex align-items-center justify-content-center" data-bg-color="#f7f7f7">
+                                <span class="brand_image d-flex align-items-center justify-content-center"
+                                    data-bg-color="#f7f7f7">
                                     <?= tennsx($idnsx) ?>
                                     <!-- <img src="assets/images/product_brands/img_01.png" alt="image_not_found"> -->
                                 </span>
@@ -171,30 +172,34 @@
                             <div class="quantity_input">
                                 <form action="#">
                                     <span class="input_number_decrement">–</span>
-                                    <input class="input_number" type="text" value="1">
+                                    <input class="input_number" id="input_number" name="input_number" type="text"
+                                        value="1">
                                     <span class="input_number_increment">+</span>
                                 </form>
                             </div>
                         </li>
+
+                    </ul>
+                    <ul class="btns_group_1 ul_li mb_30 clearfix">
+
                         <li>
-                            <a class="custom_btn bg_black text-uppercase" href="index.php?act=addtocart"><i class="fal fa-shopping-bag mr-2"></i> Add To Cart</a>
+                            <a id="addtocart" class="custom_btn bg_black text-uppercase"><i
+                                    class="fal fa-shopping-bag mr-2"></i> Add To Cart</a>
                         </li>
 
                         <li>
-                            <a class="custom_btn bg_black text-uppercase" href="index.php?act=muahang"><i class="fal fa-shopping-bag mr-2"></i> Mua Ngay</a>
+                            <a id="muangay" class="custom_btn bg_black text-uppercase"
+                                href="index.php?act=muahangngay"><i class="fal fa-shopping-bag mr-2"></i> Mua Ngay</a>
                         </li>
                     </ul>
 
-                    <!-- <ul class="btns_group_2 ul_li clearfix">
-                        <li><a href="#!"><span><i class="far fa-heart"></i></span> Add to Wishlist</a></li>
-                        <li><a href="#!"><span><i class="fal fa-repeat"></i></span> Compare</a></li>
-                    </ul> -->
 
                     <hr>
 
                     <ul class="product_info ul_li_block clearfix">
                         <li><strong>SKU:</strong> U2012</li>
-                        <li><strong>Categories:</strong> <a href="#!">Dress</a> <a href="#!">Handbag</a> <a href="#!">T-Shirts</a></li>
+                        <li><strong>Categories:</strong> <a href="#!">Dress</a> <a href="#!">Handbag</a> <a
+                                href="#!">T-Shirts</a></li>
                         <li><strong>Tags:</strong> <a href="#!">Hot</a> <a href="#!">Women</a></li>
                     </ul>
                 </div>
@@ -307,66 +312,132 @@
 
 </main>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var colors = document.querySelectorAll('.item_color_list input[type="radio"]');
-        var sizes = document.querySelectorAll('.item_size_list input[type="radio"]');
+document.getElementById("muangay").addEventListener("click", function() {
+    // Lấy dữ liệu màu và kích thước đã chọn
+    // alert('mua');
+    var action = "&action=muangay";
+    var urlParams = new URLSearchParams(window.location.search);
+    var idsp = urlParams.get('idsp');
+    var selectedColor = document.querySelector('.item_color_list input[type="radio"]:checked').value;
+    var selectedSize = document.querySelector('.item_size_list input[type="radio"]:checked').value;
+    var selectedNumber = document.getElementById('input_number').value;
 
-        // Lấy giá trị idsp từ URL
-        var urlParams = new URLSearchParams(window.location.search);
-        var idsp = urlParams.get('idsp');
+    // console.log('so luong : ', selectedNumber);
+    // Gửi dữ liệu lên server để xử lý
+    sendData(selectedColor, selectedSize, idsp, selectedNumber, action);
 
 
 
-        colors.forEach(function(color) {
-            color.addEventListener("change", function() {
-                if (this.checked) {
-                    var selectedColor = this.value;
-                    var selectedSize = document.querySelector(
-                        '.item_size_list input[type="radio"]:checked').value;
-                    sendData(selectedColor, selectedSize, idsp); // Gửi dữ liệu màu đã chọn và idsp
-                }
-            });
-        });
+});
+document.getElementById("addtocart").addEventListener("click", function() {
+    // Lấy dữ liệu màu và kích thước đã chọn
+    var action = "&action=addtocart";
+    var urlParams = new URLSearchParams(window.location.search);
+    var idsp = urlParams.get('idsp');
+    var selectedColor = document.querySelector('.item_color_list input[type="radio"]:checked').value;
+    var selectedSize = document.querySelector('.item_size_list input[type="radio"]:checked').value;
+    var selectedNumber = document.getElementById('input_number').value;
+    console.log(selectedNumber);
+    // Gửi dữ liệu lên server để xử lý
+    sendData(selectedColor, selectedSize, idsp, selectedNumber, action);
+    neoncart_quantity();
 
-        sizes.forEach(function(size) {
-            size.addEventListener("change", function() {
-                if (this.checked) {
-                    var selectedSize = this.value;
-                    var selectedColor = document.querySelector(
-                        '.item_color_list input[type="radio"]:checked').value;
-                    sendData(selectedColor, selectedSize,
-                        idsp); // Gửi dữ liệu kích thước đã chọn và idsp
-                }
-            });
-        });
 
-        function sendData(color, size, idsp) {
-            // Tạo một request AJAX để gửi dữ liệu lên server
-            var xhr = new XMLHttpRequest();
-            var url = "request.php"; // Địa chỉ URL của file xử lý PHP
-            var params = "color=" + color + "&size=" + size + "&idsp=" + idsp;
-            xhr.open("POST", url, true);
 
-            // Thiết lập header cho request
-            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-            // Xử lý khi nhận được phản hồi từ server
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    var responseData = JSON.parse(xhr.responseText);
-                    // Truy cập giá trị giaspbt từ đối tượng responseData
-                    var giaspbt = responseData.giaspbt;
-                    console.log("Giá sản phẩm biến thể: " + giaspbt);
-                    // Lấy ra phần tử có class 'item_price'
-                    var itemPriceElement = document.getElementById('giaspbt');
+});
+document.addEventListener("DOMContentLoaded", function() {
+    var colors = document.querySelectorAll('.item_color_list input[type="radio"]');
+    var sizes = document.querySelectorAll('.item_size_list input[type="radio"]');
+    var action = "&action=selectspbt";
+    var soluong = document.getElementById('input_number').value;
 
-                    // Đặt giá trị giaspbt vào phần tử
-                    itemPriceElement.innerText = giaspbt + " VNĐ";
-                }
+    // Lấy giá trị idsp từ URL
+    var urlParams = new URLSearchParams(window.location.search);
+    var idsp = urlParams.get('idsp');
+
+
+
+    colors.forEach(function(color) {
+        color.addEventListener("change", function() {
+            if (this.checked) {
+                var selectedColor = this.value;
+                var selectedSize = document.querySelector(
+                    '.item_size_list input[type="radio"]:checked').value;
+                sendData(selectedColor, selectedSize, idsp, soluong,
+                    action); // Gửi dữ liệu màu đã chọn và idsp
             }
-
-            // Gửi request đi với dữ liệu đã chuẩn bị
-            xhr.send(params);
-        }
+        });
     });
+
+    sizes.forEach(function(size) {
+        size.addEventListener("change", function() {
+            if (this.checked) {
+                var selectedSize = this.value;
+                var selectedColor = document.querySelector(
+                    '.item_color_list input[type="radio"]:checked').value;
+                sendData(selectedColor, selectedSize,
+                    idsp, soluong, action); // Gửi dữ liệu kích thước đã chọn và idsp
+            }
+        });
+    });
+
+
+});
+var urlParams = new URLSearchParams(window.location.search);
+var idsp = urlParams.get('idsp');
+
+function sendData(color, size, idsp, soluong, action) {
+    if (!action) {
+        var action = "";
+    }
+    if (!soluong) {
+        var soluong = "";
+    }
+    // Tạo một request AJAX để gửi dữ liệu lên server
+    var xhr = new XMLHttpRequest();
+    var url = "request.php"; // Địa chỉ URL của file xử lý PHP
+    var params = "color=" + color + "&size=" + size + "&idsp=" + idsp + "&soluong=" + soluong + action;
+    xhr.open("POST", url, true);
+
+    // Thiết lập header cho request
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    // Xử lý khi nhận được phản hồi từ server
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            // console.log(xhr.responseText);
+            var responseData = JSON.parse(xhr.responseText);
+            console.log(responseData);
+
+            var giaspbt = responseData.giaspbt;
+
+
+            console.log("Giá sản phẩm biến thể: " + giaspbt);
+
+
+
+            // if (thongbao) {
+            //     alert(thongbao);
+            //     // return;
+
+            // }
+            //  else {
+            //     alert("Đã thêm sản phẩm vào giỏ hàng");
+            // }
+            // Lấy ra phần tử có class 'item_price'
+            var itemPriceElement = document.getElementById('giaspbt');
+
+            // Đặt giá trị giaspbt vào phần tử
+            itemPriceElement.innerText = giaspbt + " VNĐ";
+            // Sau khi thêm sản phẩm vào giỏ hàng thành công
+            // sendAddToCartRequest();
+
+
+        }
+    }
+
+    // Gửi request đi với dữ liệu đã chuẩn bị
+    xhr.send(params);
+}
 </script>

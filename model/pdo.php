@@ -97,3 +97,18 @@ function pdo_query_value($sql)
         unset($conn);
     }
 }
+function pdo_check_value($sql)
+{
+    $sql_args = array_slice(func_get_args(), 1);
+    try {
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($sql_args);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row !== false; // Trả về true nếu có hàng dữ liệu, ngược lại trả về false
+    } catch (PDOException $e) {
+        throw $e;
+    } finally {
+        unset($conn);
+    }
+}

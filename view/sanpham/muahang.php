@@ -22,11 +22,11 @@
                         <td>
                             <div class="cart_product">
                                 <div class="item_image">
-                                    <img src="assets/images/cart/img_04.jpg" alt="image_not_found">
+                                    <img src="../upload/<?= $sanpham['hinh'] ?>" alt="image_not_found">
                                 </div>
                                 <div class="item_content">
-                                    <h4 class="item_title">Men's Polo T-shirt</h4>
-                                    <span class="item_type">Clothes</span>
+                                    <h4 class="item_title"><?= $sanpham['tensp'] ?></h4>
+                                    <span class="item_type"><?= tennsx($sanpham['idnsx']) ?></span>
                                 </div>
                                 <button type="button" class="remove_btn">
                                     <i class="fal fa-times"></i>
@@ -34,18 +34,19 @@
                             </div>
                         </td>
                         <td>
-                            <span class="price_text">$69.00</span>
+
+                            <span class="price_text" data-initial-price="<?= ($spbt['gia']);  ?>"><?= $spbt['gia'] ?></span>
                         </td>
                         <td>
                             <div class="quantity_input">
                                 <form action="#">
                                     <span class="input_number_decrement">–</span>
-                                    <input class="input_number" type="text" value="2">
+                                    <input class="input_number" type="text" value="<?= $ctdon['soluong'] ?>">
                                     <span class="input_number_increment">+</span>
                                 </form>
                             </div>
                         </td>
-                        <td><span class="total_price">$138.00</span></td>
+                        <td><span class="total_price"><?= $ctdon['tonggia'] ?> VNĐ</span></td>
                     </tr>
 
 

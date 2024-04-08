@@ -251,6 +251,6 @@ function mokhoa_sp($id)
 }
 function layidspbt($idsp, $idmsp, $idbnsp)
 {
-    $sql = "select * from spbienthe where idsp=$idsp and idbnsp=$idbnsp and idmsp=$idmsp";
+    $sql = "select * from spbienthe where idsp=" . $idsp . " and idbnsp=" . $idbnsp . " and idmsp=" . $idmsp;
     return pdo_query($sql);
 }

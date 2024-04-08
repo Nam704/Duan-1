@@ -134,6 +134,22 @@ function capnhattranthai($iddh, $trangthai)
     $sql = "update donhang set trangthai=$trangthai where iddh=" . $iddh;
     return pdo_execute($sql);
 }
+function ctdonmuangay($iduser, $idspbt, $giasp, $soluong, $tonggia)
+{
+    $sanphammuangay = ["iduser" => $iduser, "idspbt" => $idspbt, "giasp" => $giasp, "soluong" => $soluong, "tonggia" => $tonggia,];
+    return $sanphammuangay;
+}
+function donhangmuangay($iduser, $ngaydh, $trangthai, $diachigh, $sdt, $ptthanhtoan, $tonggia)
+{
+
+    $donhang = ["iduser" => $iduser, "ngaydh" => $ngaydh, "trangthai" => $trangthai, "diachigh" => $diachigh, "sdt" => $sdt, "ptthanhtoan" => $ptthanhtoan, "tonggia" => $tonggia];
+    return $donhang;
+}
+function ctdonhangmuangay($idsp, $idspbt, $giasp, $soluong, $tonggia)
+{
+    $ctdonhang = ["idsp" => $idsp, "idspbt" => $idspbt, "giasp" => $giasp, "soluong" => $soluong, "tonggia" => $tonggia];
+    return $ctdonhang;
+}
 // function loadall_donhang_home()
 // {
 //     $sql = "select * from donhang where 1 order by id desc limit 0,9";

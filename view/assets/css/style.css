@@ -284,6 +284,28 @@ hr {
   border: 2px solid #eceef2;
 }
 
+.quantity_input1 {
+  height: 20px;
+  padding: 0px 5px;
+  text-align: center;
+  align-items: center;
+  border-radius: 45px;
+  float: left;
+  display: inline-flex;
+  justify-content: center;
+  border: 2px solid #000000;
+}
+
+.quantity_input1 input {
+  width: 40px;
+  border: none;
+  padding: 0px;
+  outline: none;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+}
+
 .quantity_input input {
   width: 100px;
   border: none;
@@ -303,7 +325,20 @@ hr {
   transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+.quantity_input1 span {
+  color: #000000;
+  line-height: 1;
+  cursor: pointer;
+  font-size: 11px;
+  margin: 0px 2px;
+  transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
 .quantity_input span:hover {
+  color: #ce0b2b;
+}
+
+.quantity_input1 span:hover {
   color: #ce0b2b;
 }
 
@@ -2491,6 +2526,7 @@ button {
   color: #000000;
   font-size: 12px;
   font-weight: 700;
+  /* margin-right: 10px; */
 }
 
 .mega_menu .page_links {
@@ -2778,11 +2814,12 @@ button {
   font-size: 16px;
   margin-bottom: 5px;
   color: #2e2e2e;
+  margin-right: 10px;
 }
 
 .cart_sidebar .cart_items_list .item_price {
   display: block;
-  font-size: 15px;
+  font-size: 9px;
 }
 
 .cart_sidebar .total_price {
@@ -6635,6 +6672,7 @@ button {
   max-width: 380px;
   position: absolute;
   transform: translate(-50%, -50%);
+  /* margin-right: 10px; */
 }
 
 .ce_offer_fullimage .item_title {
@@ -6649,6 +6687,8 @@ button {
   padding: 30px 50px;
   position: absolute;
   transform: translateY(-50%);
+  /* margin-right: 20px; */
+
 }
 
 .ce_offer_fullimage2 .item_title {
@@ -6671,6 +6711,8 @@ button {
 .modern_advertisement .item_content {
   padding: 50px;
   max-width: 430px;
+  /* margin-right: 20px; */
+
 }
 
 .modern_advertisement h4 {
@@ -20502,7 +20544,7 @@ blockquote .blockquote_title {
   height: 40px;
   color: #ffffff;
   border-radius: 100%;
-  border: 2px solid #ffffff;
+  border: 2px solid black;
   background-color: #ff0000;
 }
 

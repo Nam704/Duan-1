@@ -1,5 +1,7 @@
 <?php
-session_start(); ?>
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -146,10 +148,12 @@ session_start(); ?>
                         <div class="reg_form">
                             <h2 class="form_title text-uppercase text-center">Login</h2>
                             <?php
-
-                            if ($_SESSION['thongbao'] != "") {
-                                echo '<h6 class=" text-warning text-center">' . $_SESSION['thongbao'] . ' </h6>';
+                            if (isset($_SESSION['thongbao'])) {
+                                if ($_SESSION['thongbao'] != "") {
+                                    echo '<h6 class=" text-warning text-center">' . $_SESSION['thongbao'] . ' </h6>';
+                                }
                             }
+
                             ?>
 
                             <div class="form_item">

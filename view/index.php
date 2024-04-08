@@ -12,6 +12,8 @@ include "../model/user.php";
 include "../model/sanpham.php";
 include "../model/bienthe.php";
 include "../model/donhang.php";
+include "../model/giohang.php";
+
 include "../model/ctdonhang.php";
 $listnsx = loadall_nhasanxuat();
 $listmsp = loadall_mausanpham();
@@ -19,8 +21,8 @@ $listbnsp = loadall_bonhosp();
 
 
 
-
 include "header.php";
+
 // $kyw = $_GET['kyw'];
 // $iddm = $_GET['idnsx'];
 
@@ -33,21 +35,47 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             // controller User
         case "login":
+
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+
+            if (!isset($_SESSION['thongbao'])) {
+                $_SESSION['thongbao'] = "";
+            }
+
             if (isset($_POST['login'])) {
                 $username = $_POST['username'];
                 $password = $_POST['password'];
+
                 $nguoidung = check_taikhoan($username, $password);
-                // $variable = $nguoidung;
-                // $type = gettype($nguoidung);
-                // echo "Biến \$variable có kiểu dữ liệu là: $type"; 
-                // die();
-                // var_dump($nguoidung, $username, $password);
-                // die();
+
                 if ((isset($nguoidung)) && ($nguoidung == true)) {
                     extract($nguoidung);
                     $_SESSION['user'] = $nguoidung;
+                    // if (isset($_SESSION['user'])) {
+                    //     var_dump($_SESSION['user']);
+                    //     die();
+                    // } else {
+                    //     echo 'no sesion';
+                    //     die();
+                    // }
                     $_SESSION['thongbao'] = "";
-                    // var_dump($_SESSION['thongbao']);
+                    if (check_giohang($_SESSION['user']['iduser']) == 0) {
+                        insert_giohang($_SESSION['user']['iduser']);
+                        $giohang = loadone_giohang($_SESSION['user']['iduser']);
+                        extract($giohang);
+                        var_dump($giohang);
+                        // die();
+                    } else {
+                        echo "giohang da có";
+                        // die();
+                    }
+
+                    // var_dump(check_giohang($_SESSION['user']['iduser']));
+
+
+                    // var_dump($_SESSION['user']['iduser']);
                     // die();
                     header('location: index.php');
                 } else {
@@ -82,8 +110,12 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
                 // die();
             }
+            break;
 
-
+        case "logout":
+            session_unset();
+            header("location: User/dangnhap.php");
+            break;
 
 
 
@@ -122,6 +154,22 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         case "muahang":
             // header("location: ./sanpham/giohang.php");
+            include "./sanpham/muahang.php";
+            break;
+        case "muahangngay":
+            // header("location: ./sanpham/giohang.php");
+            // var_dump($_SESSION['ctdon']);
+            // die();
+            $ctdon = $_SESSION['ctdon'];
+            var_dump($ctdon);
+            $spbt = loadone_spbienthe($ctdon['idspbt']);
+            extract($spbt);
+            // die();
+
+            $sanpham = loadone_sanpham($spbt['idsp']);
+            extract($sanpham);
+            // var_dump($sanpham);
+            // die();
             include "./sanpham/muahang.php";
             break;
         case "complete":
